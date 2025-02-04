@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chuẩn bị :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/2-prepare/index.html</link>
+    <description>AWS Account and IAM User Để bắt đầu làm việc với các dịch vụ AWS, bạn sẽ cần một tài khoản AWS. Bạn cũng sẽ cần một người dùng IAM cho tài khoản này mà bạn có thể sử dụng để đăng nhập vào AWS Management Console nhằm cung cấp và cấu hình tài nguyên của mình.&#xA;AWS Identity and Access Management (IAM) cho phép bạn quản lý quyền truy cập vào các dịch vụ và tài nguyên AWS một cách an toàn. Sử dụng IAM, bạn có thể tạo và quản lý người dùng và nhóm AWS, đồng thời sử dụng các quyền để cho phép và từ chối quyền truy cập vào các tài nguyên AWS.</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/2-prepare/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

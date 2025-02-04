@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi" dir="vi" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu Điều hướng đến AWS Glue Console Trên menu AWS Glue, trong ‘Data Catalog’, chọn Crawlers. Nhấp vào Create crawler.
+Nhập glue-lab-crawler làm tên crawler cho dữ liệu tải ban đầu.
+Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào Next.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Xác thực dữ liệu và ETL với Glue :: AWS System Manager">
+    <meta name="twitter:description" content="PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu Điều hướng đến AWS Glue Console Trên menu AWS Glue, trong ‘Data Catalog’, chọn Crawlers. Nhấp vào Create crawler.
+Nhập glue-lab-crawler làm tên crawler cho dữ liệu tải ban đầu.
+Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào Next.">
+    <meta property="og:url" content="http://localhost:1313/vi/4-transforming/4.1/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Xác thực dữ liệu và ETL với Glue :: AWS System Manager">
+    <meta property="og:description" content="PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu Điều hướng đến AWS Glue Console Trên menu AWS Glue, trong ‘Data Catalog’, chọn Crawlers. Nhấp vào Create crawler.
+Nhập glue-lab-crawler làm tên crawler cho dữ liệu tải ban đầu.
+Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào Next.">
+    <meta property="og:locale" content="vi">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Xác thực dữ liệu và ETL với Glue :: AWS System Manager">
+    <meta itemprop="description" content="PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu Điều hướng đến AWS Glue Console Trên menu AWS Glue, trong ‘Data Catalog’, chọn Crawlers. Nhấp vào Create crawler.
+Nhập glue-lab-crawler làm tên crawler cho dữ liệu tải ban đầu.
+Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào Next.">
+    <meta itemprop="wordCount" content="1680">
+    <title>Xác thực dữ liệu và ETL với Glue :: AWS System Manager</title>
+    <link href="http://localhost:1313/4-transforming/4.1/index.html" rel="alternate" hreflang="x-default">
+    <link href="http://localhost:1313/4-transforming/4.1/index.html" rel="alternate" hreflang="en">
+    <link href="http://localhost:1313/vi/4-transforming/4.1/index.html" rel="alternate" hreflang="vi">
+    <link href="/vi/4-transforming/4.1/index.xml" rel="alternate" type="application/rss+xml" title="Xác thực dữ liệu và ETL với Glue :: AWS System Manager">
+    <link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738650602" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738650602" rel="stylesheet">
+    <link href="/css/fonts.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738650602" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738650602" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738650602" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738650602" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738650602"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Sao chép vào bảng tạm`;
+      window.T_Copied_to_clipboard = `Sao chép vào bảng tạm!`;
+      window.T_Copy_link_to_clipboard = `Sao chép nối kết vào bảng tạm`;
+      window.T_Link_copied_to_clipboard = `Liên kết được sao chép vào bảng tạm!`;
+      window.T_Reset_view = `Đặt lại dạng xem`;
+      window.T_View_reset = `Xem đặt lại!`;
+      window.T_No_results_found = `Không tìm thấy kết quả nào cho "{0}"`;
+      window.T_N_results_found = `{1} kết quả được tìm thấy cho "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/vi/4-transforming/4.1/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/index.html"><span itemprop="name">Hội thảo về Kỹ Thuật Dữ Liệu</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/4-transforming/index.html"><span itemprop="name">Chuyển đổi dữ liệu</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Xác thực dữ liệu và ETL với Glue</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/4-transforming/index.html" title="Chuyển đổi dữ liệu (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/5-queryandvisualize/index.html" title="Truy vấn và trực quan hóa (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Nội dung khác"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 4-transforming" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="xác-thực-dữ-liệu-và-etl-với-glue">Xác thực dữ liệu và ETL với Glue</h1>
+
+<h4 id="phần-a-tạo-glue-crawler-cho-dữ-liệu-tải-đầy-đủ-ban-đầu">PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu</h4>
+<ol>
+<li>
+<p>Điều hướng đến <a href="https://console.aws.amazon.com/glue/home" rel="external" target="_blank">AWS Glue Console</a>
+<a href="#R-image-b4d869945224d5b9f135e2bc20bd7723" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/001-GlueService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b4d869945224d5b9f135e2bc20bd7723"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/001-GlueService.png"></a></p>
+</li>
+<li>
+<p>Trên menu AWS Glue, trong &lsquo;Data Catalog&rsquo;, chọn <strong>Crawlers</strong>.
+<a href="#R-image-98b5469066d3c189debbbae99e210cc6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/002-GlueCreateCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-98b5469066d3c189debbbae99e210cc6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/002-GlueCreateCrawler.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào Create crawler.</p>
+</li>
+<li>
+<p>Nhập <code>glue-lab-crawler</code> làm tên crawler cho dữ liệu tải ban đầu.</p>
+</li>
+<li>
+<p>Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào <strong>Next</strong>.
+<a href="#R-image-c15784900b02e88700473b9ef331583f" class="lightbox-link"><img alt="image3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/003-GlueCreateCrawlerName.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c15784900b02e88700473b9ef331583f"><img alt="image3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/003-GlueCreateCrawlerName.png"></a></p>
+</li>
+<li>
+<p>Trong <strong>Chọn nguồn dữ liệu và bộ phân loại</strong>, hãy chọn <strong>Chưa có</strong> và nhấp vào <strong>Thêm nguồn dữ liệu</strong>
+<a href="#R-image-d316e90e2321bbfbe69124545b596e50" class="lightbox-link"><img alt="image4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/004-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d316e90e2321bbfbe69124545b596e50"><img alt="image4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/004-GlueCreateCrawlerStep2.png"></a></p>
+</li>
+<li>
+<p>Trên trang <strong>Thêm kho dữ liệu</strong>, hãy thực hiện các lựa chọn sau:</p>
+</li>
+</ol>
+<ul>
+<li>Đối với <strong>Nguồn dữ liệu</strong>, hãy nhấp vào hộp thả xuống và chọn <strong>S3</strong>.</li>
+<li>Đối với <strong>Vị trí dữ liệu S3</strong>, hãy chọn <strong>Trong tài khoản này</strong></li>
+<li>Đối với <strong>Đường dẫn S3</strong>, hãy duyệt đến thư mục đích lưu trữ các tệp CSV, ví dụ: <strong>s3://ingestion-data-skip-dms-lab/tickets/</strong></li>
+<li>Để nguyên tất cả các tham số khác theo mặc định</li>
+<li>Nhấp vào <strong>Thêm nguồn dữ liệu S3</strong></li>
+</ul>
+<p><a href="#R-image-152c139576bde5199c3d86a61b11d076" class="lightbox-link"><img alt="image5" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/005-CrawlerAddS3BucketSource.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-152c139576bde5199c3d86a61b11d076"><img alt="image5" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/005-CrawlerAddS3BucketSource.png"></a></p>
+<ol start="8">
+<li>
+<p>Nhấp vào <strong>Tiếp theo</strong>
+<a href="#R-image-475d989ab850c51de8a0402d4f3011bf" class="lightbox-link"><img alt="image6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/006-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-475d989ab850c51de8a0402d4f3011bf"><img alt="image6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/006-GlueCreateCrawlerStep2.png"></a></p>
+</li>
+<li>
+<p>Trên trang Cấu hình cài đặt bảo mật, hãy thực hiện lựa chọn sau:</p>
+</li>
+</ol>
+<ul>
+<li>Trong Vai trò IAM hiện có, hãy chọn <strong>AWSGlueServiceRoleDefault</strong> được tạo sẵn cho Bài thực hành này.</li>
+<li>Thông tin về <strong>AWSGlueServiceRoleDefault</strong>
+<a href="#R-image-5e0c0bb9bcafd215be707afa3b005db0" class="lightbox-link"><img alt="image8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/008-GlueRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5e0c0bb9bcafd215be707afa3b005db0"><img alt="image8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/008-GlueRole.png"></a></li>
+</ul>
+<ol start="10">
+<li>
+<p>Nhấp vào <strong>Tiếp theo</strong>
+<a href="#R-image-91f2a58479a0ab185d2311d7d78f34f0" class="lightbox-link"><img alt="image7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/007-AddGlueRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-91f2a58479a0ab185d2311d7d78f34f0"><img alt="image7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/007-AddGlueRole.png"></a></p>
+</li>
+<li>
+<p>Trên <strong>Đặt đầu ra và lập lịch</strong>, bên dưới <strong>Cơ sở dữ liệu mục tiêu</strong>, nhấp vào <strong>Thêm cơ sở dữ liệu</strong> để mở một tab khác.</p>
+</li>
+<li>
+<p>Nhập <code>ticketdata</code> làm tên cơ sở dữ liệu của bạn và nhấp vào <strong>Tạo cơ sở dữ liệu</strong>
+<a href="#R-image-8d452854b4ec509027ae29a07ef28d31" class="lightbox-link"><img alt="image9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/009-CreateDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8d452854b4ec509027ae29a07ef28d31"><img alt="image9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/009-CreateDB.png"></a></p>
+</li>
+</ol>
+<p><a href="#R-image-be8ded0b5e50072daf46bb19d2c0402f" class="lightbox-link"><img alt="image10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/010-Database.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-be8ded0b5e50072daf46bb19d2c0402f"><img alt="image10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/010-Database.png"></a></p>
+<ol start="13">
+<li>Vui lòng quay lại trang <strong>Đặt đầu ra và lập lịch</strong></li>
+</ol>
+<ul>
+<li>Chọn <strong>Cơ sở dữ liệu mục tiêu</strong> là &rsquo;ticketdata&rsquo;. Vui lòng sử dụng tùy chọn làm mới ngay bên cạnh menu thả xuống để đảm bảo rằng cơ sở dữ liệu mới mà chúng tôi tạo đang được liệt kê ở đó.</li>
+<li>Đối với <strong>Tiền tố được thêm vào bảng (tùy chọn)</strong>, hãy để trống trường.</li>
+<li>Trong <strong>Lịch trình thu thập thông tin</strong>, hãy chọn tần suất là &lsquo;Theo yêu cầu&rsquo;</li>
+<li>Nhấp vào <strong>Tiếp theo</strong>
+<a href="#R-image-a04eb26f6e8b44b25cd72aebf550a08c" class="lightbox-link"><img alt="image11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/011-AdvancedSettings.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a04eb26f6e8b44b25cd72aebf550a08c"><img alt="image11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/011-AdvancedSettings.png"></a>
+<a href="#R-image-282cedb64c95162e6fd69aae1302120a" class="lightbox-link"><img alt="image12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/012-CrawlerSchedule.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-282cedb64c95162e6fd69aae1302120a"><img alt="image12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/012-CrawlerSchedule.png"></a></li>
+</ul>
+<ol start="14">
+<li>
+<p>Xem lại thông tin và nhấp vào <strong>Tạo trình thu thập thông tin</strong>. Trình thu thập thông tin hiện đã sẵn sàng để chạy.
+<a href="#R-image-7a32bcbe64da7ceec2efa25f49de5063" class="lightbox-link"><img alt="image13" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/013-Reviews.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7a32bcbe64da7ceec2efa25f49de5063"><img alt="image13" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/013-Reviews.png"></a></p>
+</li>
+<li>
+<p>Thực thi Trình thu thập thông tin bằng cách nhấp vào nút <strong>Chạy trình thu thập thông tin</strong>.
+<a href="#R-image-4501d013ceb9477bb4fc54bc1002cb8d" class="lightbox-link"><img alt="image14" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/014-SuccessCreateCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4501d013ceb9477bb4fc54bc1002cb8d"><img alt="image14" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/014-SuccessCreateCrawler.png"></a>
+Crawler sẽ thay đổi trạng thái từ &lsquo;Đang chạy&rsquo; thành &lsquo;Đang dừng&rsquo;, hãy đợi cho đến khi crawler trở lại trạng thái &lsquo;Sẵn sàng&rsquo; (quá trình này sẽ mất vài phút), bạn có thể thấy rằng nó đã tạo 15 bảng.
+<a href="#R-image-9458113068c5c8035a8b9064de36cedd" class="lightbox-link"><img alt="image15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/015-SuccessRunCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9458113068c5c8035a8b9064de36cedd"><img alt="image15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/015-SuccessRunCrawler.png"></a></p>
+</li>
+<li>
+<p>Trong ngăn điều hướng AWS Glue, bên dưới <strong>Danh mục dữ liệu</strong>, hãy nhấp vào <strong>Cơ sở dữ liệu → Bảng</strong>. Bạn cũng có thể nhấp vào <strong>cơ sở dữ liệu ticketdata</strong> để duyệt các bảng.
+<a href="#R-image-523065f7a5a424cba4a74f35d1382f21" class="lightbox-link"><img alt="image16" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/016-CheckDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-523065f7a5a424cba4a74f35d1382f21"><img alt="image16" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/016-CheckDB.png"></a></p>
+</li>
+</ol>
+<h4 id="phần-b-bài-tập-xác-thực-dữ-liệu">PHẦN B: Bài tập xác thực dữ liệu</h4>
+<ol>
+<li>Trong phần Bảng của cơ sở dữ liệu <strong>ticketdata</strong>, hãy nhấp vào bảng <strong>person</strong>.</li>
+</ol>
+<ul>
+<li>Bạn có thể nhận thấy rằng một số bảng (chẳng hạn như <strong>person</strong>) có tiêu đề cột như col0,col1,col2,col3. Trong trường hợp không có tiêu đề hoặc khi trình thu thập dữ liệu không thể xác định loại tiêu đề, tiêu đề cột mặc định sẽ được chỉ định.</li>
+<li>Bài tập này sử dụng bảng <strong>person</strong> làm ví dụ về cách giải quyết vấn đề này.</li>
+</ul>
+<ol start="2">
+<li>
+<p>Nhấp vào tùy chọn <strong>Chỉnh sửa lược đồ</strong>
+<a href="#R-image-71df40a748e6011881d073ebf16c74c2" class="lightbox-link"><img alt="image17" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/017-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-71df40a748e6011881d073ebf16c74c2"><img alt="image17" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/017-EditSchemaPersonTable.png"></a></p>
+</li>
+<li>
+<p>Trong phần <strong>Chỉnh sửa lược đồ</strong>, hãy chọn hàng cho <strong>col0</strong> (tên cột) và nhấp vào <strong>Chỉnh sửa</strong>.</p>
+</li>
+</ol>
+<ul>
+<li>Nhập id làm tên cột và nhấp vào <strong>Lưu</strong>.</li>
+<li>Lặp lại các bước trên để thay đổi tên các cột còn lại cho khớp với tên được hiển thị trong hình sau: <em>full_name, last_name và first_name.</em>
+<a href="#R-image-3cfbb2f2818ebf66cba9511ab27dfdbc" class="lightbox-link"><img alt="image18" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/018-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3cfbb2f2818ebf66cba9511ab27dfdbc"><img alt="image18" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/018-EditSchemaPersonTable.png"></a></li>
+</ul>
+<ol start="4">
+<li>Nhấp vào <strong>Lưu dưới dạng phiên bản bảng mới</strong>.</li>
+</ol>
+<h4 id="phần-c-bài-tập-etl-dữ-liệu">PHẦN C: Bài tập ETL dữ liệu</h4>
+<p>Điều kiện tiên quyết: Để lưu trữ dữ liệu đã xử lý ở định dạng parquet, chúng ta cần một vị trí thư mục mới cho mỗi bảng, ví dụ: đường dẫn đầy đủ cho bảng sport_team trông như thế này - s3://&lt;s3_bucket_name&gt;/tickets/dms_parquet/sport_team</p>
+<ol>
+<li>
+<p>Trong ngăn điều hướng bên trái, nhấp vào <strong>Công việc ETL</strong>.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>“Visual ETL”</strong>
+<a href="#R-image-65824abd5fae5e5740f11fbf424d7ad2" class="lightbox-link"><img alt="image19" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/019-ETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-65824abd5fae5e5740f11fbf424d7ad2"><img alt="image19" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/019-ETLJob.png"></a></p>
+</li>
+<li>
+<p>Chọn <strong>Amazon S3</strong> từ danh sách Nguồn để thêm nút <strong>Nguồn dữ liệu - thùng S3</strong>.
+<a href="#R-image-6df9093e3338351b94be9e4be1f0fb1a" class="lightbox-link"><img alt="image20" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/020-ETLJobStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6df9093e3338351b94be9e4be1f0fb1a"><img alt="image20" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/020-ETLJobStep1.png"></a></p>
+</li>
+<li>
+<p>Chọn nút <strong>Nguồn dữ liệu - thùng S3</strong> để hiển thị các thuộc tính nguồn dữ liệu.</p>
+</li>
+<li>
+<p>Trong bảng điều khiển bên phải bên dưới “Thuộc tính nguồn dữ liệu - S3”, hãy chọn <strong>Bảng danh mục dữ liệu</strong> và chọn cơ sở dữ liệu ticketdata từ danh sách thả xuống. Đối với Bảng, hãy chọn bảng sport_team.
+<a href="#R-image-ea8969dfae9e718613e10c4e9c92abb5" class="lightbox-link"><img alt="image21" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/021-ETLJobStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ea8969dfae9e718613e10c4e9c92abb5"><img alt="image21" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/021-ETLJobStep2.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào nút + và chọn Thay đổi lược đồ từ danh sách Biến đổi để thêm nút <strong>Chuyển đổi - Thay đổi lược đồ</strong>.
+<a href="#R-image-bbbdf0ab213796fbf972119f06a580dc" class="lightbox-link"><img alt="image22" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/022-ETLJobStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-bbbdf0ab213796fbf972119f06a580dc"><img alt="image22" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/022-ETLJobStep3.png"></a></p>
+</li>
+<li>
+<p>Chọn nút <strong>Chuyển đổi - Thay đổi lược đồ</strong> để hiển thị các thuộc tính. Trong bảng Biến đổi ở bên phải, hãy thay đổi kiểu dữ liệu của cột <strong>id</strong> thành <em>double</em> trong danh sách thả xuống.
+<a href="#R-image-0dee4be5bc3f9b19bb47695625f3e900" class="lightbox-link"><img alt="image23" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/023-ETLJobStep4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0dee4be5bc3f9b19bb47695625f3e900"><img alt="image23" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/023-ETLJobStep4.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào nút + và chọn <strong>Amazon S3</strong> từ danh sách Mục tiêu để thêm nút <strong>Mục tiêu dữ liệu - thùng S3</strong>.
+<a href="#R-image-2936ccfadf45a2131a5cbb22f014baf2" class="lightbox-link"><img alt="image24" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/024-ETLJobStep5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2936ccfadf45a2131a5cbb22f014baf2"><img alt="image24" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/024-ETLJobStep5.png"></a></p>
+</li>
+<li>
+<p>Chọn nút <strong>Mục tiêu dữ liệu - thùng S3</strong> để hiển thị các thuộc tính. Trong bảng điều khiển bên phải, hãy đổi Định dạng thành <strong>Parquet</strong> trong danh sách thả xuống. Trong <strong>Loại nén</strong>, hãy chọn <em>Không nén</em> từ danh sách thả xuống.</p>
+</li>
+<li>
+<p>Trong “<strong>Vị trí mục tiêu S3</strong>”, hãy chọn “<strong>Duyệt S3</strong>”, duyệt đến thùng “<strong>ingestion-data-skip-dms-lab</strong>”, chọn mục “<strong>vé</strong>” và nhấn “<strong>Chọn</strong>”.</p>
+</li>
+<li>
+<p>Trong hộp văn bản, hãy thêm <strong>dms_parquet/sport_team/</strong> vào url S3. Đường dẫn sẽ trông giống như s3://ingestion-data-skip-dms-lab/tickets/dms_parquet/sport_team/ - đừng quên dấu / ở cuối. Công việc sẽ tự động tạo thư mục.
+<a href="#R-image-c7696fcec328fd66d10404f59b4eefc3" class="lightbox-link"><img alt="image25" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/025-ETLJobStep6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c7696fcec328fd66d10404f59b4eefc3"><img alt="image25" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/025-ETLJobStep6.png"></a></p>
+</li>
+<li>
+<p>Cuối cùng, hãy chọn tab <strong>Chi tiết công việc</strong> ở trên cùng. Nhập <code>Glue-Lab-SportTeamParquet</code> trong phần Tên.</p>
+</li>
+<li>
+<p>Đối với Vai trò IAM, hãy chọn vai trò có tên tương tự như AWSGlueServiceRoleDefault.
+<a href="#R-image-26f47b4f21aec3641f12a46516720540" class="lightbox-link"><img alt="image26" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/026-ETLJobStep7.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-26f47b4f21aec3641f12a46516720540"><img alt="image26" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/026-ETLJobStep7.png"></a></p>
+</li>
+<li>
+<p>Cuộn xuống trang và bên dưới <strong>Dấu trang công việc</strong>, hãy chọn <strong>Tắt</strong> trong danh sách thả xuống. Bạn có thể dùng thử chức năng dấu trang sau trong bài thực hành này.</p>
+</li>
+<li>
+<p>Nhấn nút <strong>Lưu</strong> ở góc trên bên phải để tạo công việc.</p>
+</li>
+<li>
+<p>Khi bạn thấy thông báo <strong>Đã tạo công việc thành công</strong> trong biểu ngữ, hãy nhấp vào nút <strong>Chạy</strong> để bắt đầu công việc.</p>
+</li>
+<li>
+<p>Chọn <strong>Công việc</strong> từ bảng điều hướng ở phía bên trái để xem danh sách các công việc của bạn.</p>
+</li>
+<li>
+<p>Chọn <strong>Giám sát</strong> từ bảng điều hướng ở phía bên trái để xem các công việc đang chạy, tỷ lệ thành công/thất bại và nhiều số liệu thống kê khác.</p>
+</li>
+<li>
+<p>Cuộn xuống danh sách <strong>Job run</strong> để xác minh rằng công việc ETL đã hoàn tất thành công. Quá trình này sẽ mất khoảng 1 phút để hoàn tất.
+<a href="#R-image-4dadc0f08db20ed586ca4cacf2677881" class="lightbox-link"><img alt="image27" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/027-RunETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4dadc0f08db20ed586ca4cacf2677881"><img alt="image27" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/027-RunETLJob.png"></a></p>
+</li>
+<li>
+<p>Chúng ta cần lặp lại quy trình này cho thêm 4 công việc nữa để chuyển đổi các bảng <strong>sport_location, sporting_event, sporting_event_ticket</strong> và <strong>person</strong>.</p>
+</li>
+</ol>
+<ul>
+<li>Trong quá trình này, chúng ta sẽ cần sửa đổi các kiểu dữ liệu cột khác nhau. Chúng ta có thể lặp lại quy trình trên cho từng bảng hoặc có thể sao chép công việc đầu tiên và cập nhật thông tin chi tiết. Các bước dưới đây mô tả cách sao chép công việc - nếu tạo thủ công mỗi lần, hãy làm theo các bước trên nhưng hãy đảm bảo bạn sử dụng các giá trị đã cập nhật từ các bảng bên dưới.</li>
+</ul>
+<ol start="21">
+<li>Quay lại menu <strong>Jobs</strong> và chọn công việc <strong>Glue-Lab-SportsTeamParquet</strong> bằng cách nhấp vào hộp kiểm bên cạnh tên.</li>
+</ol>
+<p><a href="#R-image-077751bff1bf6caa1e3b65514671affb" class="lightbox-link"><img alt="image28" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/028-CloneETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-077751bff1bf6caa1e3b65514671affb"><img alt="image28" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/028-CloneETLJob.png"></a></p>
+<ol start="22">
+<li>Trong danh sách thả xuống <strong>Hành động</strong>, hãy chọn công việc <strong>Nhân bản</strong>. Cập nhật công việc theo các bảng sau, sau đó <strong>Lưu</strong> và <strong>Chạy</strong>.</li>
+</ol>
+<h5 id="sport_location">Sport_Location:</h5>
+<p>Tạo một tác vụ <strong>Glue-Lab-SportLocationParquet</strong> với các thuộc tính sau:
+<a href="#R-image-59b6691d9876ea63cdf73d6611fe7b4e" class="lightbox-link"><img alt="imageSL" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sport_Location.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-59b6691d9876ea63cdf73d6611fe7b4e"><img alt="imageSL" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sport_Location.png"></a></p>
+<h5 id="sporting_event">Sporting_Event:</h5>
+<p>Tạo một tác vụ <strong>Glue-Lab-SportingEventParquet</strong> với các thuộc tính sau:
+<a href="#R-image-e47ec4b84efd6b0d771bdd06decdea9c" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e47ec4b84efd6b0d771bdd06decdea9c"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png"></a></p>
+<h5 id="sporting_event_ticket">Sporting_Event_Ticket:</h5>
+<p>Tạo một tác vụ <strong>Glue-Lab-SportingEventTicketParquet</strong> với các thuộc tính sau:
+<a href="#R-image-7737c60985bf7bbef6556b088ca6ff89" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7737c60985bf7bbef6556b088ca6ff89"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png"></a></p>
+<p><a href="#R-image-b6996bb776b2a3e62977c872a9bca167" class="lightbox-link"><img alt="imageTable" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/SETTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b6996bb776b2a3e62977c872a9bca167"><img alt="imageTable" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/SETTable.png"></a></p>
+<h5 id="person">Person:</h5>
+<p>Tạo một tác vụ <strong>Glue-Lab-PersonParquet</strong> với các thuộc tính sau thuộc tính:
+<a href="#R-image-54c788b2eb4c5b2cbfc59ad4dba6b02d" class="lightbox-link"><img alt="imageP" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/TbPerson.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-54c788b2eb4c5b2cbfc59ad4dba6b02d"><img alt="imageP" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/TbPerson.png"></a></p>
+<ol start="23">
+<li>
+<p>Chạy thành công tất cả công việc ETL
+<a href="#R-image-167e4c4b9ff8c2d84ff94974ee0453a2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/MonitoringRunJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-167e4c4b9ff8c2d84ff94974ee0453a2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/MonitoringRunJob.png"></a></p>
+</li>
+<li>
+<p>S3 Bucket cho tệp Parquet đã được tạo
+<a href="#R-image-be2d87ad9e50ff45daec4758b4a4a2a8" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/S3Bucket_dms_parquet.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-be2d87ad9e50ff45daec4758b4a4a2a8"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/S3Bucket_dms_parquet.png"></a></p>
+</li>
+</ol>
+<h4 id="phần-d-tạo-trình-thu-thập-keo-cho-tệp-parquet">PHẦN D: Tạo trình thu thập keo cho tệp Parquet</h4>
+<ol>
+<li>
+<p>Trong menu <strong>Điều hướng keo</strong>, trong <strong>Danh mục dữ liệu</strong>, hãy chọn <strong>Trình thu thập</strong>. Nhấp vào <strong>Tạo trình thu thập</strong>.
+<a href="#R-image-88165bb079e0ec236ed5dfae499de566" class="lightbox-link"><img alt="image29" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/029-CreateNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-88165bb079e0ec236ed5dfae499de566"><img alt="image29" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/029-CreateNewCrawler.png"></a></p>
+</li>
+<li>
+<p>Đối với <strong>Tên trình thu thập</strong>, hãy nhập <code>glue-lab-parquet-crawler</code> và Nhấp vào <strong>Tiếp theo</strong>.
+<a href="#R-image-15adc6c8e8d34ca2c6a524bb54a73f95" class="lightbox-link"><img alt="image30" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/030-CreateNewCrawlerStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-15adc6c8e8d34ca2c6a524bb54a73f95"><img alt="image30" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/030-CreateNewCrawlerStep1.png"></a></p>
+</li>
+<li>
+<p>Trong màn hình tiếp theo, Chọn <strong>nguồn dữ liệu và bộ phân loại</strong>, chọn <strong>Chưa có</strong> và nhấp vào <strong>Thêm nguồn dữ liệu</strong></p>
+</li>
+<li>
+<p>Trong màn hình <strong>Thêm kho dữ liệu</strong></p>
+</li>
+</ol>
+<ul>
+<li>Đối với <strong>Chọn kho dữ liệu</strong>, chọn “S3”.</li>
+<li>Đối với <strong>Vị trí của dữ liệu S3</strong>, chọn “<strong>Trong tài khoản này</strong>”.</li>
+<li>Đối với <strong>Đường dẫn S3</strong>, hãy chỉ định Đường dẫn S3 (thư mục Parquet cha) chứa các tệp parquet lồng nhau, ví dụ: s3://xxx-dmslabs3bucket-xxx/tickets/dms_parquet/</li>
+<li>Để nguyên tất cả các tham số khác theo mặc định</li>
+<li>Nhấp vào <strong>Thêm nguồn dữ liệu S3</strong>.
+<a href="#R-image-049584e76e3377e9d52d6268740e5836" class="lightbox-link"><img alt="image31" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/031-CreateNewCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-049584e76e3377e9d52d6268740e5836"><img alt="image31" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/031-CreateNewCrawlerStep2.png"></a></li>
+</ul>
+<ol start="5">
+<li>Trong màn hình tiếp theo, Chọn <strong>nguồn dữ liệu và bộ phân loại</strong>, nhấp vào <strong>Tiếp theo</strong>.</li>
+<li>Trên trang <strong>Cấu hình cài đặt bảo mật</strong>, chọn <strong>Chọn vai trò IAM hiện có</strong>.</li>
+</ol>
+<ul>
+<li>Đối với vai trò IAM, chọn vai trò hiện có “xxx-GlueLabRole-xxx” và</li>
+<li>Nhấp vào <strong>Tiếp theo</strong>.</li>
+</ul>
+<ol start="7">
+<li>Trên trang <strong>Đặt đầu ra và lập lịch</strong>,</li>
+</ol>
+<ul>
+<li>Trong Cơ sở dữ liệu mục tiêu, chọn cơ sở dữ liệu hiện có mà bạn đã tạo trước đó, ví dụ: ticketdata</li>
+<li>Đối với Tiền tố được thêm vào bảng (tùy chọn), nhập parquet_</li>
+<li>Đối với lịch trình Crawler, chọn “Theo yêu cầu” và Nhấp vào Tiếp theo.
+<a href="#R-image-e2909c58e6ac19316803cef6aa6b3e02" class="lightbox-link"><img alt="image32" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/032-CreateNewCrawlerStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e2909c58e6ac19316803cef6aa6b3e02"><img alt="image32" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/032-CreateNewCrawlerStep3.png"></a></li>
+</ul>
+<ol start="8">
+<li>
+<p>Xem lại trang tóm tắt và nhấp vào <strong>Tạo trình thu thập thông tin</strong>.
+<a href="#R-image-067a7b8aef2050267a581069d7bb093f" class="lightbox-link"><img alt="image33" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/033-SuccessCreateNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-067a7b8aef2050267a581069d7bb093f"><img alt="image33" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/033-SuccessCreateNewCrawler.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào <strong>Chạy trình thu thập thông tin</strong>. Sau khi trình thu thập dữ liệu của bạn chạy xong, bạn sẽ thấy rằng các bảng đã được thêm vào, tùy thuộc vào số lượng chuyển đổi ETL parquet mà bạn thiết lập trong phần trước.
+<a href="#R-image-292469233a5a616d19560296e37715be" class="lightbox-link"><img alt="image34" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/034-SuccessRunNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-292469233a5a616d19560296e37715be"><img alt="image34" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/034-SuccessRunNewCrawler.png"></a></p>
+</li>
+</ol>
+<p><strong>Xác nhận bạn có thể thấy các bảng</strong></p>
+<ol start="10">
+<li>Trong ngăn điều hướng bên trái, nhấp vào <strong>Bảng</strong>.</li>
+<li>Thêm bộ lọc <em>parquet</em> cho <strong>Phân loại</strong> để trả về các bảng mới tạo.
+<a href="#R-image-9c08f4dc0203fc5688f8a20eaa9e1a29" class="lightbox-link"><img alt="image35" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/035-CheckDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9c08f4dc0203fc5688f8a20eaa9e1a29"><img alt="image35" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/035-CheckDB.png"></a></li>
+</ol>
+<p><strong>Xin chúc mừng!</strong> Bạn đã hoàn thành <strong>Bài thực hành Xác thực dữ liệu và ETL</strong></p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.vi.js?1738650602";
+        </script>
+        <search><form action="/vi/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Tìm kiếm (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Tìm kiếm</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Tìm kiếm...">
+            <button class="search-clear" type="button" data-search-clear="" title="Xóa tìm kiếm"><i class="fas fa-times" title="Xóa tìm kiếm"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['vi'];
+        </script>
+        <script src="/js/auto-complete.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.vi.min.js?1738650602" defer></script>
+        <script src="/js/search.js?1738650602" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/vi/1-introduction/index.html"><a class="padding" href="/vi/1-introduction/index.html">1. Giới thiệu<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/2-prepare/index.html"><a class="padding" href="/vi/2-prepare/index.html">2. Chuẩn bị<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/3-ingestion/index.html"><a class="padding" href="/vi/3-ingestion/index.html">3. Thu thập dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/vi/4-transforming/index.html"><a class="padding" href="/vi/4-transforming/index.html">4. Chuyển đổi dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu">
+            <li class="active " data-nav-id="/vi/4-transforming/4.1/index.html"><a class="padding" href="/vi/4-transforming/4.1/index.html">4.1. Xác thực dữ liệu và ETL với Glue<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/vi/5-queryandvisualize/index.html"><a class="padding" href="/vi/5-queryandvisualize/index.html">5. Truy vấn và trực quan hóa<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/vi/6-cleanresource/index.html"><a class="padding" href="/vi/6-cleanresource/index.html">6. Dọn dẹp tài nguyên<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/7-summary/index.html"><a class="padding" href="/vi/7-summary/index.html">7. Tóm tắt<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Ngôn ngữ</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/4-transforming/4.1/index.html" lang="en">English</option>
+                      <option id="R-select-language-vi" value="#R-select-language-vi" data-url="/vi/4-transforming/4.1/index.html" lang="vi" selected>Tiếng Việt</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Đề tài</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Xóa lịch sử..</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1738650602" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738650602" defer></script>
+    <script src="/js/theme.js?1738650602" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

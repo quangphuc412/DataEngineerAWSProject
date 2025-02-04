@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athena and QuickSight :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/5-queryandvisualize/5.1/index.html</link>
+    <description>Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.&#xA;Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/5-queryandvisualize/5.1/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Query and Visualize :: AWS System Manager</title>
+    <link>http://localhost:1313/5-queryandvisualize/index.html</link>
+    <description>Introduction This lab introduces you to AWS Glue, Amazon Athena, and Amazon QuickSight. AWS Glue is a fully managed data catalog and ETL service; Amazon Athena provides the ability to run ad-hoc queries on your data in your data lake; and Amazon QuickSight provides visualization of the data you import.&#xA;Below is a list of the steps for this lab: Athena and QuickSight Athena and SageMaker (Optional)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/5-queryandvisualize/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Athena and QuickSight</title>
+      <link>http://localhost:1313/5-queryandvisualize/5.1/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/5-queryandvisualize/5.1/index.html</guid>
+      <description>Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.&#xA;Getting Started In this lab, you will complete the following tasks:&#xA;Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.</description>
+    </item>
+    <item>
+      <title>Athena and SageMaker (Optional)</title>
+      <link>http://localhost:1313/5-queryandvisualize/5.2/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/5-queryandvisualize/5.2/index.html</guid>
+      <description>Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.&#xA;You will Learn:&#xA;How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.</description>
+    </item>
+  </channel>
+</rss>

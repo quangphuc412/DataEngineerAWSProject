@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Ingestion With AWS S3 :: AWS System Manager</title>
+    <link>http://localhost:1313/3-ingestion/3.1/index.html</link>
+    <description>Steps Create S3 bucket. Open AWS CloudShell. Copy the data from the staging Amazon S3 bucket to your S3 bucket. Verify the data. Step 1: Create S3 bucket Create S3 bucket to store data.&#xA;Bucket name: ingestion-data-skip-dms-lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/3-ingestion/3.1/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

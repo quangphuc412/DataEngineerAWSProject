@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.
+AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Prepare :: AWS System Manager">
+    <meta name="twitter:description" content="AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.
+AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.">
+    <meta property="og:url" content="http://localhost:1313/2-prepare/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Prepare :: AWS System Manager">
+    <meta property="og:description" content="AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.
+AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Prepare :: AWS System Manager">
+    <meta itemprop="description" content="AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.
+AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.">
+    <meta itemprop="wordCount" content="230">
+    <title>Prepare :: AWS System Manager</title>
+    <link href="http://localhost:1313/2-prepare/index.html" rel="alternate" hreflang="x-default">
+    <link href="http://localhost:1313/2-prepare/index.html" rel="alternate" hreflang="en">
+    <link href="http://localhost:1313/vi/2-prepare/index.html" rel="alternate" hreflang="vi">
+    <link href="/2-prepare/index.xml" rel="alternate" type="application/rss+xml" title="Prepare :: AWS System Manager">
+    <link href="/css/fontawesome-all.min.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738650601" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738650601" rel="stylesheet">
+    <link href="/css/fonts.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738650601" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738650601" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738650601" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738650601" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738650601"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/2-prepare/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Data Engineering Immersion Day Workshop</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Prepare</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/1-introduction/index.html" title="Introduction (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/3-ingestion/index.html" title="Data Ingestion (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 2-prepare" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="prepare">Prepare</h1>
+
+<h4 id="aws-account-and-iam-user"><strong>AWS Account and IAM User</strong></h4>
+<p>In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.</p>
+<p><a href="https://aws.amazon.com/iam/" rel="external" target="_blank">AWS Identity and Access Management (IAM)</a>  enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.</p>
+<h4 id="create-an-administrator-user">Create an administrator user</h4>
+<p>In case you want to use your own account now or later, and you don&rsquo;t yet have an IAM user with administrator privileges, you need to create one.</p>
+<ol>
+<li>
+<p>If you don&rsquo;t already have an AWS account with Administrator access: <a href="https://aws.amazon.com/free" rel="external" target="_blank">create one now by clicking here.</a></p>
+</li>
+<li>
+<p>Once you have an AWS account, create a new IAM user for this workshop with administrator access to the AWS account: <a href="https://console.aws.amazon.com/iam/home?#/users$new" rel="external" target="_blank">Create a new IAM user to use for the workshop.</a></p>
+</li>
+<li>
+<p>Enter the user details: and select Access Type as Programmatic access.
+<a href="#R-image-18cbd502f21dea266ccb89996054b9e1" class="lightbox-link"><img alt="CreateAdminUser" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/2.Prepare/002-1-CreateAdminUser.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-18cbd502f21dea266ccb89996054b9e1"><img alt="CreateAdminUser" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/2.Prepare/002-1-CreateAdminUser.png"></a>
+<a href="#R-image-1800e2a9b40a34fe6664fa42d4becbfa" class="lightbox-link"><img alt="CreateAdminUser" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/2.Prepare/002-2-CreateAdminUser.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1800e2a9b40a34fe6664fa42d4becbfa"><img alt="CreateAdminUser" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/2.Prepare/002-2-CreateAdminUser.png"></a></p>
+</li>
+<li>
+<p>Attach the AdministratorAccess IAM Policy, choose Administrator access or fine-grained access depending upon the Amazon services used for this lab. For this lab you can choose Administrator access → Click Next → Ignore Tags → Next Review.
+<a href="#R-image-ad71e3d3adb220271c021439b1c2d398" class="lightbox-link"><img alt="AttachThePolicy" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/2.Prepare/002-3-CreateAdminUser.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ad71e3d3adb220271c021439b1c2d398"><img alt="AttachThePolicy" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/2.Prepare/002-3-CreateAdminUser.png"></a>
+<a href="#R-image-59fe992facb9ca098f0ba3842c315a4e" class="lightbox-link"><img alt="AttachThePolicy" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/2.Prepare/002-4-CreateAdminUser.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-59fe992facb9ca098f0ba3842c315a4e"><img alt="AttachThePolicy" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/2.Prepare/002-4-CreateAdminUser.png"></a></p>
+</li>
+<li>
+<p>Click to create the new user.</p>
+</li>
+<li>
+<p>Successfully create Admin User.
+<a href="#R-image-db93ed673b8e0e8e4c2636cb79c74915" class="lightbox-link"><img alt="SuccessCreate" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/2.Prepare/002-5-SuccessCreateAdimUser.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-db93ed673b8e0e8e4c2636cb79c74915"><img alt="SuccessCreate" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/2.Prepare/002-5-SuccessCreateAdimUser.png"></a></p>
+</li>
+</ol>
+<h4 id="congratulations-on-setting-up">Congratulations on setting up!</h4>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.en.js?1738650601";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1738650601" defer></script>
+        <script src="/js/search.js?1738650601" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/1-introduction/index.html"><a class="padding" href="/1-introduction/index.html">1. Introduction<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="active " data-nav-id="/2-prepare/index.html"><a class="padding" href="/2-prepare/index.html">2. Prepare<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/3-ingestion/index.html"><a class="padding" href="/3-ingestion/index.html">3. Data Ingestion<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/4-transforming/index.html"><a class="padding" href="/4-transforming/index.html">4. Transforming Data<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/5-queryandvisualize/index.html"><a class="padding" href="/5-queryandvisualize/index.html">5. Query and Visualize<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/6-cleanresource/index.html"><a class="padding" href="/6-cleanresource/index.html">6. Clean Resource<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/7-summary/index.html"><a class="padding" href="/7-summary/index.html">7. Summary<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/2-prepare/index.html" lang="en" selected>English</option>
+                      <option id="R-select-language-vi" value="#R-select-language-vi" data-url="/vi/2-prepare/index.html" lang="vi">Tiếng Việt</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1738650601" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738650601" defer></script>
+    <script src="/js/theme.js?1738650601" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

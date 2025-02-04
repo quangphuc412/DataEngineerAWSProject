@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thu thập dữ liệu với AWS S3 :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/3-ingestion/3.1/index.html</link>
+    <description>Các bước Tạo S3 bucket. Mở AWS CloudShell. Sao chép dữ liệu từ Amazon S3 Bucket đang dàn dựng vào S3 Bucket của bạn. Xác minh dữ liệu. Bước 1: Tạo S3 bucket Tạo S3 Bucket để lưu trữ dữ liệu.&#xA;Tên Bucket: ingestion-data-skip-dms-lab</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/3-ingestion/3.1/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

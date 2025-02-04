@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dọn dẹp tài nguyên :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/7-cleanresource/index.html</link>
+    <description>Dọn dẹp: Để tránh các khoản phí bất ngờ vào tài khoản của bạn, hãy đảm bảo bạn dọn dẹp tài khoản của mình. Để xóa các mẫu CloudFormation bằng AWS Management Console -&gt; Đăng nhập vào AWS Management Console và điều hướng đến Services → Management &amp; Governance → CloudFormation. Hoặc Điều hướng đến AWS CloudFormation&#xA;Để xóa các mẫu CloudFormation bằng AWS Management Console → Đăng nhập vào AWS Management Console và điều hướng Services → Management &amp; Governance → CloudFormation. Xóa các stack từ mới nhất đến cũ nhất. Ghi chú Sau khi xóa các ngăn xếp CloudFormation nếu bạn tìm thấy bất kỳ S3 bucket nào còn lại. Hãy nhớ xóa các S3 bucket đó.</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/7-cleanresource/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

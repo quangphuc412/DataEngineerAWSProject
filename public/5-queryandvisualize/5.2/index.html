@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.
+You will Learn:
+How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Athena and SageMaker (Optional) :: AWS System Manager">
+    <meta name="twitter:description" content="Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.
+You will Learn:
+How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.">
+    <meta property="og:url" content="http://localhost:1313/5-queryandvisualize/5.2/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Athena and SageMaker (Optional) :: AWS System Manager">
+    <meta property="og:description" content="Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.
+You will Learn:
+How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Athena and SageMaker (Optional) :: AWS System Manager">
+    <meta itemprop="description" content="Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.
+You will Learn:
+How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.">
+    <meta itemprop="wordCount" content="955">
+    <title>Athena and SageMaker (Optional) :: AWS System Manager</title>
+    <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="x-default">
+    <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="en">
+    <link href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="vi">
+    <link href="/5-queryandvisualize/5.2/index.xml" rel="alternate" type="application/rss+xml" title="Athena and SageMaker (Optional) :: AWS System Manager">
+    <link href="/css/fontawesome-all.min.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738650601" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738650601" rel="stylesheet">
+    <link href="/css/fonts.css?1738650601" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738650601" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738650601" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738650601" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738650601" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738650601" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738650601"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/5-queryandvisualize/5.2/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Data Engineering Immersion Day Workshop</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/5-queryandvisualize/index.html"><span itemprop="name">Query and Visualize</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Athena and SageMaker (Optional)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/5-queryandvisualize/5.1/index.html" title="Athena and QuickSight (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/6-cleanresource/index.html" title="Clean Resource (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 5-queryandvisualize" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="athena-and-sagemaker-optional">Athena and SageMaker (Optional)</h1>
+
+<h4 id="introduction">Introduction</h4>
+<p><a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.</p>
+<p>You will Learn:</p>
+<ul>
+<li>How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena</li>
+<li>Populate data frames for data manipulation.</li>
+</ul>
+<p><a href="#R-image-0ffa6ea1d5907829e5f32ca0ec50cde9" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0ffa6ea1d5907829e5f32ca0ec50cde9"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
+<p>This process to prepare the data to satisfy the needs of ML algorithms is iterative. To prepare the data, we will make the table definitions in Athena available in a Jupyter notebook in SageMaker.</p>
+<p>Jupyter notebooks are popular among data scientists and used to visualize data, perform statistical analysis, complete data manipulations, and make the data ready for machine learning work.</p>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Note
+  </div>
+  <div class="box-content">
+<p><strong>Prerequisites</strong></p>
+<p><a href="/3-ingestion/index.html">Ingestion with Glue</a> and <a href="/4-transforming/index.html">Transforming data with Glue ETL</a> labs are prerequisites for this lab.</p>
+  </div>
+</div>
+<h4 id="create-amazon-sagemaker-notebook-instance">Create Amazon SageMaker Notebook Instance</h4>
+<ol>
+<li>
+<p>Go to the <a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> from AWS console
+<a href="#R-image-9676f83964c1d6815edd701bfe607b50" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9676f83964c1d6815edd701bfe607b50"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
+</li>
+<li>
+<p>In the Amazon SageMaker navigation pane, go to <strong>Notebook instances</strong> and click <strong>Create notebook instance</strong>.
+<a href="#R-image-92c804e19fff44bd49e8478a41568807" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-92c804e19fff44bd49e8478a41568807"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
+</li>
+<li>
+<p>Enter following values to create the notebook instance</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Enter a name for the Notebook instance e.g. <em>datalake-Sagemaker</em></p>
+</li>
+<li>
+<p>You can leave Notebook instance type as the default value <strong>ml.t3.medium</strong> for this lab</p>
+</li>
+<li>
+<p>Leave Elastic Inference as <em>none</em>. This is to add extra resources.</p>
+</li>
+<li>
+<p>Under <strong>IAM role</strong>, we need to choose a role for the notebook instance in Amazon SageMaker to interact with Amazon S3. As the role doesn’t exist, from the dropdown option select <strong>Create a new role</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Create an IAM role</strong> pop up window, choose <strong>Any S3 bucket</strong> as shown below and click <strong>Create role</strong>.
+<a href="#R-image-494227463256d24f7a206e61fda6f40c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-494227463256d24f7a206e61fda6f40c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
+</li>
+<li>
+<p>After the IAM role is created, click on the link to the IAM role, this will open the IAM role in a new tab. We will add IAM permissions to allow access to Athena from SageMaker.
+<a href="#R-image-af3256dc49d72b8c1da7e530d9b4937c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-af3256dc49d72b8c1da7e530d9b4937c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
+</li>
+<li>
+<p>Click on <strong>Add permissions</strong> and select <strong>Attach policies</strong>.</p>
+</li>
+<li>
+<p>Filter policies by <strong>“Athena”</strong>, check <strong>AmazonAthenaFullAccess</strong> managed policy and click <strong>Attach policies</strong> button at the bottom of the screen.
+<a href="#R-image-d14f1cd0b1b796ebb842d92dad4c274c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d14f1cd0b1b796ebb842d92dad4c274c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
+</li>
+<li>
+<p>Go back to the <strong>SageMaker Create notebook instance</strong> browser tab.</p>
+</li>
+<li>
+<p>Leave all other options with default values. Click <strong>Create notebook instance</strong>.</p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p>Wait for the notebook instance to be created and the Status to change to <strong>InService</strong>. Click the <strong>Open Jupyter</strong> link in the <strong>Actions</strong> column.
+<a href="#R-image-49001f822bf815b87167ce1b195362da" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-49001f822bf815b87167ce1b195362da"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
+</li>
+<li>
+<p>The notebook interface opens in a new tab.
+<a href="#R-image-0bfd5ffd1493723f51cf721ce6ce9744" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0bfd5ffd1493723f51cf721ce6ce9744"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
+</li>
+</ol>
+<h4 id="connect-the-sagemaker-jupyter-notebook-to-athena">Connect the SageMaker Jupyter notebook to Athena</h4>
+<ol>
+<li>
+<p>In the Jupyter notebook tab, click <strong>New</strong> and select <strong>conda_python3</strong> for the kernel. This opens a notebook in a new tab.
+<a href="#R-image-b3438b884fd919dab228c191b867c329" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b3438b884fd919dab228c191b867c329"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Note
+  </div>
+  <div class="box-content">
+<p>Amazon SageMaker provides several kernels for Jupyter, including support for Python 3, MXNet, TensorFlow, and PySpark. This exercise uses Python because it includes the pandas library.</p>
+  </div>
+</div>
+</li>
+<li>
+<p>Within the notebook, enter the following command into a cell and click <strong>Run</strong> to install the Athena JDBC driver. (PyAthena is a Python <a href="https://www.python.org/dev/peps/pep-0249/" rel="external" target="_blank">DB API 2.0 (PEP 249)</a> compliant client for the <a href="http://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html" rel="external" target="_blank">Amazon Athena JDBC driver</a>.)
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>!<span style="color:#a6e22e">pip</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">PyAthena</span>[<span style="color:#a6e22e">SQLAlchemy</span>]</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+<p><a href="#R-image-7930f6c3b4145042f822bfb57f32d0c7" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7930f6c3b4145042f822bfb57f32d0c7"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
+<p>Check the output that PyAthena has been installed successfully. If you see errors related to awscli 1.x, they can be ignored.</p>
+</li>
+</ol>
+<h4 id="working-in-pandas">Working in Pandas</h4>
+<p>After the Athena driver is installed, you can use the JDBC connection to connect to Athena and populate the pandas dataframes. For data scientists, working with data is typically divided into multiple stages: ingesting and cleaning data, analyzing and modeling data, then organizing the results of the analysis into a form suitable for plotting or tabular display. Pandas is the ideal tool for all of these tasks.</p>
+<ol>
+<li>
+<p>You can load Athena table data from the data lake into a pandas dataframe and apply machine learning. Copy the following code into your notebook cell and replace with your region, S3 bucket location and database name.</p>
+<p>Your region: run the following command in the notebook cell to get the current AWS region.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>!<span style="color:#a6e22e">aws</span> <span style="color:#a6e22e">configure</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">region</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+<p>Your Athena Database name, this is the Glue Database name which you created during the Glue lab e.g. <strong>ticketdata</strong>. Update the S3 bucket location whose name contains string <em>ingestion-data-skip-dms-lab</em> followed by <strong>athena/</strong>, so that it looks like s3://ingestion-data-skip-dms-lab/athena/.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">from</span> <span style="color:#a6e22e">sqlalchemy</span> <span style="color:#f92672">import</span> <span style="color:#a6e22e">create_engine</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">pandas</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">pd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">s3_staging_dir</span> = <span style="color:#e6db74">&#34;s3://ingestion-data-skip-dms-lab/athena/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connection_string</span> = <span style="color:#a6e22e">f</span><span style="color:#e6db74">&#34;awsathena+rest://:@athena.us-east-1.amazonaws.com:443/ticketdata?s3_staging_dir={s3_staging_dir}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">engine</span> = <span style="color:#a6e22e">create_engine</span>(<span style="color:#a6e22e">connection_string</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span> = <span style="color:#a6e22e">pd</span>.<span style="color:#a6e22e">read_sql</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;ticketdata&#34;</span>.<span style="color:#e6db74">&#34;nfl_stadium_data&#34;</span> <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">stadium</span> <span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">10</span>;<span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">engine</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Click <strong>Run</strong> and dataframe will display query output.
+<a href="#R-image-e4db37c2aa0d3693716ebc5da8590892" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e4db37c2aa0d3693716ebc5da8590892"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
+In this query, you are loading all nfl stadium information into a pandas dataframe from the table nfl_stadium_data.</p>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Note
+  </div>
+  <div class="box-content">
+<p>If you get a SageMaker does not have Athena execution permissions error issue. You need to add Athena Access to the Sagemaker role as steps provide in previous section.</p>
+  </div>
+</div>
+</li>
+<li>
+<p>You can apply different ML algorithms in the populated pandas dataframes. For example, draw a plot of the data. Copy the following code into your notebook. In this query, you are loading all even ticket information into a pandas dataframe from the table <em>sporting_event_ticket_info</em>.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">df</span> = <span style="color:#a6e22e">pd</span>.<span style="color:#a6e22e">read_sql</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">sport</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">event_date_time</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">home_team</span>,<span style="color:#a6e22e">away_team</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">city</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">tickets</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">total_tickets_amt</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">avg_ticket_price</span>, \
+</span></span><span style="display:flex;"><span>    max(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">max_ticket_price</span>, \
+</span></span><span style="display:flex;"><span>    min(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">min_ticket_price</span>  \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;ticketdata&#34;</span>.<span style="color:#e6db74">&#34;sporting_event_ticket_info&#34;</span> \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">group</span> <span style="color:#a6e22e">by</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span> \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>  <span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">1000</span>;<span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">engine</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Click <strong>Run</strong> and the data frame will display the query output.
+<a href="#R-image-848ec0fa828e43e80ef81261de5f62ea" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-848ec0fa828e43e80ef81261de5f62ea"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
+</li>
+<li>
+<p>In a new execution cell, copy following code
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">matplotlib</span>.<span style="color:#a6e22e">pyplot</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">plt</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span>.<span style="color:#a6e22e">plot</span>(<span style="color:#a6e22e">x</span>=<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">event_date_time</span><span style="color:#960050;background-color:#1e0010">&#39;</span>,<span style="color:#a6e22e">y</span>=<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">avg_ticket_price</span><span style="color:#960050;background-color:#1e0010">&#39;</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Click Run and you will see data plot which got draw using matplotlib library.
+<a href="#R-image-9a67a3365c604ea9dc261ebd00e71fa6" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9a67a3365c604ea9dc261ebd00e71fa6"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
+</li>
+</ol>
+<h4 id="cleanup">Cleanup</h4>
+<ol>
+<li>Go to <a href="https://console.aws.amazon.com/sagemaker/home#/notebook-instances" rel="external" target="_blank">SageMaker Notebook Instances console</a></li>
+<li>Select the notebook instance that you created e.g. <em>datalake-Sagemaker</em>.</li>
+<li>Choose <strong>Actions → Stop</strong>, it will take a few minutes for the notebook instance to stop.</li>
+<li>Once the notebook instance is stopped, choose <strong>Actions → Delete</strong> and choose <strong>Delete</strong> in the confirmation pop-up to delete the instance.</li>
+</ol>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.en.js?1738650601";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738650601" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1738650601" defer></script>
+        <script src="/js/search.js?1738650601" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/1-introduction/index.html"><a class="padding" href="/1-introduction/index.html">1. Introduction<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/2-prepare/index.html"><a class="padding" href="/2-prepare/index.html">2. Prepare<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/3-ingestion/index.html"><a class="padding" href="/3-ingestion/index.html">3. Data Ingestion<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/4-transforming/index.html"><a class="padding" href="/4-transforming/index.html">4. Transforming Data<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/5-queryandvisualize/index.html"><a class="padding" href="/5-queryandvisualize/index.html">5. Query and Visualize<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu">
+            <li class="" data-nav-id="/5-queryandvisualize/5.1/index.html"><a class="padding" href="/5-queryandvisualize/5.1/index.html">5.1. Athena and QuickSight<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="active " data-nav-id="/5-queryandvisualize/5.2/index.html"><a class="padding" href="/5-queryandvisualize/5.2/index.html">5.2. Athena and SageMaker (Optional)<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/6-cleanresource/index.html"><a class="padding" href="/6-cleanresource/index.html">6. Clean Resource<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/7-summary/index.html"><a class="padding" href="/7-summary/index.html">7. Summary<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/5-queryandvisualize/5.2/index.html" lang="en" selected>English</option>
+                      <option id="R-select-language-vi" value="#R-select-language-vi" data-url="/vi/5-queryandvisualize/5.2/index.html" lang="vi">Tiếng Việt</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1738650601" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738650601" defer></script>
+    <script src="/js/theme.js?1738650601" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

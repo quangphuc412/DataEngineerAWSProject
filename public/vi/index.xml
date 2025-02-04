@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hội thảo về Kỹ Thuật Dữ Liệu :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/index.html</link>
+    <description>Tổng quan Hội thảo về Kỹ Thuật Dữ Liệu&#xA;Ngày hội Kỹ thuật Dữ liệu là gì? Ngày hội Nhúng mình vào Kỹ thuật Dữ liệu cung cấp các phòng thí nghiệm thực hành và mô-đun tập trung vào việc tiếp nhận, nhập, khám phá và tiêu thụ dữ liệu trong một hồ dữ liệu trên AWS.</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Giới thiệu</title>
+      <link>http://localhost:1313/vi/1-introduction/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/1-introduction/index.html</guid>
+      <description>Bạn sẽ làm gì trong các bài Lab này? Các bài Lab này được thiết kế để hoàn thành theo trình tự và hướng dẫn đầy đủ được ghi lại bên dưới. Đọc và làm theo để hoàn thành các bài Lab.&#xA;Các mẫu kiến ​​trúc Ban đầu bạn sẽ thực hiện Thu thập dữ liệu Thực hiện chuyển đổi dữ liệu</description>
+    </item>
+    <item>
+      <title>Chuẩn bị</title>
+      <link>http://localhost:1313/vi/2-prepare/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/2-prepare/index.html</guid>
+      <description>AWS Account and IAM User Để bắt đầu làm việc với các dịch vụ AWS, bạn sẽ cần một tài khoản AWS. Bạn cũng sẽ cần một người dùng IAM cho tài khoản này mà bạn có thể sử dụng để đăng nhập vào AWS Management Console nhằm cung cấp và cấu hình tài nguyên của mình.&#xA;AWS Identity and Access Management (IAM) cho phép bạn quản lý quyền truy cập vào các dịch vụ và tài nguyên AWS một cách an toàn. Sử dụng IAM, bạn có thể tạo và quản lý người dùng và nhóm AWS, đồng thời sử dụng các quyền để cho phép và từ chối quyền truy cập vào các tài nguyên AWS.</description>
+    </item>
+    <item>
+      <title>Thu thập dữ liệu</title>
+      <link>http://localhost:1313/vi/3-ingestion/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/3-ingestion/index.html</guid>
+      <description>Giới thiệu Trong bài thực hành hôm nay, bạn sẽ sao chép dữ liệu từ S3 Bucket tập trung vào tài khoản AWS của mình, thu thập dữ liệu bằng trình thu thập dữ liệu AWS Glue để tạo siêu dữ liệu, chuyển đổi dữ liệu bằng AWS Glue, truy vấn dữ liệu và tạo View bằng Athena và cuối cùng là xây dựng bảng thông tin bằng Amazon QuickSight.</description>
+    </item>
+    <item>
+      <title>Chuyển đổi dữ liệu</title>
+      <link>http://localhost:1313/vi/4-transforming/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/4-transforming/index.html</guid>
+      <description>Giới thiệu Trong bài thực hành này, bạn sẽ tìm hiểu về AWS Glue, một dịch vụ tích hợp dữ liệu không cần máy chủ giúp bạn dễ dàng khám phá, chuẩn bị, di chuyển và tích hợp dữ liệu từ nhiều nguồn để phân tích, học máy (ML) và phát triển ứng dụng. Bạn có thể sử dụng trình thu thập thông tin để điền các bảng vào AWS Glue Data Catalog. Đây là phương pháp chính được hầu hết người dùng AWS Glue sử dụng. Trình thu thập thông tin có thể thu thập nhiều kho dữ liệu trong một lần chạy. Sau khi hoàn tất, trình thu thập thông tin sẽ tạo hoặc cập nhật một hoặc nhiều bảng trong Data Catalog của bạn. Các tác vụ trích xuất, chuyển đổi và tải (ETL) mà bạn xác định trong AWS Glue sẽ sử dụng các bảng Data Catalog này làm nguồn và đích. Tác vụ ETL sẽ đọc và ghi vào các kho dữ liệu được chỉ định trong các bảng Data Catalog nguồn và đích.</description>
+    </item>
+    <item>
+      <title>Truy vấn và trực quan hóa</title>
+      <link>http://localhost:1313/vi/5-queryandvisualize/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/5-queryandvisualize/index.html</guid>
+      <description>Giới thiệu Bài thực hành này giới thiệu cho bạn về AWS Glue, Amazon Athena và Amazon QuickSight. AWS Glue là một danh mục dữ liệu được quản lý hoàn toàn và dịch vụ ETL; Amazon Athena cung cấp khả năng chạy các truy vấn tùy ý trên dữ liệu của bạn trong hồ dữ liệu của bạn; và Amazon QuickSight cung cấp khả năng trực quan hóa dữ liệu bạn nhập.</description>
+    </item>
+    <item>
+      <title>Dọn dẹp tài nguyên</title>
+      <link>http://localhost:1313/vi/6-cleanresource/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/6-cleanresource/index.html</guid>
+      <description>Dọn dẹp: Để tránh các khoản phí bất ngờ vào tài khoản của bạn, hãy đảm bảo bạn dọn dẹp tài khoản của mình. Để xóa các mẫu CloudFormation bằng AWS Management Console -&gt; Đăng nhập vào AWS Management Console và điều hướng đến Services → Management &amp; Governance → CloudFormation. Hoặc Điều hướng đến AWS CloudFormation&#xA;Để xóa các mẫu CloudFormation bằng AWS Management Console → Đăng nhập vào AWS Management Console và điều hướng Services → Management &amp; Governance → CloudFormation. Xóa các stack từ mới nhất đến cũ nhất. Ghi chú Sau khi xóa các ngăn xếp CloudFormation nếu bạn tìm thấy bất kỳ S3 bucket nào còn lại. Hãy nhớ xóa các S3 bucket đó.</description>
+    </item>
+    <item>
+      <title>Tóm tắt</title>
+      <link>http://localhost:1313/vi/7-summary/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/vi/7-summary/index.html</guid>
+      <description>Chúng ta đã đạt được những gì? Tìm hiểu về Data Lakes. Tìm hiểu cách Hydrate Data Lake. Triển khai các dịch vụ để Stream Data Ingestion và Analysis với Kinesis. Triển khai các dịch vụ để Batch Data Ingestion với DMS. Tìm hiểu cách hoạt động trong Data Lake với Glue. Triển khai các dịch vụ để Transforming data với Glue. Tìm hiểu cách truy vấn và trực quan hóa Data Lake với Athena và QuickSight. Tìm hiểu cách tự động hóa Data Lake với AWS Lake Formation. Tìm hiểu cách dọn dẹp và chuẩn hóa dữ liệu với DataBrew. Cảm ơn! Cảm ơn rất nhiều vì đã tham gia hội thảo hôm nay! Chúng tôi hy vọng bạn đã học được điều gì đó và được truyền cảm hứng.</description>
+    </item>
+  </channel>
+</rss>

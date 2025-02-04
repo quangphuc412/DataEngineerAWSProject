@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="vi" dir="vi" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.
+Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Athena and QuickSight :: AWS System Manager">
+    <meta name="twitter:description" content="Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.
+Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:">
+    <meta property="og:url" content="http://localhost:1313/vi/5-queryandvisualize/5.1/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Athena and QuickSight :: AWS System Manager">
+    <meta property="og:description" content="Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.
+Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:">
+    <meta property="og:locale" content="vi">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Athena and QuickSight :: AWS System Manager">
+    <meta itemprop="description" content="Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.
+Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:">
+    <meta itemprop="wordCount" content="1784">
+    <title>Athena and QuickSight :: AWS System Manager</title>
+    <link href="http://localhost:1313/5-queryandvisualize/5.1/index.html" rel="alternate" hreflang="x-default">
+    <link href="http://localhost:1313/5-queryandvisualize/5.1/index.html" rel="alternate" hreflang="en">
+    <link href="http://localhost:1313/vi/5-queryandvisualize/5.1/index.html" rel="alternate" hreflang="vi">
+    <link href="/vi/5-queryandvisualize/5.1/index.xml" rel="alternate" type="application/rss+xml" title="Athena and QuickSight :: AWS System Manager">
+    <link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738650602" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738650602" rel="stylesheet">
+    <link href="/css/fonts.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738650602" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738650602" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738650602" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738650602" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738650602"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Sao chép vào bảng tạm`;
+      window.T_Copied_to_clipboard = `Sao chép vào bảng tạm!`;
+      window.T_Copy_link_to_clipboard = `Sao chép nối kết vào bảng tạm`;
+      window.T_Link_copied_to_clipboard = `Liên kết được sao chép vào bảng tạm!`;
+      window.T_Reset_view = `Đặt lại dạng xem`;
+      window.T_View_reset = `Xem đặt lại!`;
+      window.T_No_results_found = `Không tìm thấy kết quả nào cho "{0}"`;
+      window.T_N_results_found = `{1} kết quả được tìm thấy cho "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/vi/5-queryandvisualize/5.1/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/index.html"><span itemprop="name">Hội thảo về Kỹ Thuật Dữ Liệu</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/5-queryandvisualize/index.html"><span itemprop="name">Truy vấn và trực quan hóa</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Athena and QuickSight</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/5-queryandvisualize/index.html" title="Truy vấn và trực quan hóa (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/5-queryandvisualize/5.2/index.html" title="Athena and SageMaker (Không bắt buộc) (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Nội dung khác"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 5-queryandvisualize" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="athena-and-quicksight">Athena and QuickSight</h1>
+
+<h4 id="các-bước">Các bước</h4>
+<ul>
+<li>Điều kiện tiên quyết</li>
+<li>Bắt đầu</li>
+<li>Truy vấn dữ liệu với Amazon Athena</li>
+<li>Xây dựng bảng điều khiển Amazon QuickSight</li>
+<li>Thiết lập QuickSight</li>
+<li>Tạo biểu đồ QuickSight</li>
+<li>Tạo tham số QuickSight</li>
+<li>Tạo bộ lọc QuickSight</li>
+</ul>
+<h4 id="điều-kiện-tiên-quyết">Điều kiện tiên quyết</h4>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Ghi chú
+  </div>
+  <div class="box-content">
+<p>Các phòng thí nghiệm <a href="/vi/3-ingestion/index.html">Ingestion with Glue</a> và <a href="/vi/4-transforming/index.html">Transforming data with Glue ETL</a> là điều kiện tiên quyết cho phòng thí nghiệm này.</p>
+  </div>
+</div>
+<h4 id="bắt-đầu">Bắt đầu</h4>
+<p>Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:</p>
+<ol>
+<li>Truy vấn dữ liệu và tạo chế độ xem với Amazon Athena</li>
+<li>Nhóm làm việc Athena để kiểm soát quyền truy cập và chi phí truy vấn</li>
+<li>Xây dựng bảng điều khiển với Amazon QuickSight</li>
+</ol>
+<h4 id="truy-vấn-dữ-liệu-với-amazon-athena">Truy vấn dữ liệu với Amazon Athena</h4>
+<ol>
+<li>
+<p>Trong bảng điều khiển dịch vụ AWS, hãy tìm kiếm <strong>Athena</strong>.
+<a href="#R-image-237bddc0e3d938c5cd91e3f748fb1741" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-237bddc0e3d938c5cd91e3f748fb1741"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png"></a></p>
+</li>
+<li>
+<p>Trong <strong>Trình chỉnh sửa truy vấn</strong>, hãy chọn cơ sở dữ liệu mới tạo của bạn, ví dụ: <strong>&ldquo;ticketdata”</strong>.</p>
+</li>
+<li>
+<p>Nhấp vào bảng có tên <strong>&ldquo;parquet_sporting_event_ticket&rdquo;</strong> để kiểm tra các trường. <strong>Lưu ý:</strong> Kiểu cho các trường <strong>id, sporting_event_id</strong> và <strong>ticketholder_id</strong> phải là <strong>(double)</strong>.
+<a href="#R-image-40bb11cefad42ba1a94f82ea0c947c09" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-40bb11cefad42ba1a94f82ea0c947c09"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png"></a>
+Tiếp theo, chúng ta sẽ truy vấn trên các bảng parquet_sporting_event, parquet_sport_team và parquet_sport location.</p>
+</li>
+<li>
+<p>Sao chép cú pháp SQL sau vào tab Truy vấn 1 và nhấp vào <strong>Run</strong>.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">event_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">sport_type_name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">start_date_time</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">event_date_time</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">home_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">away_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">location</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">city</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">parquet_sporting_event</span> <span style="color:#a6e22e">e</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_team</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_team</span> <span style="color:#a6e22e">a</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_location</span> <span style="color:#a6e22e">l</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WHERE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">home_team_id</span> = <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">away_team_id</span> = <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">location_id</span> = <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">id</span>;</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+</ol>
+<ul>
+<li>Kết quả xuất hiện bên dưới cửa sổ truy vấn.
+<a href="#R-image-01afec209ae8a29d244ea52f57e9afeb" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-01afec209ae8a29d244ea52f57e9afeb"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png"></a></li>
+</ul>
+<ol start="5">
+<li>
+<p>Như hình trên, nhấp vào <strong>Tạo</strong> rồi chọn <strong>Xem từ truy vấn</strong></p>
+</li>
+<li>
+<p>Đặt tên cho chế độ xem sporting_event_info và nhấp vào <strong>Tạo</strong>
+<a href="#R-image-bcaa21b65746f983d3335eca0fdcd3f1" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-bcaa21b65746f983d3335eca0fdcd3f1"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png"></a>
+Chế độ xem mới của bạn đã được tạo
+<a href="#R-image-da53fd4c32d920323deb4666e547da3c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-da53fd4c32d920323deb4666e547da3c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png"></a></p>
+</li>
+<li>
+<p>Sao chép cú pháp SQL sau vào <strong>Tab Truy vấn 3</strong>
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">ticket_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_date_time</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">home_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">away_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">location</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">city</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_level</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_section</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_row</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">ticket_price</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">full_name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">ticketholder</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">sporting_event_info</span> <span style="color:#a6e22e">e</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sporting_event_ticket</span> <span style="color:#a6e22e">t</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_person</span> <span style="color:#a6e22e">p</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WHERE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">sporting_event_id</span> = <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">ticketholder_id</span> = <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">id</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Nhấp vào nút <strong>Lưu dưới dạng</strong> Đặt tên cho truy vấn này: <em>create_view_sporting_event_ticket_info</em> và một số mô tả, sau đó nhấp vào <strong>Lưu truy vấn</strong>.
+<a href="#R-image-ee8bb0c668d6243dae652d5ed82a589e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee8bb0c668d6243dae652d5ed82a589e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png"></a></p>
+</li>
+</ol>
+<ul>
+<li>Quay lại trình chỉnh sửa truy vấn, bạn sẽ thấy tên truy vấn đã thay đổi. Bây giờ, nhấp vào <strong>Chạy</strong></li>
+<li>Kết quả xuất hiện bên dưới cửa sổ truy vấn.
+<a href="#R-image-5d535aef3115666e00ed51fc635a6a2b" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5d535aef3115666e00ed51fc635a6a2b"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png"></a></li>
+</ul>
+<ol start="9">
+<li>
+<p>Như được hiển thị ở trên, nhấp vào <strong>Xem từ truy vấn.</strong></p>
+</li>
+<li>
+<p>Đặt tên cho chế độ xem sporting_event_ticket_info và nhấp vào <strong>Tạo.</strong>
+<a href="#R-image-762f77cf476e3f3f7476ba42f7fbc241" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-762f77cf476e3f3f7476ba42f7fbc241"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png"></a></p>
+</li>
+<li>
+<p>Sao chép cú pháp SQL sau vào tab Truy vấn 5.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#a6e22e">distinct</span> <span style="color:#a6e22e">location</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">locations</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#a6e22e">distinct</span> <span style="color:#a6e22e">event_id</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">events</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">tickets</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">avg_ticket_price</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">sporting_event_ticket_info</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">GROUP</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">1</span>;</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Nhấp vào <strong>Lưu dưới dạng</strong> và đặt tên truy vấn này: <em>analytics_sporting_event_ticket_info</em> cùng một số mô tả, sau đó nhấp vào <strong>Lưu</strong>.
+<a href="#R-image-9bf47df45b95566657f27a873a1ac32f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9bf47df45b95566657f27a873a1ac32f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png"></a></p>
+</li>
+<li>
+<p>Tên của Truy vấn mới 5 sẽ được đổi thành tên được chỉ định ở bước trước. Nhấp vào <strong>Chạy</strong>.</p>
+</li>
+<li>
+<p>Truy vấn của bạn trả về hai kết quả trong khoảng năm giây. Truy vấn quét 25 MB dữ liệu, trước khi chuyển đổi sang parquet, dữ liệu này sẽ là 1,59 GB tệp CSV.
+<a href="#R-image-6bdceb133fe29b241fd9f0319d114003" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6bdceb133fe29b241fd9f0319d114003"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png"></a></p>
+</li>
+<li>
+<p>Mục đích của việc lưu các truy vấn là để phân biệt rõ ràng giữa các kết quả của các truy vấn đang chạy trên một chế độ xem. Nếu không, kết quả truy vấn của bạn sẽ được lưu trong thư mục &ldquo;Chưa lưu&rdquo; trong vị trí thùng S3 được cung cấp cho Athena để lưu trữ kết quả truy vấn. Vui lòng điều hướng đến thùng S3 để quan sát những thay đổi này, như được hiển thị bên dưới:
+<a href="#R-image-c38e675cb23ce0fe642689abdf89def4" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c38e675cb23ce0fe642689abdf89def4"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png"></a></p>
+</li>
+</ul>
+<h4 id="tạo-bảng-điều-khiển-amazon-quicksight">Tạo Bảng điều khiển Amazon QuickSight</h4>
+<h5 id="thiết-lập-quicksight">Thiết lập QuickSight</h5>
+<ol>
+<li>
+<p>Trong bảng điều khiển dịch vụ AWS, hãy tìm kiếm <strong>QuickSight</strong>.
+<a href="#R-image-58d00a7051126b500018d99c917e0564" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-58d00a7051126b500018d99c917e0564"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png"></a>
+Nếu đây là lần đầu tiên bạn sử dụng QuickSight, bạn sẽ được nhắc tạo tài khoản.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Đăng ký QuickSight</strong>.</p>
+</li>
+<li>
+<p>Đối với loại tài khoản, hãy chọn Phiên bản <strong>Doanh nghiệp</strong> mặc định.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Tiếp tục</strong>.</p>
+</li>
+<li>
+<p>Trên trang Tạo tài khoản QuickSight của bạn, hãy chọn <em>Không, Có thể sau</em> cho tiện ích bổ sung Báo cáo được phân trang. Trên màn hình mới, hãy giữ nguyên lựa chọn mặc định cho phương thức xác thực.</p>
+</li>
+<li>
+<p>Tiếp theo, hãy chọn vùng AWS phù hợp dựa trên nơi bạn đang chạy hội thảo này và các hộp kiểm để bật tính năng tự động phát hiện, Amazon Athena và Amazon S3. Đối với tên tài khoản QuickSight, hãy cung cấp tên duy nhất (ví dụ: quicksight-lab-<!-- raw HTML omitted -->-<!-- raw HTML omitted -->) và địa chỉ email.</p>
+</li>
+<li>
+<p>Chọn thùng DMS của bạn (ví dụ: &ldquo;xxx-dmslabs3bucket-xxx&rdquo;), Nhấp vào <strong>Hoàn tất</strong>.
+<a href="#R-image-03d7a41ebee8467eb4d3bc110e4b054e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-03d7a41ebee8467eb4d3bc110e4b054e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png"></a>
+<a href="#R-image-49ba8f6e5dae7d6961d91f7c209970d0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-49ba8f6e5dae7d6961d91f7c209970d0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png"></a>
+<a href="#R-image-e9979fe66e9d68be330d4d45961917d6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e9979fe66e9d68be330d4d45961917d6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png"></a>
+Vui lòng nhấp vào <strong>Hoàn tất</strong></p>
+</li>
+<li>
+<p>Ở góc trên bên phải, nhấp vào <strong>Phân tích mới</strong>.
+<a href="#R-image-aee5d4c7a8dc9e9735d277390dc18d9f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-aee5d4c7a8dc9e9735d277390dc18d9f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào <strong>Bộ dữ liệu mới</strong>.
+<a href="#R-image-f1f9fc706eba34a5d832ec15cb1f21c5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f1f9fc706eba34a5d832ec15cb1f21c5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png"></a></p>
+</li>
+<li>
+<p>Trên trang <strong>Tạo Bộ dữ liệu</strong>, chọn <strong>Athena</strong> làm nguồn dữ liệu.
+<a href="#R-image-b179d48b068ade50f43d5681149a8b08" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b179d48b068ade50f43d5681149a8b08"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png"></a></p>
+</li>
+<li>
+<p>Đối với Tên nguồn dữ liệu, nhập <em>ticketdata-qs</em>, sau đó nhấp vào <strong>Xác thực kết nối</strong>.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Tạo nguồn dữ liệu</strong>.
+<a href="#R-image-0e73d7ce2bc4dbe6ea443fb672600c26" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0e73d7ce2bc4dbe6ea443fb672600c26"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png"></a></p>
+</li>
+<li>
+<p>Trong danh sách thả xuống Cơ sở dữ liệu, chọn cơ sở dữ liệu <strong>ticketdata</strong>.</p>
+</li>
+<li>
+<p>Chọn bảng &ldquo;<strong>sporting_event_ticket_info</strong>&rdquo; và nhấp vào <strong>Chọn</strong>.
+<a href="#R-image-b4336a410b9665d6b8334acecc7343c0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b4336a410b9665d6b8334acecc7343c0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png"></a></p>
+</li>
+<li>
+<p>Để hoàn tất việc tạo tập dữ liệu, hãy chọn tùy chọn <strong>Nhập vào SPICE để phân tích nhanh hơn</strong> và nhấp vào <strong>Trực quan hóa</strong>. Nếu SPICE của bạn có 0 byte khả dụng, hãy chọn tùy chọn thứ hai Truy vấn trực tiếp dữ liệu của bạn.
+<a href="#R-image-23f29ed6da26d411880b3526b0c8a01b" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-23f29ed6da26d411880b3526b0c8a01b"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png"></a></p>
+</li>
+</ol>
+<h5 id="tạo-biểu-đồ-quicksight">Tạo Biểu đồ QuickSight</h5>
+<p>Trong phần này, chúng tôi sẽ hướng dẫn bạn một số loại biểu đồ khác nhau.</p>
+<ol>
+<li>
+<p>Trong danh sách Trường, hãy nhấp vào cột <strong>ticket_price</strong> để điền vào biểu đồ.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>biểu tượng mở rộng</strong> ở góc của trường &ldquo;ticket_price&rdquo; và chọn <strong>Hiển thị dưới dạng Tiền tệ</strong> để hiển thị số theo giá trị đô la.
+<a href="#R-image-f02960d380730d47eedf376a0b486d55" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f02960d380730d47eedf376a0b486d55"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png"></a></p>
+</li>
+<li>
+<p>Bạn có thể <strong>thêm hình ảnh</strong> bằng cách nhấp vào <strong>nút Thêm</strong> từ ngăn Hình ảnh của màn hình.</p>
+</li>
+</ol>
+<ul>
+<li>Trong khu vực <strong>Kiểu hình ảnh</strong>, hãy chọn biểu tượng <strong>Biểu đồ thanh dọc</strong>.</li>
+<li>Bố cục này yêu cầu một giá trị cho trục X. Trong danh sách Trường, hãy chọn trường <strong>event_date_time</strong> và bạn sẽ thấy bản cập nhật hình ảnh.</li>
+<li>Đối với Giá trị <strong>Trục Y</strong>, hãy chọn <strong>“ticket_price”</strong> từ danh sách Trường.
+<a href="#R-image-c876623e3b618489f5ac4789d4cc10ba" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c876623e3b618489f5ac4789d4cc10ba"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png"></a></li>
+</ul>
+<ol start="4">
+<li>
+<p>Bạn có thể kéo và di chuyển các hình ảnh khác để điều chỉnh không gian trong bảng điều khiển. Trong danh sách Trường, nhấp và kéo trường <strong>seat_level</strong> vào hộp <strong>Group/Color</strong>. Bạn cũng có thể sử dụng thanh trượt bên dưới trục x để phù hợp với tất cả dữ liệu.
+<a href="#R-image-7196b3eca090f984e9ec4605c5574a42" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7196b3eca090f984e9ec4605c5574a42"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png"></a>
+Chúng ta hãy xây dựng thêm một bước nữa bằng cách thay đổi loại biểu đồ:</p>
+</li>
+<li>
+<p>Trong ngăn Hình ảnh, nhấp vào <strong>Biểu đồ thanh dọc</strong> bên dưới thay đổi loại hình ảnh và chọn biểu tượng <strong>Biểu đồ kết hợp thanh nhóm</strong>.</p>
+</li>
+<li>
+<p>Trong danh sách Trường, nhấp và kéo trường <strong>ticketholder</strong> vào hộp Dòng.</p>
+</li>
+<li>
+<p>Trong hộp Dòng, nhấp vào hộp thả xuống và chọn <strong>Tổng hợp: Đếm riêng biệt</strong> cho Tổng hợp. Sau đó, bạn có thể thấy bản cập nhật trục y ở phía bên phải.
+<a href="#R-image-10582644b29a8ccd3b16461a7fe8294f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-10582644b29a8ccd3b16461a7fe8294f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào biểu tượng insight trên thanh Công cụ và khám phá thông tin insight bằng tiếng Anh đơn giản.
+<a href="#R-image-283570d228010d5320ca6c10a8c9c54e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-283570d228010d5320ca6c10a8c9c54e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png"></a>
+Hãy thoải mái thử nghiệm với các loại biểu đồ và trường khác nhau để hiểu rõ hơn về dữ liệu.</p>
+</li>
+</ol>
+<h5 id="tạo-tham-số-quicksight">Tạo tham số QuickSight</h5>
+<p>Trong phần tiếp theo, chúng ta sẽ tạo một số tham số có điều khiển cho bảng điều khiển, sau đó gán chúng cho bộ lọc cho tất cả hình ảnh.</p>
+<ol>
+<li>
+<p>Từ thanh công cụ, chọn biểu tượng <strong>Tham số</strong>.
+<a href="#R-image-2baa70e4c41f758a49fd24c69f73e9a0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2baa70e4c41f758a49fd24c69f73e9a0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào <strong>Thêm</strong> để tạo tham số mới có Tên.</p>
+</li>
+<li>
+<p>Đối với Tên, nhập <em>EventFrom</em>.</p>
+</li>
+<li>
+<p>Đối với Kiểu dữ liệu, chọn <strong>Ngày giờ</strong>.</p>
+</li>
+<li>
+<p>Đối với Độ chi tiết thời gian, đặt <strong>Giờ</strong>.</p>
+</li>
+<li>
+<p>Đối với Giá trị mặc định, hãy chọn giá trị từ lịch làm ngày bắt đầu có trong biểu đồ của bạn cho <strong>event_date_time</strong>. Ví dụ: <em>2021-01-01 00:00</em>.</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Tạo</strong>, sau đó <strong>đóng</strong> hộp thoại Tham số đã thêm.
+<a href="#R-image-58ebf525bb1be632bc6642c8aefe78e9" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-58ebf525bb1be632bc6642c8aefe78e9"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png"></a></p>
+</li>
+<li>
+<p>Tạo một tham số khác với các thuộc tính sau:</p>
+</li>
+</ol>
+<ul>
+<li><strong>Name:</strong> <em>EventTo</em></li>
+<li><strong>Data type:</strong> <em>Datetime</em></li>
+<li>Đối với <strong>Time granularity</strong>, hãy đặt <strong>Hour</strong>.</li>
+<li>Đối với Default value, hãy chọn giá trị từ lịch làm ngày kết thúc có trong biểu đồ của bạn cho <strong>event_date_time</strong>. Ví dụ: <em>2022-01-01 00:00</em></li>
+<li>Nhấp vào <strong>Create</strong>
+<a href="#R-image-758414ef9f402230092dcf7b8bbc38bd" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-758414ef9f402230092dcf7b8bbc38bd"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png"></a></li>
+</ul>
+<ol start="9">
+<li>
+<p>Trong cửa sổ tiếp theo, bạn có thể chọn bất kỳ tùy chọn nào để thực hiện bất kỳ thao tác nào với tham số. Ngoài ra, bạn có thể nhấp vào ba dấu chấm cho tham số <strong>EventFrom</strong> và chọn <strong>Add control</strong>.
+<a href="#R-image-f08bf46b893c9d3ca8800e35f6023be0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f08bf46b893c9d3ca8800e35f6023be0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png"></a></p>
+</li>
+<li>
+<p>Đối với Tên hiển thị, hãy chỉ định <strong>Sự kiện từ</strong> và nhấp vào <strong>Thêm</strong>.
+<a href="#R-image-ee1862d0cada02b81c278ffdc17dfd7c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee1862d0cada02b81c278ffdc17dfd7c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png"></a></p>
+</li>
+<li>
+<p>Lặp lại quy trình để thêm điều khiển cho <em>EventTo</em> với tên hiển thị là <em>Event To</em>
+<a href="#R-image-b33de19b4c67d6f1d4ce925f744fcaa5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b33de19b4c67d6f1d4ce925f744fcaa5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png"></a>
+Bây giờ bạn có thể thấy và mở rộng phần Điều khiển phía trên biểu đồ.
+<a href="#R-image-287b04b923092334f33d93f0943ffd31" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-287b04b923092334f33d93f0943ffd31"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png"></a></p>
+</li>
+</ol>
+<h5 id="tạo-bộ-lọc-quicksight">Tạo Bộ lọc QuickSight</h5>
+<p>Để hoàn tất quy trình, chúng tôi sẽ kết nối bộ lọc với các điều khiển này cho tất cả hình ảnh.</p>
+<ol>
+<li>
+<p>Từ thanh Công cụ, chọn <strong>Bộ lọc</strong>.</p>
+</li>
+<li>
+<p>Nhấp vào biểu tượng dấu cộng (+) để thêm bộ lọc cho trường <strong>event_date_time</strong>.
+<a href="#R-image-ebad5ce72ea778a9a6908e620477593d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ebad5ce72ea778a9a6908e620477593d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào bộ lọc này để <strong>chỉnh sửa</strong> các thuộc tính.</p>
+</li>
+<li>
+<p>Chọn <strong>Tất cả hình ảnh áp dụng</strong> trong danh sách thả xuống <strong>Áp dụng cho</strong></p>
+</li>
+<li>
+<p>Đối với loại Bộ lọc, chọn <strong>Phạm vi Ngày &amp; Giờ</strong> và Điều kiện là <strong>Giữa</strong>.</p>
+</li>
+<li>
+<p>Chọn tùy chọn <strong>Sử dụng Tham số</strong>, nhấp vào <strong>Có</strong> để áp dụng cho tất cả hình ảnh.</p>
+</li>
+<li>
+<p>Đối với <strong>Tham số Ngày bắt đầu</strong>, chọn <strong>EventFrom</strong>.</p>
+</li>
+<li>
+<p>Đối với <strong>Tham số Ngày kết thúc</strong>, chọn <strong>EventTo</strong>.
+<a href="#R-image-44d41dd4e5e1957b58649de7f0aa133f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-44d41dd4e5e1957b58649de7f0aa133f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào <strong>Áp dụng</strong>.</p>
+</li>
+</ol>
+<p>Bây giờ bạn có thể nhấp vào <strong>Xuất bản</strong> ở góc trên bên phải màn hình để xuất bản hình ảnh của mình. Bạn cũng có thể chia sẻ bằng cách nhấp vào menu <strong>Chia sẻ</strong>.</p>
+<p>Bảng điều khiển là ảnh chụp nhanh chỉ đọc của một phân tích mà bạn có thể chia sẻ với những người dùng Amazon QuickSight khác cho mục đích báo cáo. Trong Bảng điều khiển, những người dùng khác vẫn có thể sử dụng hình ảnh và dữ liệu nhưng điều đó sẽ không sửa đổi tập dữ liệu.</p>
+<p>Bạn có thể chia sẻ một phân tích với một hoặc nhiều người dùng khác mà bạn muốn cộng tác để tạo hình ảnh. Phân tích cung cấp các cách sử dụng khác để viết và sửa đổi tập dữ liệu.</p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.vi.js?1738650602";
+        </script>
+        <search><form action="/vi/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Tìm kiếm (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Tìm kiếm</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Tìm kiếm...">
+            <button class="search-clear" type="button" data-search-clear="" title="Xóa tìm kiếm"><i class="fas fa-times" title="Xóa tìm kiếm"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['vi'];
+        </script>
+        <script src="/js/auto-complete.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.vi.min.js?1738650602" defer></script>
+        <script src="/js/search.js?1738650602" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/vi/1-introduction/index.html"><a class="padding" href="/vi/1-introduction/index.html">1. Giới thiệu<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/2-prepare/index.html"><a class="padding" href="/vi/2-prepare/index.html">2. Chuẩn bị<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/3-ingestion/index.html"><a class="padding" href="/vi/3-ingestion/index.html">3. Thu thập dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/vi/4-transforming/index.html"><a class="padding" href="/vi/4-transforming/index.html">4. Chuyển đổi dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/vi/5-queryandvisualize/index.html"><a class="padding" href="/vi/5-queryandvisualize/index.html">5. Truy vấn và trực quan hóa<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu">
+            <li class="active " data-nav-id="/vi/5-queryandvisualize/5.1/index.html"><a class="padding" href="/vi/5-queryandvisualize/5.1/index.html">5.1. Athena and QuickSight<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/5-queryandvisualize/5.2/index.html"><a class="padding" href="/vi/5-queryandvisualize/5.2/index.html">5.2. Athena and SageMaker (Không bắt buộc)<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/vi/6-cleanresource/index.html"><a class="padding" href="/vi/6-cleanresource/index.html">6. Dọn dẹp tài nguyên<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/7-summary/index.html"><a class="padding" href="/vi/7-summary/index.html">7. Tóm tắt<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Ngôn ngữ</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/5-queryandvisualize/5.1/index.html" lang="en">English</option>
+                      <option id="R-select-language-vi" value="#R-select-language-vi" data-url="/vi/5-queryandvisualize/5.1/index.html" lang="vi" selected>Tiếng Việt</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Đề tài</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Xóa lịch sử..</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1738650602" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738650602" defer></script>
+    <script src="/js/theme.js?1738650602" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

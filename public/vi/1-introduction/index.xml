@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Giới thiệu :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/1-introduction/index.html</link>
+    <description>Bạn sẽ làm gì trong các bài Lab này? Các bài Lab này được thiết kế để hoàn thành theo trình tự và hướng dẫn đầy đủ được ghi lại bên dưới. Đọc và làm theo để hoàn thành các bài Lab.&#xA;Các mẫu kiến ​​trúc Ban đầu bạn sẽ thực hiện Thu thập dữ liệu Thực hiện chuyển đổi dữ liệu</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/1-introduction/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

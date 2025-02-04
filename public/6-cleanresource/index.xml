@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clean Resource :: AWS System Manager</title>
+    <link>http://localhost:1313/6-cleanresource/index.html</link>
+    <description>Cleanup: To avoid unexpected chargers to your account, make sure you clean up your account. To delete the CloudFormation templates using the AWS Management Console -&gt; Login to AWS Management Console and navigate to Services → Management &amp; Governance → CloudFormation. OR Navigate to AWS CloudFormation&#xA;To delete the CloudFormation templates using the AWS Management Console → Login to AWS Management Console and navigate Services → Management &amp; Governance → CloudFormation. Delete the stack from latest to oldest. Note After deleting the CloudFormation stacks if you find any remaining S3 buckets. Remember to delete those S3 buckets.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/6-cleanresource/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xác thực dữ liệu và ETL với Glue :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/4-transforming/4.1/index.html</link>
+    <description>PHẦN A: Tạo Glue Crawler cho dữ liệu tải đầy đủ ban đầu Điều hướng đến AWS Glue Console Trên menu AWS Glue, trong ‘Data Catalog’, chọn Crawlers. Nhấp vào Create crawler.&#xA;Nhập glue-lab-crawler làm tên crawler cho dữ liệu tải ban đầu.&#xA;Tùy chọn, nhập mô tả. Mô tả này cũng phải mô tả và dễ nhận biết, sau đó Nhấp vào Next.</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/4-transforming/4.1/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

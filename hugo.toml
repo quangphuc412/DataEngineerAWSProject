@@ -1,0 +1,33 @@
+baseURL = 'https://example.org/'
+languageCode = 'en'
+title = 'My New Hugo Site'
+theme = 'hugo-theme-relearn'
+
+[outputs]
+  home = ['HTML', 'RSS']
+
+[params]
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = 'workshop'
+
+  disableLandingPageButton = true
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  disableToc = true
+
+defaultContentLanguage = 'en'
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'English'
+    title = 'AWS System Manager'
+    weight = 1
+
+  [languages.vi]
+    languageCode = 'vi'
+    languageDirection = 'vi'
+    languageName = 'Tiếng Việt'
+    title = 'AWS System Manager'
+    weight = 2

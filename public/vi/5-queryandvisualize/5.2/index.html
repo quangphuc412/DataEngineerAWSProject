@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi" dir="vi" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.
+Bạn sẽ học:
+Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Athena and SageMaker (Không bắt buộc) :: AWS System Manager">
+    <meta name="twitter:description" content="Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.
+Bạn sẽ học:
+Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.">
+    <meta property="og:url" content="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Athena and SageMaker (Không bắt buộc) :: AWS System Manager">
+    <meta property="og:description" content="Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.
+Bạn sẽ học:
+Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.">
+    <meta property="og:locale" content="vi">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Athena and SageMaker (Không bắt buộc) :: AWS System Manager">
+    <meta itemprop="description" content="Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.
+Bạn sẽ học:
+Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.">
+    <meta itemprop="wordCount" content="1186">
+    <title>Athena and SageMaker (Không bắt buộc) :: AWS System Manager</title>
+    <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="x-default">
+    <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="en">
+    <link href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="vi">
+    <link href="/vi/5-queryandvisualize/5.2/index.xml" rel="alternate" type="application/rss+xml" title="Athena and SageMaker (Không bắt buộc) :: AWS System Manager">
+    <link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738650602" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738650602" rel="stylesheet">
+    <link href="/css/fonts.css?1738650602" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738650602" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738650602" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738650602" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738650602" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738650602" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738650602"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Sao chép vào bảng tạm`;
+      window.T_Copied_to_clipboard = `Sao chép vào bảng tạm!`;
+      window.T_Copy_link_to_clipboard = `Sao chép nối kết vào bảng tạm`;
+      window.T_Link_copied_to_clipboard = `Liên kết được sao chép vào bảng tạm!`;
+      window.T_Reset_view = `Đặt lại dạng xem`;
+      window.T_View_reset = `Xem đặt lại!`;
+      window.T_No_results_found = `Không tìm thấy kết quả nào cho "{0}"`;
+      window.T_N_results_found = `{1} kết quả được tìm thấy cho "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/vi/5-queryandvisualize/5.2/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/index.html"><span itemprop="name">Hội thảo về Kỹ Thuật Dữ Liệu</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vi/5-queryandvisualize/index.html"><span itemprop="name">Truy vấn và trực quan hóa</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Athena and SageMaker (Không bắt buộc)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/5-queryandvisualize/5.1/index.html" title="Athena and QuickSight (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vi/6-cleanresource/index.html" title="Dọn dẹp tài nguyên (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Nội dung khác"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 5-queryandvisualize" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="athena-and-sagemaker-không-bắt-buộc">Athena and SageMaker (Không bắt buộc)</h1>
+
+<h4 id="giới-thiệu">Giới thiệu</h4>
+<p><a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.</p>
+<p>Bạn sẽ học:</p>
+<ul>
+<li>Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena</li>
+<li>Điền khung dữ liệu để thao tác dữ liệu.</li>
+</ul>
+<p><a href="#R-image-628b3176c13dae74f72844c142a19f43" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-628b3176c13dae74f72844c142a19f43"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
+<p>Quy trình chuẩn bị dữ liệu này để đáp ứng nhu cầu của các thuật toán ML là lặp đi lặp lại. Để chuẩn bị dữ liệu, chúng tôi sẽ cung cấp các định nghĩa bảng trong Athena trong sổ ghi chép Jupyter trong SageMaker.</p>
+<p>Sổ ghi chép Jupyter rất phổ biến trong giới khoa học dữ liệu và được sử dụng để trực quan hóa dữ liệu, thực hiện phân tích thống kê, hoàn tất thao tác dữ liệu và chuẩn bị dữ liệu cho công việc học máy.</p>
+<h4 id="điều-kiện-tiên-quyết">Điều kiện tiên quyết</h4>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Ghi chú
+  </div>
+  <div class="box-content">
+<p>Các phòng thí nghiệm <a href="3-Nh%E1%BA%ADp/">Nhập bằng Glue</a> và [Chuyển đổi dữ liệu bằng Glue ETL](4-Chuyển đổi/) là điều kiện tiên quyết cho phòng thí nghiệm này.</p>
+  </div>
+</div>
+<h4 id="tạo-amazon-sagemaker-notebook-instance">Tạo Amazon SageMaker Notebook Instance</h4>
+<ol>
+<li>
+<p>Đi đến <a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> từ bảng điều khiển AWS
+<a href="#R-image-1c0405f60f92133b62fab8311e0bad0f" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1c0405f60f92133b62fab8311e0bad0f"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
+</li>
+<li>
+<p>Trong ngăn điều hướng Amazon SageMaker, hãy đi đến <strong>Notebook instances</strong> và nhấp vào <strong>Create notebook instance</strong>.
+<a href="#R-image-4251e445135a827b7511a867528d5d7d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4251e445135a827b7511a867528d5d7d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
+</li>
+<li>
+<p>Nhập các giá trị sau để tạo notebook instance</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Nhập tên cho Notebook instance, ví dụ: <em>datalake-Sagemaker</em></p>
+</li>
+<li>
+<p>Bạn có thể để Notebook instance type làm giá trị mặc định <strong>ml.t3.medium</strong> cho phòng thí nghiệm này</p>
+</li>
+<li>
+<p>Để Elastic Inference là <em>none</em>. Điều này là để thêm tài nguyên bổ sung.</p>
+</li>
+<li>
+<p>Trong <strong>Vai trò IAM</strong>, chúng ta cần chọn một vai trò cho phiên bản sổ tay trong Amazon SageMaker để tương tác với Amazon S3. Vì vai trò không tồn tại, từ tùy chọn thả xuống, hãy chọn <strong>Tạo vai trò mới</strong>.</p>
+</li>
+<li>
+<p>Trong cửa sổ bật lên <strong>Tạo vai trò IAM</strong>, hãy chọn <strong>Bất kỳ thùng S3 nào</strong> như hiển thị bên dưới và nhấp vào <strong>Tạo vai trò</strong>.
+<a href="#R-image-180c9e26b5ec16c7ac7d7a32c9e5cf11" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-180c9e26b5ec16c7ac7d7a32c9e5cf11"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
+</li>
+<li>
+<p>Sau khi vai trò IAM được tạo, hãy nhấp vào liên kết đến vai trò IAM, thao tác này sẽ mở vai trò IAM trong một tab mới. Chúng ta sẽ thêm quyền IAM để cho phép truy cập vào Athena từ SageMaker.
+<a href="#R-image-ee234d70e1db4a05dde7d7f9d8e7f758" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee234d70e1db4a05dde7d7f9d8e7f758"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
+</li>
+<li>
+<p>Nhấp vào <strong>Thêm quyền</strong> và chọn <strong>Đính kèm chính sách</strong>.</p>
+</li>
+<li>
+<p>Lọc chính sách theo <strong>“Athena”</strong>, kiểm tra chính sách được quản lý <strong>AmazonAthenaFullAccess</strong> và nhấp vào nút <strong>Đính kèm chính sách</strong> ở cuối màn hình.
+<a href="#R-image-69345927334b2c0e914afdc78531d8f1" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-69345927334b2c0e914afdc78531d8f1"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
+</li>
+<li>
+<p>Quay lại tab trình duyệt <strong>SageMaker Create notebook instance</strong>.</p>
+</li>
+<li>
+<p>Để nguyên tất cả các tùy chọn khác với giá trị mặc định. Nhấp vào <strong>Create notebook instance</strong>.</p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p>Đợi notebook instance được tạo và Trạng thái thay đổi thành <strong>InService</strong>. Nhấp vào liên kết <strong>Open Jupyter</strong> trong cột <strong>Actions</strong>.
+<a href="#R-image-1734750f86c00ce74b8703e799099e3f" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1734750f86c00ce74b8703e799099e3f"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
+</li>
+<li>
+<p>Giao diện notebook mở ra trong một tab mới.
+<a href="#R-image-4b96546980c180ecc5e2051bc051cfe2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4b96546980c180ecc5e2051bc051cfe2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
+</li>
+</ol>
+<h4 id="kết-nối-sổ-ghi-chép-sagemaker-jupyter-với-athena">Kết nối sổ ghi chép SageMaker Jupyter với Athena</h4>
+<ol>
+<li>
+<p>Trong tab sổ ghi chép Jupyter, nhấp vào <strong>Mới</strong> và chọn <strong>conda_python3</strong> cho hạt nhân. Thao tác này sẽ mở sổ ghi chép trong một tab mới.
+<a href="#R-image-07fa9405524ae46d589a2b88bed9dafc" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-07fa9405524ae46d589a2b88bed9dafc"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Ghi chú
+  </div>
+  <div class="box-content">
+<p>Amazon SageMaker cung cấp một số hạt nhân cho Jupyter, bao gồm hỗ trợ cho Python 3, MXNet, TensorFlow và PySpark. Bài tập này sử dụng Python vì nó bao gồm thư viện pandas.</p>
+  </div>
+</div>
+</li>
+<li>
+<p>Trong sổ ghi chép, nhập lệnh sau vào một ô và nhấp vào <strong>Chạy</strong> để cài đặt trình điều khiển Athena JDBC. (PyAthena là một ứng dụng khách tương thích với Python <a href="https://www.python.org/dev/peps/pep-0249/" rel="external" target="_blank">DB API 2.0 (PEP 249)</a> dành cho <a href="http://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html" rel="external" target="_blank">trình điều khiển Amazon Athena JDBC</a>.)
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>!<span style="color:#a6e22e">pip</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">PyAthena</span>[<span style="color:#a6e22e">SQLAlchemy</span>]</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+<p><a href="#R-image-cfa73d29f3aa5111468a450321d12fea" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-cfa73d29f3aa5111468a450321d12fea"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
+<p>Kiểm tra đầu ra rằng PyAthena đã được cài đặt thành công. Nếu bạn thấy lỗi liên quan đến awscli 1.x, bạn có thể bỏ qua.</p>
+</li>
+</ol>
+<h4 id="làm-việc-trong-pandas">Làm việc trong Pandas</h4>
+<p>Sau khi trình điều khiển Athena được cài đặt, bạn có thể sử dụng kết nối JDBC để kết nối với Athena và điền vào khung dữ liệu pandas. Đối với các nhà khoa học dữ liệu, làm việc với dữ liệu thường được chia thành nhiều giai đoạn: thu thập và làm sạch dữ liệu, phân tích và lập mô hình dữ liệu, sau đó sắp xếp kết quả phân tích thành một biểu mẫu phù hợp để vẽ đồ thị hoặc hiển thị dạng bảng. Pandas là công cụ lý tưởng cho tất cả các tác vụ này.</p>
+<ol>
+<li>
+<p>Bạn có thể tải dữ liệu bảng Athena từ kho dữ liệu vào khung dữ liệu pandas và áp dụng máy học. Sao chép mã sau vào ô sổ ghi chép của bạn và thay thế bằng vùng, vị trí thùng S3 và tên cơ sở dữ liệu của bạn.</p>
+<p>Vùng của bạn: chạy lệnh sau trong ô sổ ghi chép để lấy vùng AWS hiện tại.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>!<span style="color:#a6e22e">aws</span> <span style="color:#a6e22e">configure</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">region</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+<p>Tên Cơ sở dữ liệu Athena của bạn, đây là tên Cơ sở dữ liệu Glue mà bạn đã tạo trong phòng thí nghiệm Glue, ví dụ: <strong>ticketdata</strong>. Cập nhật vị trí thùng S3 có tên chứa chuỗi <em>ingestion-data-skip-dms-lab</em> theo sau là <strong>athena/</strong>, để trông giống như s3://ingestion-data-skip-dms-lab/athena/.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">from</span> <span style="color:#a6e22e">sqlalchemy</span> <span style="color:#f92672">import</span> <span style="color:#a6e22e">create_engine</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">pandas</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">pd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">s3_staging_dir</span> = <span style="color:#e6db74">&#34;s3://ingestion-data-skip-dms-lab/athena/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">connection_string</span> = <span style="color:#a6e22e">f</span><span style="color:#e6db74">&#34;awsathena+rest://:@athena.us-east-1.amazonaws.com:443/ticketdata?s3_staging_dir={s3_staging_dir}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">engine</span> = <span style="color:#a6e22e">create_engine</span>(<span style="color:#a6e22e">connection_string</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span> = <span style="color:#a6e22e">pd</span>.<span style="color:#a6e22e">read_sql</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;ticketdata&#34;</span>.<span style="color:#e6db74">&#34;nfl_stadium_data&#34;</span> <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">stadium</span> <span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">10</span>;<span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">engine</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Chạy</strong> và khung dữ liệu sẽ hiển thị đầu ra truy vấn.
+<a href="#R-image-88cfda12d402a15d5ae712f71cbfac5f" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-88cfda12d402a15d5ae712f71cbfac5f"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
+Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận động nfl vào khung dữ liệu pandas từ bảng nfl_stadium_data.</p>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Ghi chú
+  </div>
+  <div class="box-content">
+<p>Nếu bạn gặp lỗi SageMaker không có quyền thực thi Athena. Bạn cần thêm Athena Access vào vai trò Sagemaker như các bước cung cấp trong phần trước.</p>
+  </div>
+</div>
+</li>
+<li>
+<p>Bạn có thể áp dụng các thuật toán ML khác nhau trong các khung dữ liệu pandas đã điền. Ví dụ: vẽ sơ đồ dữ liệu. Sao chép mã sau vào sổ ghi chép của bạn. Trong truy vấn này, bạn đang tải tất cả thông tin về vé chẵn vào khung dữ liệu pandas từ bảng <em>sporting_event_ticket_info</em>.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">df</span> = <span style="color:#a6e22e">pd</span>.<span style="color:#a6e22e">read_sql</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">sport</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">event_date_time</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">home_team</span>,<span style="color:#a6e22e">away_team</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">city</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">tickets</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">total_tickets_amt</span>, \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">avg_ticket_price</span>, \
+</span></span><span style="display:flex;"><span>    max(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">max_ticket_price</span>, \
+</span></span><span style="display:flex;"><span>    min(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">min_ticket_price</span>  \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;ticketdata&#34;</span>.<span style="color:#e6db74">&#34;sporting_event_ticket_info&#34;</span> \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">group</span> <span style="color:#a6e22e">by</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span> \
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>  <span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">1000</span>;<span style="color:#960050;background-color:#1e0010">&#39;</span>, <span style="color:#a6e22e">engine</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Nhấp vào <strong>Chạy</strong> và khung dữ liệu sẽ hiển thị đầu ra truy vấn.
+<a href="#R-image-8b19d71ba0fe7d8f93e47d809ac22322" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8b19d71ba0fe7d8f93e47d809ac22322"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
+</li>
+<li>
+<p>Trong ô thực thi mới, sao chép mã sau
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">matplotlib</span>.<span style="color:#a6e22e">pyplot</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df</span>.<span style="color:#a6e22e">plot</span>(<span style="color:#a6e22e">x</span>=<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">event_date_time</span><span style="color:#960050;background-color:#1e0010">&#39;</span>,<span style="color:#a6e22e">y</span>=<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">avg_ticket_price</span><span style="color:#960050;background-color:#1e0010">&#39;</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Nhấp vào Chạy và bạn sẽ thấy biểu đồ dữ liệu được vẽ bằng thư viện matplotlib.
+<a href="#R-image-ee85db858eabfaba44178035d45c1649" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee85db858eabfaba44178035d45c1649"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
+</li>
+</ol>
+<h4 id="dọn-dẹp">Dọn dẹp</h4>
+<ol>
+<li>Đi đến <a href="https://console.aws.amazon.com/sagemaker/home#/notebook-instances" rel="external" target="_blank">SageMaker Notebook Instances console</a></li>
+<li>Chọn phiên bản notebook mà bạn đã tạo, ví dụ: <em>datalake-Sagemaker</em>.</li>
+<li>Chọn <strong>Actions → Stop</strong>, phiên bản notebook sẽ mất vài phút để dừng.</li>
+<li>Sau khi phiên bản notebook dừng, hãy chọn <strong>Actions → Delete</strong> và chọn <strong>Delete</strong> trong cửa sổ bật lên xác nhận để xóa phiên bản.</li>
+</ol>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.vi.js?1738650602";
+        </script>
+        <search><form action="/vi/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Tìm kiếm (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Tìm kiếm</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Tìm kiếm...">
+            <button class="search-clear" type="button" data-search-clear="" title="Xóa tìm kiếm"><i class="fas fa-times" title="Xóa tìm kiếm"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['vi'];
+        </script>
+        <script src="/js/auto-complete.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738650602" defer></script>
+        <script src="/js/lunr/lunr.vi.min.js?1738650602" defer></script>
+        <script src="/js/search.js?1738650602" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/vi/1-introduction/index.html"><a class="padding" href="/vi/1-introduction/index.html">1. Giới thiệu<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/2-prepare/index.html"><a class="padding" href="/vi/2-prepare/index.html">2. Chuẩn bị<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/3-ingestion/index.html"><a class="padding" href="/vi/3-ingestion/index.html">3. Thu thập dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/vi/4-transforming/index.html"><a class="padding" href="/vi/4-transforming/index.html">4. Chuyển đổi dữ liệu<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/vi/5-queryandvisualize/index.html"><a class="padding" href="/vi/5-queryandvisualize/index.html">5. Truy vấn và trực quan hóa<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu">
+            <li class="" data-nav-id="/vi/5-queryandvisualize/5.1/index.html"><a class="padding" href="/vi/5-queryandvisualize/5.1/index.html">5.1. Athena and QuickSight<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="active " data-nav-id="/vi/5-queryandvisualize/5.2/index.html"><a class="padding" href="/vi/5-queryandvisualize/5.2/index.html">5.2. Athena and SageMaker (Không bắt buộc)<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/vi/6-cleanresource/index.html"><a class="padding" href="/vi/6-cleanresource/index.html">6. Dọn dẹp tài nguyên<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/vi/7-summary/index.html"><a class="padding" href="/vi/7-summary/index.html">7. Tóm tắt<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Ngôn ngữ</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/5-queryandvisualize/5.2/index.html" lang="en">English</option>
+                      <option id="R-select-language-vi" value="#R-select-language-vi" data-url="/vi/5-queryandvisualize/5.2/index.html" lang="vi" selected>Tiếng Việt</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Đề tài</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Xóa lịch sử..</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1738650602" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738650602" defer></script>
+    <script src="/js/theme.js?1738650602" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

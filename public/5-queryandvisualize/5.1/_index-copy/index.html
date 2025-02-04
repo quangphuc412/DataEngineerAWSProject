@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.
+Getting Started In this lab, you will complete the following tasks:
+Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Athena and QuickSight :: AWS System Manager">
+    <meta name="twitter:description" content="Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.
+Getting Started In this lab, you will complete the following tasks:
+Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.">
+    <meta property="og:url" content="http://localhost:1313/5-queryandvisualize/5.1/_index-copy/index.html">
+    <meta property="og:site_name" content="AWS System Manager">
+    <meta property="og:title" content="Athena and QuickSight :: AWS System Manager">
+    <meta property="og:description" content="Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.
+Getting Started In this lab, you will complete the following tasks:
+Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Query and Visualize">
+    <meta itemprop="name" content="Athena and QuickSight :: AWS System Manager">
+    <meta itemprop="description" content="Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.
+Getting Started In this lab, you will complete the following tasks:
+Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.">
+    <meta itemprop="wordCount" content="1373">
+    <title>Athena and QuickSight :: AWS System Manager</title>
+    <link href="/css/fontawesome-all.min.css?1735714845" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735714845" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1735714845" rel="stylesheet">
+    <link href="/css/auto-complete.css?1735714845" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735714845" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1735714845" rel="stylesheet">
+    <link href="/css/fonts.css?1735714845" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735714845" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1735714845" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1735714845" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1735714845" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1735714845" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1735714845"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'workshop' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/5-queryandvisualize/5.1/_index-copy/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Data Engineering Immersion Day Workshop</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/5-queryandvisualize/index.html"><span itemprop="name">Query and Visualize</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/5-queryandvisualize/5.1/index.html"><span itemprop="name">Athena and QuickSight</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Athena and QuickSight</span><meta itemprop="position" content="4"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/5-queryandvisualize/5.1/index.html" title="Athena and QuickSight (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/5-queryandvisualize/5.2/index.html" title="Athena and SageMaker (Optional) (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable 5-queryandvisualize" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="athena-and-quicksight">Athena and QuickSight</h1>
+
+<h4 id="steps">Steps</h4>
+<ul>
+<li>Prerequisites</li>
+<li>Getting Started</li>
+<li>Query Data with Amazon Athena</li>
+<li>Build an Amazon QuickSight Dashboard</li>
+<li>Set up QuickSight</li>
+<li>Create QuickSight Charts</li>
+<li>Create QuickSight Parameters</li>
+<li>Create a QuickSight Filter</li>
+</ul>
+<h4 id="prerequisites">Prerequisites</h4>
+<div class="box notices cstyle note">
+  <div class="box-label">
+    <i class="fa-fw fas fa-exclamation-circle"></i> Note
+  </div>
+  <div class="box-content">
+<p><a href="/3-ingestion/index.html">Ingestion with Glue</a> and <a href="/4-transforming/index.html">Transforming data with Glue ETL</a> labs are prerequisites for this lab.</p>
+  </div>
+</div>
+<h4 id="getting-started">Getting Started</h4>
+<p>In this lab, you will complete the following tasks:</p>
+<ol>
+<li>Query data and create a view with Amazon Athena</li>
+<li>Athena Workgroups to Control Query Access and Costs</li>
+<li>Build a dashboard with Amazon QuickSight</li>
+</ol>
+<h4 id="query-data-with-amazon-athena">Query Data with Amazon Athena</h4>
+<ol>
+<li>
+<p>In the AWS services console, search for <strong>Athena</strong>.
+<a href="#R-image-1f31435c987cffc25bff270467e393be" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1f31435c987cffc25bff270467e393be"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Query Editor</strong>, select your newly created database e.g., <strong>&ldquo;ticketdata”</strong>.</p>
+</li>
+<li>
+<p>Click the table named <strong>&ldquo;parquet_sporting_event_ticket&rdquo;</strong> to inspect the fields. <strong>Note:</strong> The type for fields <strong>id, sporting_event_id</strong> and <strong>ticketholder_id</strong> should be <strong>(double)</strong>.
+<a href="#R-image-d3a51f5cfbd24edb30788fb739e023f8" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d3a51f5cfbd24edb30788fb739e023f8"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png"></a>
+Next, we will query across tables parquet_sporting_event, parquet_sport_team, and parquet_sport location.</p>
+</li>
+<li>
+<p>Copy the following SQL syntax into the Query 1 tab and click <strong>Run</strong>.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">event_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">sport_type_name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">start_date_time</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">event_date_time</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">home_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">away_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">location</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">city</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">parquet_sporting_event</span> <span style="color:#a6e22e">e</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_team</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_team</span> <span style="color:#a6e22e">a</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sport_location</span> <span style="color:#a6e22e">l</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WHERE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">home_team_id</span> = <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">away_team_id</span> = <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">location_id</span> = <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">id</span>;</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+</ol>
+<ul>
+<li>The results appear beneath the query window.
+<a href="#R-image-6847570e14448f52aaf00735fc354492" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6847570e14448f52aaf00735fc354492"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png"></a></li>
+</ul>
+<ol start="5">
+<li>
+<p>As shown above Click <strong>Create</strong> and then select <strong>View from query</strong></p>
+</li>
+<li>
+<p>Name the view sporting_event_info and click <strong>Create</strong>
+<a href="#R-image-5833f202e98bcc50b7228529f0534ca5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5833f202e98bcc50b7228529f0534ca5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png"></a>
+Your new view is created
+<a href="#R-image-221406527f3a76babeb0bbd432ad154d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-221406527f3a76babeb0bbd432ad154d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png"></a></p>
+</li>
+<li>
+<p>Copy the following SQL syntax into the <strong>Query 3 tab</strong>
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">ticket_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_date_time</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">home_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">away_team</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">location</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">city</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_level</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_section</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat_row</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">seat</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">ticket_price</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">full_name</span> <span style="color:#a6e22e">AS</span> <span style="color:#a6e22e">ticketholder</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">sporting_event_info</span> <span style="color:#a6e22e">e</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_sporting_event_ticket</span> <span style="color:#a6e22e">t</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parquet_person</span> <span style="color:#a6e22e">p</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WHERE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">sporting_event_id</span> = <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">event_id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">ticketholder_id</span> = <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">id</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+<li>
+<p>Click on <strong>Save as</strong> button Give this query a name: <em>create_view_sporting_event_ticket_info</em> and some description and then, click on <strong>Save query</strong>.
+<a href="#R-image-18cb0a742fb8522f537f7b64e0c63b64" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-18cb0a742fb8522f537f7b64e0c63b64"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png"></a></p>
+</li>
+</ol>
+<ul>
+<li>Back to the query editor, you will see the query name changed. Now, click on <strong>Run</strong></li>
+<li>The results appear beneath the query window.
+<a href="#R-image-57ccf5dfd77f515a4059335d73e46ac6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-57ccf5dfd77f515a4059335d73e46ac6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png"></a></li>
+</ul>
+<ol start="9">
+<li>
+<p>As shown above, click <strong>View from query.</strong></p>
+</li>
+<li>
+<p>Name the view sporting_event_ticket_info and click <strong>Create.</strong>
+<a href="#R-image-e59545dd6908ee5245f8073464abdc84" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e59545dd6908ee5245f8073464abdc84"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png"></a></p>
+</li>
+<li>
+<p>Copy the following SQL syntax into the Query 5 tab.
+<div class="highlight wrap-code" linenos="table" linenostart="1"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sport</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#a6e22e">distinct</span> <span style="color:#a6e22e">location</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">locations</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#a6e22e">distinct</span> <span style="color:#a6e22e">event_id</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">events</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">tickets</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg</span>(<span style="color:#a6e22e">ticket_price</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">avg_ticket_price</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">sporting_event_ticket_info</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">GROUP</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">1</span>;</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Click on <strong>Save as</strong> and give this query name: <em>analytics_sporting_event_ticket_info</em> and some description and then, click on <strong>Save</strong>.
+<a href="#R-image-ea7a2b2e8957b0c7e797e8a82529b345" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ea7a2b2e8957b0c7e797e8a82529b345"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png"></a></p>
+</li>
+<li>
+<p>The name of the New Query 5 will be changed to one assigned in previous step. Click on <strong>Run</strong>.</p>
+</li>
+<li>
+<p>You query returns two results in approximately five seconds. The query scans 25 MB of data, which prior to converting to parquet, would have been 1.59GB of CSV files.
+<a href="#R-image-1d3e76e55b80c75b9a8a861887e2c85f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1d3e76e55b80c75b9a8a861887e2c85f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png"></a></p>
+</li>
+<li>
+<p>The purpose of saving the queries is to have clear distinction between the results of the queries running on one view. Otherwise, your query results will be saved under “Unsaved” folder within the S3 bucket location provided to Athena to store query results. Please navigate to S3 bucket to observe these changes, as shown below:
+<a href="#R-image-02718669ae0b03afe99f8ddd5c3e3e50" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-02718669ae0b03afe99f8ddd5c3e3e50"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png"></a></p>
+</li>
+</ul>
+<h4 id="build-an-amazon-quicksight-dashboard">Build an Amazon QuickSight Dashboard</h4>
+<h5 id="set-up-quicksight">Set up QuickSight</h5>
+<ol>
+<li>
+<p>In the AWS services console, search for <strong>QuickSight</strong>.
+<a href="#R-image-b27edbeb48d510445bbaf0a82090442b" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b27edbeb48d510445bbaf0a82090442b"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png"></a>
+If this is the first time you have used QuickSight, you are prompted to create an account.</p>
+</li>
+<li>
+<p>Click <strong>Sign up for QuickSight</strong>.</p>
+</li>
+<li>
+<p>For account type, choose the default <strong>Enterprise</strong> Version.</p>
+</li>
+<li>
+<p>Click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>On the Create your QuickSight account page, select <em>No, Maybe Later</em> for the Paginated Report add-on. On the new screen, leave the default selection for authentication method.</p>
+</li>
+<li>
+<p>Next choose the appropriate AWS region based on where you are running this workshop on and the check boxes to enable auto discovery, Amazon Athena, and Amazon S3. For QuickSight account name give a unique name (e.g., quicksight-lab-<!-- raw HTML omitted -->-<!-- raw HTML omitted -->) and email address.</p>
+</li>
+<li>
+<p>Select your DMS bucket (e.g., &ldquo;xxx-dmslabs3bucket-xxx&rdquo;), Click <strong>Finish</strong>.
+<a href="#R-image-40dfe63197f8e482cff27f03cb04272f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-40dfe63197f8e482cff27f03cb04272f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png"></a>
+<a href="#R-image-c4ca9698655bcd0ccd5b013a99ca0dd8" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c4ca9698655bcd0ccd5b013a99ca0dd8"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png"></a>
+<a href="#R-image-df8ff244abfad6936cb274178cde8a19" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-df8ff244abfad6936cb274178cde8a19"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png"></a>
+Please click <strong>Finish</strong></p>
+</li>
+<li>
+<p>On the top right corner, click <strong>New analysis</strong>.
+<a href="#R-image-2c9b3f7e197a9473898396b3f9fa7c6f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2c9b3f7e197a9473898396b3f9fa7c6f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New dataset</strong>.
+<a href="#R-image-42796761925d8d2b58db8a5b4d91a5e6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-42796761925d8d2b58db8a5b4d91a5e6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Create a Dataset</strong> page, select <strong>Athena</strong> as the data source.
+<a href="#R-image-d39a48c03221335f1358bc9001b2c570" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d39a48c03221335f1358bc9001b2c570"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png"></a></p>
+</li>
+<li>
+<p>For Data source name, type <em>ticketdata-qs</em> , then click <strong>Validate connection</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Create data source</strong>.
+<a href="#R-image-447951a0d134dc6dbb2f45d6db670ffd" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-447951a0d134dc6dbb2f45d6db670ffd"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png"></a></p>
+</li>
+<li>
+<p>In the Database drop-down list, select the database <strong>ticketdata</strong>.</p>
+</li>
+<li>
+<p>Choose the &ldquo;<strong>sporting_event_ticket_info</strong>&rdquo; table and click <strong>Select</strong>.
+<a href="#R-image-95957b81531563363730d7f7c7e4e7f0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-95957b81531563363730d7f7c7e4e7f0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png"></a></p>
+</li>
+<li>
+<p>To finish data set creation, choose the option <strong>Import to SPICE for quicker analytics</strong> and click <strong>Visualize</strong>. If your SPICE has 0 bytes available, choose the second choice Directly query your data.
+<a href="#R-image-7bb1483f3b662ab3ca865ee4fd618ccc" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7bb1483f3b662ab3ca865ee4fd618ccc"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png"></a></p>
+</li>
+</ol>
+<h5 id="create-quicksight-charts">Create QuickSight Charts</h5>
+<p>In this section we will take you through some of the different chart types.</p>
+<ol>
+<li>
+<p>In the Fields list, click the <strong>ticket_price</strong> column to populate the chart.</p>
+</li>
+<li>
+<p>Click the <strong>expand icon</strong> in corner of &ldquo;ticket_price&rdquo; field, and select <strong>Show as Currency</strong> to show the number in dollar value.
+<a href="#R-image-ed747d2dbf907fdc3bd13057f57dd558" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ed747d2dbf907fdc3bd13057f57dd558"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png"></a></p>
+</li>
+<li>
+<p>You can <strong>add visual</strong> by clicking <strong>Add button</strong> from the Visuals pane of the screen.</p>
+</li>
+</ol>
+<ul>
+<li>In the <strong>Visual types</strong> area, choose the <strong>Vertical bar chart</strong> icon.</li>
+<li>This layout requires a value for the X-axis. In Fields list, select the <strong>event_date_time</strong> field and you should see the visualization update.</li>
+<li>For Value <strong>Y-axis</strong>, select <strong>“ticket_price”</strong> from the Field list.
+<a href="#R-image-f48a56faf08d58e2c37e8a5b0d420758" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f48a56faf08d58e2c37e8a5b0d420758"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png"></a></li>
+</ul>
+<ol start="4">
+<li>
+<p>You can drag and move other visuals to adjust space in dashboard. In the Fields list, click and drag the <strong>seat_level</strong> field to the <strong>Group/Color</strong> box. You can also use the slider below the x axis to fit all of the data.
+<a href="#R-image-f205595f21d371391cb2a5289d58b276" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f205595f21d371391cb2a5289d58b276"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png"></a>
+Let&rsquo;s build on this one step further by changing the chart type:</p>
+</li>
+<li>
+<p>In the Visuals pane, click <strong>Vertical bar chart</strong> under change visual type and choose the <strong>Clustered bar combo chart</strong> icon.</p>
+</li>
+<li>
+<p>In the Fields list, click and drag the <strong>ticketholder</strong> field to the Lines box.</p>
+</li>
+<li>
+<p>In the Lines box, click the dropdown box and choose <strong>Aggregate: Count Distinct</strong> for Aggregate. You can then see the y-axis update on the right-hand side.
+<a href="#R-image-9497217c21c6c52632d42d399e107fe5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9497217c21c6c52632d42d399e107fe5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png"></a></p>
+</li>
+<li>
+<p>Click on insight icon on the Tool bar and explore insight information in simple English.
+<a href="#R-image-3070389deebdf716c3b5643609e29ffc" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3070389deebdf716c3b5643609e29ffc"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png"></a>
+Feel free to experiment with other chart types and different fields to get a sense of the data.</p>
+</li>
+</ol>
+<h5 id="create-quicksight-parameters">Create QuickSight Parameters</h5>
+<p>In the next section we are going to create some parameters with controls for the dashboard, then assign these to a filter for all the visuals.</p>
+<ol>
+<li>
+<p>From the Tool bar, select <strong>Parameters</strong> icon.
+<a href="#R-image-ee0b77e95320964f359e103ea6f6a0f6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee0b77e95320964f359e103ea6f6a0f6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add</strong> to create a new parameter with a Name.</p>
+</li>
+<li>
+<p>For Name, type <em>EventFrom</em>.</p>
+</li>
+<li>
+<p>For Data type, choose <strong>Datetime</strong>.</p>
+</li>
+<li>
+<p>For Time granularity, set <strong>Hour</strong>.</p>
+</li>
+<li>
+<p>For Default value, select the value from calendar as start date available in your graph for <strong>event_date_time</strong>. For example, <em>2021-01-01 00:00</em>.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>, and then <strong>close</strong> the Parameter Added dialog box.
+<a href="#R-image-0baf241af2f7797ee41332adc5be275f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0baf241af2f7797ee41332adc5be275f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png"></a></p>
+</li>
+<li>
+<p>Create another parameter with the following attributes:</p>
+</li>
+</ol>
+<ul>
+<li><strong>Name:</strong> <em>EventTo</em></li>
+<li><strong>Data type:</strong> <em>Datetime</em></li>
+<li>For <strong>Time granularity</strong>, set <strong>Hour</strong>.</li>
+<li>For Default value, select the value from calendar as end date available in your graph for <strong>event_date_time</strong>. For example, <em>2022-01-01 00:00</em></li>
+<li>Click <strong>Create</strong>
+<a href="#R-image-901578a92c0bd625ee2eb578836a1267" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-901578a92c0bd625ee2eb578836a1267"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png"></a></li>
+</ul>
+<ol start="9">
+<li>
+<p>In next window, you can select any option to perform any operation with the parameter. Alternatively, you can click the three dots for the <strong>EventFrom parameter</strong> and choose <strong>Add control</strong>.
+<a href="#R-image-143325fd2792379d1f5dfbceadcd4ed7" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-143325fd2792379d1f5dfbceadcd4ed7"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png"></a></p>
+</li>
+<li>
+<p>For Display name, specify <strong>Event From</strong> and click <strong>Add</strong>.
+<a href="#R-image-ef4d72ae692fef35ba184a1c07deaae0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ef4d72ae692fef35ba184a1c07deaae0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png"></a></p>
+</li>
+<li>
+<p>Repeat the process to add a control for <em>EventTo</em> with display name <em>Event To</em>
+<a href="#R-image-e2653d62f63b3855849f9cb25e20778e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e2653d62f63b3855849f9cb25e20778e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png"></a>
+You should now be able to see and expand the Controls section above the chart.
+<a href="#R-image-ba46fdfc881e8b83f7b50f2eba5b66a5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ba46fdfc881e8b83f7b50f2eba5b66a5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png"></a></p>
+</li>
+</ol>
+<h5 id="create-a-quicksight-filter">Create a QuickSight Filter</h5>
+<p>To complete the process, we will wire up a filter to these controls for all visuals.</p>
+<ol>
+<li>
+<p>From the Tool bar, choose <strong>Filter</strong>.</p>
+</li>
+<li>
+<p>Click the plus icon (+) to add a filter for the field <strong>event_date_time</strong>.
+<a href="#R-image-b224042ffc9532b4a0d3592dbb349d7a" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b224042ffc9532b4a0d3592dbb349d7a"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png"></a></p>
+</li>
+<li>
+<p>Click this filter to <strong>edit</strong> the properties.</p>
+</li>
+<li>
+<p>Select <strong>All applicable visuals</strong> in the <strong>Applied To</strong> dropdown</p>
+</li>
+<li>
+<p>For Filter type, choose <strong>Date &amp; Time range</strong> and Condition as <strong>Between</strong>.</p>
+</li>
+<li>
+<p>Select option <strong>Use Parameter</strong>, click <strong>Yes</strong> to apply to all visual.</p>
+</li>
+<li>
+<p>For <strong>Start date parameter</strong>, choose <strong>EventFrom</strong>.</p>
+</li>
+<li>
+<p>For <strong>End date parameter</strong>, choose <strong>EventTo</strong>.
+<a href="#R-image-5f6b76a8c4a84900d7a70e92a1638626" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5f6b76a8c4a84900d7a70e92a1638626"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+</li>
+</ol>
+<p>You can now click on <strong>Publish</strong> on the top right corner of screen to publish your visuals. You can also, share it by clicking on the <strong>Share</strong> menu.</p>
+<p>A dashboard is a read-only snapshot of an analysis that you can share with other Amazon QuickSight users for reporting purposes. In Dashboard other users can still play with visuals and data but that will not modify dataset.</p>
+<p>You can share an analysis with one or more other users with whom you want to collaborate on creating visuals. Analysis provides other uses to write and modify data set.</p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.en.js?1735714845";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1735714845" defer></script>
+        <script src="/js/lunr/lunr.min.js?1735714845" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1735714845" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1735714845" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1735714845" defer></script>
+        <script src="/js/search.js?1735714845" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/1-introduction/index.html"><a class="padding" href="/1-introduction/index.html">1. Introduction<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/2-prepare/index.html"><a class="padding" href="/2-prepare/index.html">2. Prepare<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/3-ingestion/index.html"><a class="padding" href="/3-ingestion/index.html">3. Data Ingestion<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-2538acad1a818efbe04c6ec327cfff7c" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/4-transforming/index.html"><a class="padding" href="/4-transforming/index.html">4. Transforming Data<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-25da23b83776fea40034b44db4415977" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/5-queryandvisualize/index.html"><a class="padding" href="/5-queryandvisualize/index.html">5. Query and Visualize<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fa1bc0fd3c270fcb76b65d8dbb84e571" class="collapsible-menu">
+            <li class="parent alwaysopen " data-nav-id="/5-queryandvisualize/5.1/index.html"><a class="padding" href="/5-queryandvisualize/5.1/index.html">5.1. Athena and QuickSight<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-f0d9dced714bf58fed91125ed89f573a" class="collapsible-menu">
+            <li class="active " data-nav-id="/5-queryandvisualize/5.1/_index-copy/index.html"><a class="padding" href="/5-queryandvisualize/5.1/_index-copy/index.html">5.1. Athena and QuickSight<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/5-queryandvisualize/5.2/index.html"><a class="padding" href="/5-queryandvisualize/5.2/index.html">5.2. Athena and SageMaker (Optional)<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+            <li class="" data-nav-id="/6-cleanresource/index.html"><a class="padding" href="/6-cleanresource/index.html">6. Clean Resource<i class="fa-fw fas fa-check read-icon"></i></a></li>
+            <li class="" data-nav-id="/7-summary/index.html"><a class="padding" href="/7-summary/index.html">7. Summary<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showLangSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showLangSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch showLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/5-queryandvisualize/5.1/_index-copy/index.html" lang="en" selected>English</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-workshop" value="workshop" selected>Workshop</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>12 December 2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Contact </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/quang-phúc-nguyễn-99a47b2b8/"  style="color:orange">Nguyễn Quang Phúc</a> <br>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1735714845" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1735714845" defer></script>
+    <script src="/js/theme.js?1735714845" defer></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

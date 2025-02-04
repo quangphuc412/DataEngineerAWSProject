@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athena and SageMaker (Không bắt buộc) :: AWS System Manager</title>
+    <link>http://localhost:1313/vi/5-queryandvisualize/5.2/index.html</link>
+    <description>Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.&#xA;Bạn sẽ học:&#xA;Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
