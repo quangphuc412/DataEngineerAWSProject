@@ -12,13 +12,13 @@ These labs are designed to be completed in sequence, and the full set of instruc
 ### **Architectures Patterns**
 
 #### Initially you will perform Data Ingestion
-![DataIngestionArchitecture](/image/1.Introduction/001-IngestionDataArchitecture.png)
+![DataIngestionArchitecture](./image/1.Introduction/001-IngestionDataArchitecture.png)
 
 #### Perform Data Transformations
-![DataTransformationsArchitecture](/image/1.Introduction/001-TransformingDataArchitecture.png)
+![DataTransformationsArchitecture](./image/1.Introduction/001-TransformingDataArchitecture.png)
 
 #### Explore the DataLake using SQL and Visualization tools
-![AthenaQuickSightArchitecture](/image/1.Introduction/001-AthenaQuickSightArchitecture.png)
+![AthenaQuickSightArchitecture](./image/1.Introduction/001-AthenaQuickSightArchitecture.png)
 
 #### Finally you will apply Machine Learning
-![AthenaSageMakerArchitecture](/image/1.Introduction/001-AthenaSageMakerArchitecture.png)
+![AthenaSageMakerArchitecture](./image/1.Introduction/001-AthenaSageMakerArchitecture.png)
