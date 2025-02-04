@@ -19,15 +19,15 @@ Trong trường hợp bạn muốn sử dụng tài khoản của riêng mình n
 
 3. Nhập thông tin chi tiết về người dùng: và chọn Loại quyền truy cập là Quyền truy cập theo chương trình.
 
-![CreateAdminUser](/image/2.Prepare/002-1-CreateAdminUser.png)
-![CreateAdminUser](/image/2.Prepare/002-2-CreateAdminUser.png)
+![CreateAdminUser](../../image/2.Prepare/002-1-CreateAdminUser.png)
+![CreateAdminUser](../../image/2.Prepare/002-2-CreateAdminUser.png)
 
 4. Đính kèm Chính sách IAM AdministratorAccess, chọn Quyền truy cập của quản trị viên hoặc quyền truy cập chi tiết tùy thuộc vào các dịch vụ Amazon được sử dụng cho phòng thí nghiệm này. Đối với phòng thí nghiệm này, bạn có thể chọn Quyền truy cập của quản trị viên → Nhấp vào Tiếp theo → Bỏ qua thẻ → Đánh giá tiếp theo.
-![AttachThePolicy](/image/2.Prepare/002-3-CreateAdminUser.png)
-![AttachThePolicy](/image/2.Prepare/002-4-CreateAdminUser.png)
+![AttachThePolicy](../../image/2.Prepare/002-3-CreateAdminUser.png)
+![AttachThePolicy](../../image/2.Prepare/002-4-CreateAdminUser.png)
 
 5. Nhấp để tạo người dùng mới.
 6. Tạo Người dùng quản trị thành công.
-![SuccessCreate](/image/2.Prepare/002-5-SuccessCreateAdimUser.png)
+![SuccessCreate](../../image/2.Prepare/002-5-SuccessCreateAdimUser.png)
 
 #### Xin chúc mừng vì đã thiết lập!

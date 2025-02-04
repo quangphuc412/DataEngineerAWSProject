@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/vi/5-queryandvisualize/5.1/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/5-queryandvisualize/5.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/5-queryandvisualize/5.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/5-queryandvisualize/5.1/index.html" />
+    <loc>https://example.org/vi/5-queryandvisualize/5.1/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/5-queryandvisualize/5.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/5-queryandvisualize/5.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/5-queryandvisualize/5.1/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/1-introduction/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/1-introduction/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/1-introduction/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/1-introduction/index.html" />
+    <loc>https://example.org/vi/1-introduction/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/1-introduction/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/1-introduction/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/1-introduction/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/index.html" />
+    <loc>https://example.org/vi/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/4-transforming/4.1/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/4-transforming/4.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/4-transforming/4.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/4-transforming/4.1/index.html" />
+    <loc>https://example.org/vi/4-transforming/4.1/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/4-transforming/4.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/4-transforming/4.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/4-transforming/4.1/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/5-queryandvisualize/5.2/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/5-queryandvisualize/5.2/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/5-queryandvisualize/5.2/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html" />
+    <loc>https://example.org/vi/5-queryandvisualize/5.2/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/5-queryandvisualize/5.2/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/5-queryandvisualize/5.2/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/5-queryandvisualize/5.2/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/2-prepare/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/2-prepare/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/2-prepare/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/2-prepare/index.html" />
+    <loc>https://example.org/vi/2-prepare/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/2-prepare/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/2-prepare/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/2-prepare/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/3-ingestion/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/3-ingestion/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/3-ingestion/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/3-ingestion/index.html" />
+    <loc>https://example.org/vi/3-ingestion/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/3-ingestion/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/3-ingestion/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/3-ingestion/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/3-ingestion/3.1/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/3-ingestion/3.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/3-ingestion/3.1/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/3-ingestion/3.1/index.html" />
+    <loc>https://example.org/vi/3-ingestion/3.1/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/3-ingestion/3.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/3-ingestion/3.1/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/3-ingestion/3.1/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/4-transforming/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/4-transforming/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/4-transforming/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/4-transforming/index.html" />
+    <loc>https://example.org/vi/4-transforming/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/4-transforming/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/4-transforming/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/4-transforming/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/5-queryandvisualize/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/5-queryandvisualize/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/5-queryandvisualize/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/5-queryandvisualize/index.html" />
+    <loc>https://example.org/vi/5-queryandvisualize/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/5-queryandvisualize/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/5-queryandvisualize/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/5-queryandvisualize/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/6-cleanresource/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/6-cleanresource/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/6-cleanresource/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/6-cleanresource/index.html" />
+    <loc>https://example.org/vi/6-cleanresource/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/6-cleanresource/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/6-cleanresource/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/6-cleanresource/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/7-summary/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/7-summary/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/7-summary/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/7-summary/index.html" />
+    <loc>https://example.org/vi/7-summary/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/7-summary/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/7-summary/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/7-summary/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/categories/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/categories/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/categories/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/categories/index.html" />
+    <loc>https://example.org/vi/categories/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/categories/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/categories/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/categories/index.html" />
   </url>
   <url>
-    <loc>http://localhost:1313/vi/tags/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:1313/tags/index.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/tags/index.html" />
-    <xhtml:link rel="alternate" hreflang="vi" href="http://localhost:1313/vi/tags/index.html" />
+    <loc>https://example.org/vi/tags/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.org/tags/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.org/tags/index.html" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://example.org/vi/tags/index.html" />
   </url>
 </urlset>

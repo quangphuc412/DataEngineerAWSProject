@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prepare :: AWS System Manager</title>
-    <link>http://localhost:1313/2-prepare/index.html</link>
+    <link>https://example.org/2-prepare/index.html</link>
     <description>AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.&#xA;AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/2-prepare/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/2-prepare/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

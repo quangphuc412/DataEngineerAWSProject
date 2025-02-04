@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction :: AWS System Manager</title>
-    <link>http://localhost:1313/1-introduction/index.html</link>
+    <link>https://example.org/1-introduction/index.html</link>
     <description>What you’ll do in these labs? These labs are designed to be completed in sequence, and the full set of instructions are documented below. Read and follow along to complete the labs.&#xA;Architectures Patterns Initially you will perform Data Ingestion Perform Data Transformations Explore the DataLake using SQL and Visualization tools</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/1-introduction/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/1-introduction/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

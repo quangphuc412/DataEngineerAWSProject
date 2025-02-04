@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Athena and QuickSight :: AWS System Manager</title>
-    <link>http://localhost:1313/5-queryandvisualize/5.1/index.html</link>
+    <link>https://example.org/5-queryandvisualize/5.1/index.html</link>
     <description>Steps Prerequisites Getting Started Query Data with Amazon Athena Build an Amazon QuickSight Dashboard Set up QuickSight Create QuickSight Charts Create QuickSight Parameters Create a QuickSight Filter Prerequisites Note Ingestion with Glue and Transforming data with Glue ETL labs are prerequisites for this lab.&#xA;Getting Started In this lab, you will complete the following tasks:&#xA;Query data and create a view with Amazon Athena Athena Workgroups to Control Query Access and Costs Build a dashboard with Amazon QuickSight Query Data with Amazon Athena In the AWS services console, search for Athena.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/5-queryandvisualize/5.1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/5-queryandvisualize/5.1/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

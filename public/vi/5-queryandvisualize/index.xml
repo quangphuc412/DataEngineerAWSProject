@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Truy vấn và trực quan hóa :: AWS System Manager</title>
-    <link>http://localhost:1313/vi/5-queryandvisualize/index.html</link>
+    <link>https://example.org/vi/5-queryandvisualize/index.html</link>
     <description>Giới thiệu Bài thực hành này giới thiệu cho bạn về AWS Glue, Amazon Athena và Amazon QuickSight. AWS Glue là một danh mục dữ liệu được quản lý hoàn toàn và dịch vụ ETL; Amazon Athena cung cấp khả năng chạy các truy vấn tùy ý trên dữ liệu của bạn trong hồ dữ liệu của bạn; và Amazon QuickSight cung cấp khả năng trực quan hóa dữ liệu bạn nhập.</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="http://localhost:1313/vi/5-queryandvisualize/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/vi/5-queryandvisualize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Athena and QuickSight</title>
-      <link>http://localhost:1313/vi/5-queryandvisualize/5.1/index.html</link>
+      <link>https://example.org/vi/5-queryandvisualize/5.1/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/vi/5-queryandvisualize/5.1/index.html</guid>
+      <guid>https://example.org/vi/5-queryandvisualize/5.1/index.html</guid>
       <description>Các bước Điều kiện tiên quyết Bắt đầu Truy vấn dữ liệu với Amazon Athena Xây dựng bảng điều khiển Amazon QuickSight Thiết lập QuickSight Tạo biểu đồ QuickSight Tạo tham số QuickSight Tạo bộ lọc QuickSight Điều kiện tiên quyết Ghi chú Các phòng thí nghiệm Ingestion with Glue và Transforming data with Glue ETL là điều kiện tiên quyết cho phòng thí nghiệm này.&#xA;Bắt đầu Trong phòng thí nghiệm này, bạn sẽ hoàn thành các nhiệm vụ sau:</description>
     </item>
     <item>
       <title>Athena and SageMaker (Không bắt buộc)</title>
-      <link>http://localhost:1313/vi/5-queryandvisualize/5.2/index.html</link>
+      <link>https://example.org/vi/5-queryandvisualize/5.2/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/vi/5-queryandvisualize/5.2/index.html</guid>
+      <guid>https://example.org/vi/5-queryandvisualize/5.2/index.html</guid>
       <description>Giới thiệu Amazon SageMaker là một nền tảng học máy toàn diện cho phép bạn xây dựng, đào tạo và triển khai các mô hình học máy trong AWS. Đây là một dịch vụ có tính mô-đun cao cho phép bạn sử dụng từng thành phần này độc lập với nhau.&#xA;Bạn sẽ học:&#xA;Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena Điền khung dữ liệu để thao tác dữ liệu.</description>
     </item>
   </channel>

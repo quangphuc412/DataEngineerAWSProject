@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Validation and ETL With Glue :: AWS System Manager</title>
-    <link>http://localhost:1313/4-transforming/4.1/index.html</link>
+    <link>https://example.org/4-transforming/4.1/index.html</link>
     <description>PART A: Create Glue Crawler for initial full load data Navigate to the AWS Glue Console On the AWS Glue menu, under ‘Data Catalog’, select Crawlers. Click Create crawler.&#xA;Enter glue-lab-crawler as the crawler name for initial data load.&#xA;Optionally, enter the description. This should also be descriptive and easily recognized and Click Next.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/4-transforming/4.1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/4-transforming/4.1/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

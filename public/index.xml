@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Engineering Immersion Day Workshop :: AWS System Manager</title>
-    <link>http://localhost:1313/index.html</link>
+    <link>https://example.org/index.html</link>
     <description>Overview Data Engineering Immersion Day Workshop&#xA;What is a Data Engineering Immersion Day? The Data Engineering Immersion Day has hands-on labs and modules that focus on ingestion, hydration, exploration, and consumption of data in a data lake in AWS.&#xA;Benefits of a Data Engineering Immersion Day. The Data Engineering Immersion day allows hands-on time with AWS analytics services including Amazon Kinesis Services for streaming data ingestion and analytics, AWS Data Migration service for batch data ingestion, AWS Glue for data catalog and run ETL on Data lake, Amazon Athena to query data lake, and Amazon Quicksight for visualization. This Immersion day helps to build a cloud-native and future-proof serverless data lake.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>http://localhost:1313/1-introduction/index.html</link>
+      <link>https://example.org/1-introduction/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/1-introduction/index.html</guid>
+      <guid>https://example.org/1-introduction/index.html</guid>
       <description>What you’ll do in these labs? These labs are designed to be completed in sequence, and the full set of instructions are documented below. Read and follow along to complete the labs.&#xA;Architectures Patterns Initially you will perform Data Ingestion Perform Data Transformations Explore the DataLake using SQL and Visualization tools</description>
     </item>
     <item>
       <title>Prepare</title>
-      <link>http://localhost:1313/2-prepare/index.html</link>
+      <link>https://example.org/2-prepare/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2-prepare/index.html</guid>
+      <guid>https://example.org/2-prepare/index.html</guid>
       <description>AWS Account and IAM User In order to get started working with AWS services, you will need an AWS account. You will also need an IAM user for this account that you can use to log into the AWS Management Console in order to provision and configure you resources.&#xA;AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny access to AWS resources.</description>
     </item>
     <item>
       <title>Data Ingestion</title>
-      <link>http://localhost:1313/3-ingestion/index.html</link>
+      <link>https://example.org/3-ingestion/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/3-ingestion/index.html</guid>
+      <guid>https://example.org/3-ingestion/index.html</guid>
       <description>Introduction In today’s lab you will copy the data from a centralized S3 bucket to your AWS account, crawl the dataset with an AWS Glue crawler for metadata creation, transform the data with AWS Glue, query the data and create a View with Athena, and finally build a dashboard with Amazon QuickSight.&#xA;Architectures Data Ingestion With AWS S3</description>
     </item>
     <item>
       <title>Transforming Data</title>
-      <link>http://localhost:1313/4-transforming/index.html</link>
+      <link>https://example.org/4-transforming/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/4-transforming/index.html</guid>
+      <guid>https://example.org/4-transforming/index.html</guid>
       <description>Introduction In this lab you will learn about AWS Glue, which is a serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics, machine learning (ML), and application development. You can use a crawler to populate the AWS Glue Data Catalog with tables. This is the primary method used by most AWS Glue users. A crawler can crawl multiple data stores in a single run. Upon completion, the crawler creates or updates one or more tables in your Data Catalog. Extract, transform, and load (ETL) jobs that you define in AWS Glue use these Data Catalog tables as sources and targets. The ETL job reads from and writes to the data stores that are specified in the source and target Data Catalog tables.</description>
     </item>
     <item>
       <title>Query and Visualize</title>
-      <link>http://localhost:1313/5-queryandvisualize/index.html</link>
+      <link>https://example.org/5-queryandvisualize/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/5-queryandvisualize/index.html</guid>
+      <guid>https://example.org/5-queryandvisualize/index.html</guid>
       <description>Introduction This lab introduces you to AWS Glue, Amazon Athena, and Amazon QuickSight. AWS Glue is a fully managed data catalog and ETL service; Amazon Athena provides the ability to run ad-hoc queries on your data in your data lake; and Amazon QuickSight provides visualization of the data you import.&#xA;Below is a list of the steps for this lab: Athena and QuickSight Athena and SageMaker (Optional)</description>
     </item>
     <item>
       <title>Clean Resource</title>
-      <link>http://localhost:1313/6-cleanresource/index.html</link>
+      <link>https://example.org/6-cleanresource/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/6-cleanresource/index.html</guid>
+      <guid>https://example.org/6-cleanresource/index.html</guid>
       <description>Cleanup: To avoid unexpected chargers to your account, make sure you clean up your account. To delete the CloudFormation templates using the AWS Management Console -&gt; Login to AWS Management Console and navigate to Services → Management &amp; Governance → CloudFormation. OR Navigate to AWS CloudFormation&#xA;To delete the CloudFormation templates using the AWS Management Console → Login to AWS Management Console and navigate Services → Management &amp; Governance → CloudFormation. Delete the stack from latest to oldest. Note After deleting the CloudFormation stacks if you find any remaining S3 buckets. Remember to delete those S3 buckets.</description>
     </item>
     <item>
       <title>Summary</title>
-      <link>http://localhost:1313/7-summary/index.html</link>
+      <link>https://example.org/7-summary/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/7-summary/index.html</guid>
+      <guid>https://example.org/7-summary/index.html</guid>
       <description>What Have We Accomplished? Learned about Data Lakes. Learned how to Hydrate the Data Lake. Deployed services to Stream Data Ingestion and Analysis with Kinesis. Deployed services to Batch Data Ingestion with DMS. Learned the working Within the Data Lake with Glue. Deployed services to Transforming data with Glue. Learned to Query and Visualize the Data Lake with Athena and QuickSight. Learned to Automate Data Lake with AWS Lake Formation. Learned to clean and normalize data with DataBrew. Thank you! Thanks a lot for joining the workshop today! We hope you learned something and got inspired.</description>
     </item>
   </channel>

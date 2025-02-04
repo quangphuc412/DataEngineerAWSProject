@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Athena and SageMaker (Optional) :: AWS System Manager</title>
-    <link>http://localhost:1313/5-queryandvisualize/5.2/index.html</link>
+    <link>https://example.org/5-queryandvisualize/5.2/index.html</link>
     <description>Introduction Amazon SageMaker is an end-to-end machine learning platform that lets you build, train, and deploy machine learning models in AWS. It is a highly modular service that lets you use each of these components independently of each other.&#xA;You will Learn:&#xA;How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena Populate data frames for data manipulation.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/5-queryandvisualize/5.2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/5-queryandvisualize/5.2/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

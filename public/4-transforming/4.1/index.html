@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.5">
@@ -14,7 +14,7 @@ Optionally, enter the description. This should also be descriptive and easily re
     <meta name="twitter:description" content="PART A: Create Glue Crawler for initial full load data Navigate to the AWS Glue Console On the AWS Glue menu, under ‘Data Catalog’, select Crawlers. Click Create crawler.
 Enter glue-lab-crawler as the crawler name for initial data load.
 Optionally, enter the description. This should also be descriptive and easily recognized and Click Next.">
-    <meta property="og:url" content="http://localhost:1313/4-transforming/4.1/index.html">
+    <meta property="og:url" content="https://example.org/4-transforming/4.1/index.html">
     <meta property="og:site_name" content="AWS System Manager">
     <meta property="og:title" content="Data Validation and ETL With Glue :: AWS System Manager">
     <meta property="og:description" content="PART A: Create Glue Crawler for initial full load data Navigate to the AWS Glue Console On the AWS Glue menu, under ‘Data Catalog’, select Crawlers. Click Create crawler.
@@ -28,25 +28,25 @@ Enter glue-lab-crawler as the crawler name for initial data load.
 Optionally, enter the description. This should also be descriptive and easily recognized and Click Next.">
     <meta itemprop="wordCount" content="1254">
     <title>Data Validation and ETL With Glue :: AWS System Manager</title>
-    <link href="http://localhost:1313/4-transforming/4.1/index.html" rel="alternate" hreflang="x-default">
-    <link href="http://localhost:1313/4-transforming/4.1/index.html" rel="alternate" hreflang="en">
-    <link href="http://localhost:1313/vi/4-transforming/4.1/index.html" rel="alternate" hreflang="vi">
+    <link href="https://example.org/4-transforming/4.1/index.html" rel="alternate" hreflang="x-default">
+    <link href="https://example.org/4-transforming/4.1/index.html" rel="alternate" hreflang="en">
+    <link href="https://example.org/vi/4-transforming/4.1/index.html" rel="alternate" hreflang="vi">
     <link href="/4-transforming/4.1/index.xml" rel="alternate" type="application/rss+xml" title="Data Validation and ETL With Glue :: AWS System Manager">
-    <link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1738652517" rel="stylesheet">
-    <link href="/css/auto-complete.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738652517" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1738652517" rel="stylesheet">
-    <link href="/css/fonts.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738652517" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1738652517" rel="stylesheet">
-    <link href="/css/theme-workshop.css?1738652517" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1738652517" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1738652517" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1738652517"></script>
+    <link href="/css/fontawesome-all.min.css?1738654049" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738654049" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738654049" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738654049" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738654049" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738654049" rel="stylesheet">
+    <link href="/css/fonts.css?1738654049" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738654049" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738654049" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738654049" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738654049" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738654049" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738654049"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/example.org';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       // variant stuff
@@ -106,13 +106,13 @@ Optionally, enter the description. This should also be descriptive and easily re
 <ol>
 <li>
 <p>Navigate to the <a href="https://console.aws.amazon.com/glue/home" rel="external" target="_blank">AWS Glue Console</a>
-<a href="#R-image-c76cf2ea0ea8c6d742e75b7ebcfe4e70" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/001-GlueService.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c76cf2ea0ea8c6d742e75b7ebcfe4e70"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/001-GlueService.png"></a></p>
+<a href="#R-image-1b771e6af2d9761e148eee6fe0f58dcd" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/001-GlueService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1b771e6af2d9761e148eee6fe0f58dcd"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/001-GlueService.png"></a></p>
 </li>
 <li>
 <p>On the AWS Glue menu, under &lsquo;Data Catalog&rsquo;, select <strong>Crawlers</strong>.
-<a href="#R-image-3ecf2beee005b64d22ecbba2d9da7855" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/002-GlueCreateCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-3ecf2beee005b64d22ecbba2d9da7855"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/002-GlueCreateCrawler.png"></a></p>
+<a href="#R-image-de813433a1a6218736e910d485476836" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/002-GlueCreateCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-de813433a1a6218736e910d485476836"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/002-GlueCreateCrawler.png"></a></p>
 </li>
 <li>
 <p>Click Create crawler.</p>
@@ -122,13 +122,13 @@ Optionally, enter the description. This should also be descriptive and easily re
 </li>
 <li>
 <p>Optionally, enter the description. This should also be descriptive and easily recognized and Click <strong>Next</strong>.
-<a href="#R-image-e1c6eb20b2761d6694aa17ba834e699d" class="lightbox-link"><img alt="image3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/003-GlueCreateCrawlerName.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e1c6eb20b2761d6694aa17ba834e699d"><img alt="image3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/003-GlueCreateCrawlerName.png"></a></p>
+<a href="#R-image-dd9aa717566df71e89ed35e36fa0a655" class="lightbox-link"><img alt="image3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/003-GlueCreateCrawlerName.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-dd9aa717566df71e89ed35e36fa0a655"><img alt="image3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/003-GlueCreateCrawlerName.png"></a></p>
 </li>
 <li>
 <p>Under <strong>Choose data sources and classifiers</strong> select <strong>Not yet</strong> and click <strong>Add a data source</strong>
-<a href="#R-image-5e1f5cc20a36b3078faf0384a8d97474" class="lightbox-link"><img alt="image4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/004-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-5e1f5cc20a36b3078faf0384a8d97474"><img alt="image4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/004-GlueCreateCrawlerStep2.png"></a></p>
+<a href="#R-image-650f7527344fb193b303a2c85d5e4386" class="lightbox-link"><img alt="image4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/004-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-650f7527344fb193b303a2c85d5e4386"><img alt="image4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/004-GlueCreateCrawlerStep2.png"></a></p>
 </li>
 </ol>
 <p>7.On the <strong>Add a data store</strong> page, make the following selections:</p>
@@ -139,13 +139,13 @@ Optionally, enter the description. This should also be descriptive and easily re
 <li>Leave all other parameters as default</li>
 <li>Click <strong>Add an S3 data source</strong></li>
 </ul>
-<p><a href="#R-image-46004bf5d5a83a83f32dc2eddb40111c" class="lightbox-link"><img alt="image5" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/005-CrawlerAddS3BucketSource.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-46004bf5d5a83a83f32dc2eddb40111c"><img alt="image5" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/005-CrawlerAddS3BucketSource.png"></a></p>
+<p><a href="#R-image-bec183166143ffb8e3803cacc4365602" class="lightbox-link"><img alt="image5" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/005-CrawlerAddS3BucketSource.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-bec183166143ffb8e3803cacc4365602"><img alt="image5" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/005-CrawlerAddS3BucketSource.png"></a></p>
 <ol start="8">
 <li>
 <p>Click <strong>Next</strong>
-<a href="#R-image-f6c09be98b93b927868de1763041ebad" class="lightbox-link"><img alt="image6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/006-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-f6c09be98b93b927868de1763041ebad"><img alt="image6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/006-GlueCreateCrawlerStep2.png"></a></p>
+<a href="#R-image-cfa123ff249f1f3aacec8a251fe57fee" class="lightbox-link"><img alt="image6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/006-GlueCreateCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-cfa123ff249f1f3aacec8a251fe57fee"><img alt="image6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/006-GlueCreateCrawlerStep2.png"></a></p>
 </li>
 <li>
 <p>On the Configure security settings page, make the following selection:</p>
@@ -154,26 +154,26 @@ Optionally, enter the description. This should also be descriptive and easily re
 <ul>
 <li>Under Existing IAM role select <strong>AWSGlueServiceRoleDefault</strong> which is pre-created for this lab.</li>
 <li>Information about <strong>AWSGlueServiceRoleDefault</strong>
-<a href="#R-image-2c6465df079b915ede82e5d2ed8c8156" class="lightbox-link"><img alt="image8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/008-GlueRole.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2c6465df079b915ede82e5d2ed8c8156"><img alt="image8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/008-GlueRole.png"></a></li>
+<a href="#R-image-393ef82681af963ece8d093b9eb876c2" class="lightbox-link"><img alt="image8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/008-GlueRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-393ef82681af963ece8d093b9eb876c2"><img alt="image8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/008-GlueRole.png"></a></li>
 </ul>
 <ol start="10">
 <li>
 <p>Click <strong>Next</strong>
-<a href="#R-image-d69a6b137822785892018e96814f4d58" class="lightbox-link"><img alt="image7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/007-AddGlueRole.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d69a6b137822785892018e96814f4d58"><img alt="image7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/007-AddGlueRole.png"></a></p>
+<a href="#R-image-d2b3b79d694c73405405e5ea01ffc8ca" class="lightbox-link"><img alt="image7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/007-AddGlueRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d2b3b79d694c73405405e5ea01ffc8ca"><img alt="image7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/007-AddGlueRole.png"></a></p>
 </li>
 <li>
 <p>On the <strong>Set output and scheduling</strong>, under <strong>Target database</strong>, click <strong>Add database</strong> which pops-up another tab.</p>
 </li>
 <li>
 <p>Enter <code>ticketdata</code> as your database name and click <strong>Create database</strong>
-<a href="#R-image-c4a9ce3735a58122defb8ca6c6ff010e" class="lightbox-link"><img alt="image9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/009-CreateDB.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c4a9ce3735a58122defb8ca6c6ff010e"><img alt="image9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/009-CreateDB.png"></a></p>
+<a href="#R-image-22e3d96ddbf6d5de28335a3e6e06183e" class="lightbox-link"><img alt="image9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/009-CreateDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-22e3d96ddbf6d5de28335a3e6e06183e"><img alt="image9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/009-CreateDB.png"></a></p>
 </li>
 </ol>
-<p><a href="#R-image-57f74c6f6fde84ab536e50466b2b1098" class="lightbox-link"><img alt="image10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/010-Database.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-57f74c6f6fde84ab536e50466b2b1098"><img alt="image10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/010-Database.png"></a></p>
+<p><a href="#R-image-17033e8af0b17a62ded94b2f28306209" class="lightbox-link"><img alt="image10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/010-Database.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-17033e8af0b17a62ded94b2f28306209"><img alt="image10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/010-Database.png"></a></p>
 <ol start="13">
 <li>Please get back to the <strong>Set output and scheduling</strong> page</li>
 </ol>
@@ -182,29 +182,29 @@ Optionally, enter the description. This should also be descriptive and easily re
 <li>For <strong>Prefix added to tables (optional)</strong>, leave the field empty.</li>
 <li>Under <strong>Crawler schedule</strong> as select the frequency as &lsquo;On demand&rsquo;</li>
 <li>Click <strong>Next</strong>
-<a href="#R-image-3a0baafe4478595d5c4497d7fdad8a8f" class="lightbox-link"><img alt="image11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/011-AdvancedSettings.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-3a0baafe4478595d5c4497d7fdad8a8f"><img alt="image11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/011-AdvancedSettings.png"></a>
-<a href="#R-image-8e53255956ae8e0b6aebf99b21f1fdb0" class="lightbox-link"><img alt="image12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/012-CrawlerSchedule.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8e53255956ae8e0b6aebf99b21f1fdb0"><img alt="image12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/012-CrawlerSchedule.png"></a></li>
+<a href="#R-image-d3d681ca2cbc9057ba2d195b77192995" class="lightbox-link"><img alt="image11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/011-AdvancedSettings.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d3d681ca2cbc9057ba2d195b77192995"><img alt="image11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/011-AdvancedSettings.png"></a>
+<a href="#R-image-0a62c299391331a5f1c5c82587f8cc15" class="lightbox-link"><img alt="image12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/012-CrawlerSchedule.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0a62c299391331a5f1c5c82587f8cc15"><img alt="image12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/012-CrawlerSchedule.png"></a></li>
 </ul>
 <ol start="14">
 <li>
 <p>Review the information and click <strong>Create crawler</strong>. The crawler is now ready to run.
-<a href="#R-image-98add7135e1bc0dad6eac4a47b81787a" class="lightbox-link"><img alt="image13" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/013-Reviews.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-98add7135e1bc0dad6eac4a47b81787a"><img alt="image13" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/013-Reviews.png"></a></p>
+<a href="#R-image-f2fdf168518361fd20b114dc4d2f8248" class="lightbox-link"><img alt="image13" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/013-Reviews.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f2fdf168518361fd20b114dc4d2f8248"><img alt="image13" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/013-Reviews.png"></a></p>
 </li>
 <li>
 <p>Execute the Crawler by clicking <strong>Run crawler</strong> button.
-<a href="#R-image-db9478323dad64ae90e6146d62ca5d09" class="lightbox-link"><img alt="image14" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/014-SuccessCreateCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-db9478323dad64ae90e6146d62ca5d09"><img alt="image14" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/014-SuccessCreateCrawler.png"></a>
+<a href="#R-image-f32d94f98ec308533b7b560b3f0cc32c" class="lightbox-link"><img alt="image14" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/014-SuccessCreateCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f32d94f98ec308533b7b560b3f0cc32c"><img alt="image14" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/014-SuccessCreateCrawler.png"></a>
 Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;, wait until crawler comes back to &lsquo;Ready&rsquo; state (the process will take a few minutes), you can see that it has created 15 tables.
-<a href="#R-image-8c257d605bcefa2e5c780f1bb1c3e9aa" class="lightbox-link"><img alt="image15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/015-SuccessRunCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8c257d605bcefa2e5c780f1bb1c3e9aa"><img alt="image15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/015-SuccessRunCrawler.png"></a></p>
+<a href="#R-image-0394c1278de5964fdced602d074e9f57" class="lightbox-link"><img alt="image15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/015-SuccessRunCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0394c1278de5964fdced602d074e9f57"><img alt="image15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/015-SuccessRunCrawler.png"></a></p>
 </li>
 <li>
 <p>In the AWS Glue navigation pane, under <strong>Data Catalog</strong> click <strong>Databases → Tables</strong>. You can also click the <strong>ticketdata database</strong> to browse the tables.
-<a href="#R-image-32f775ba9996f81f9387a6d88d50bc11" class="lightbox-link"><img alt="image16" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/016-CheckDB.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-32f775ba9996f81f9387a6d88d50bc11"><img alt="image16" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/016-CheckDB.png"></a></p>
+<a href="#R-image-1531160de86565741da4bd095be2e959" class="lightbox-link"><img alt="image16" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/016-CheckDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1531160de86565741da4bd095be2e959"><img alt="image16" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/016-CheckDB.png"></a></p>
 </li>
 </ol>
 <h4 id="part-b-data-validation-exercise">PART B: Data Validation Exercise</h4>
@@ -218,8 +218,8 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 <ol start="2">
 <li>
 <p>Click <strong>Edit Schema</strong> option
-<a href="#R-image-595868494abf0099971fbf2db3e52e0f" class="lightbox-link"><img alt="image17" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/017-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-595868494abf0099971fbf2db3e52e0f"><img alt="image17" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/017-EditSchemaPersonTable.png"></a></p>
+<a href="#R-image-be8a4ce5f43d57825cfa38b4e33833a4" class="lightbox-link"><img alt="image17" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/017-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-be8a4ce5f43d57825cfa38b4e33833a4"><img alt="image17" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/017-EditSchemaPersonTable.png"></a></p>
 </li>
 <li>
 <p>In the <strong>Edit Schema</strong> section, select the row for <strong>col0</strong> (column name) and click <strong>Edit</strong>.</p>
@@ -228,8 +228,8 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 <ul>
 <li>Type id as the column name and click <strong>Save</strong>.</li>
 <li>Repeat the above steps to change the remaining column names to match those shown in the following figure: <em>full_name, last_name and first_name.</em>
-<a href="#R-image-ef38cbf46e9f2048767bc4f5a6f113de" class="lightbox-link"><img alt="image18" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/018-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ef38cbf46e9f2048767bc4f5a6f113de"><img alt="image18" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/018-EditSchemaPersonTable.png"></a></li>
+<a href="#R-image-92404770d41aa52822f2bda8c4b0b82f" class="lightbox-link"><img alt="image18" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/018-EditSchemaPersonTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-92404770d41aa52822f2bda8c4b0b82f"><img alt="image18" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/018-EditSchemaPersonTable.png"></a></li>
 </ul>
 <ol start="4">
 <li>Click <strong>Save as new table version</strong>.</li>
@@ -242,36 +242,36 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 </li>
 <li>
 <p>Click <strong>“Visual ETL”</strong>
-<a href="#R-image-2aef7b8f1d906c8079d8546533cf05cd" class="lightbox-link"><img alt="image19" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/019-ETLJob.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2aef7b8f1d906c8079d8546533cf05cd"><img alt="image19" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/019-ETLJob.png"></a></p>
+<a href="#R-image-415b0bf0948d107f81b0e32c29271f2a" class="lightbox-link"><img alt="image19" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/019-ETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-415b0bf0948d107f81b0e32c29271f2a"><img alt="image19" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/019-ETLJob.png"></a></p>
 </li>
 <li>
 <p>Select <strong>Amazon S3</strong> from the Sources list to add a <strong>Data source - S3 bucket</strong> node.
-<a href="#R-image-b8de1bbf2aa564dad49c7fcad492b380" class="lightbox-link"><img alt="image20" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/020-ETLJobStep1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-b8de1bbf2aa564dad49c7fcad492b380"><img alt="image20" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/020-ETLJobStep1.png"></a></p>
+<a href="#R-image-448b5661f71d2507b11a7df63f56edbf" class="lightbox-link"><img alt="image20" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/020-ETLJobStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-448b5661f71d2507b11a7df63f56edbf"><img alt="image20" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/020-ETLJobStep1.png"></a></p>
 </li>
 <li>
 <p>Select the <strong>Data source - S3 bucket</strong> node to show the data source properties.</p>
 </li>
 <li>
 <p>In the panel on the right under “Data source properties - S3”, select <strong>Data Catalog table</strong> and choose the ticketdata database from the drop down. For Table, select the sport_team table.
-<a href="#R-image-6f03b317a253049b73360fb36427536e" class="lightbox-link"><img alt="image21" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/021-ETLJobStep2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6f03b317a253049b73360fb36427536e"><img alt="image21" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/021-ETLJobStep2.png"></a></p>
+<a href="#R-image-af4bae974d97d6e65251616480cf7466" class="lightbox-link"><img alt="image21" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/021-ETLJobStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-af4bae974d97d6e65251616480cf7466"><img alt="image21" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/021-ETLJobStep2.png"></a></p>
 </li>
 <li>
 <p>Click on the + button and select Change Schema from the Transforms list to add a <strong>Transform - Change Schema</strong> node.
-<a href="#R-image-1fec6126a693836a13c5873971540d40" class="lightbox-link"><img alt="image22" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/022-ETLJobStep3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1fec6126a693836a13c5873971540d40"><img alt="image22" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/022-ETLJobStep3.png"></a></p>
+<a href="#R-image-8aa882ba2534911909921f284b7e1b6d" class="lightbox-link"><img alt="image22" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/022-ETLJobStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8aa882ba2534911909921f284b7e1b6d"><img alt="image22" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/022-ETLJobStep3.png"></a></p>
 </li>
 <li>
 <p>Select the <strong>Transform - Change Schema</strong> node to show the properties. In the Transform panel on the right, change the data type of <strong>id</strong> column to <em>double</em> in the dropdown.
-<a href="#R-image-4c814f6c33b82fc5abfb82cbdec32db7" class="lightbox-link"><img alt="image23" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/023-ETLJobStep4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4c814f6c33b82fc5abfb82cbdec32db7"><img alt="image23" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/023-ETLJobStep4.png"></a></p>
+<a href="#R-image-ebfe24e7459833b7a574f3ea580195d5" class="lightbox-link"><img alt="image23" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/023-ETLJobStep4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ebfe24e7459833b7a574f3ea580195d5"><img alt="image23" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/023-ETLJobStep4.png"></a></p>
 </li>
 <li>
 <p>Click on the + button and select <strong>Amazon S3</strong> from the Targets list to add a <strong>Data target - S3 bucket</strong> node.
-<a href="#R-image-9623f5bb9627db432401077337a14cec" class="lightbox-link"><img alt="image24" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/024-ETLJobStep5.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9623f5bb9627db432401077337a14cec"><img alt="image24" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/024-ETLJobStep5.png"></a></p>
+<a href="#R-image-a7d5f1e6bb97c8d8fba5656163cb000f" class="lightbox-link"><img alt="image24" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/024-ETLJobStep5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a7d5f1e6bb97c8d8fba5656163cb000f"><img alt="image24" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/024-ETLJobStep5.png"></a></p>
 </li>
 <li>
 <p>Select the <strong>Data target - S3 bucket</strong> node to show the properties. In the panel on the right, change the Format to <strong>Parquet</strong> in the dropdown. Under <strong>Compression Type</strong>, select <em>Uncompressed</em> from the dropdown.</p>
@@ -281,16 +281,16 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 </li>
 <li>
 <p>In the textbox, append <strong>dms_parquet/sport_team/</strong> to the S3 url. The path should look similar to s3://ingestion-data-skip-dms-lab/tickets/dms_parquet/sport_team/ - don’t forget the / at the end. The job will automatically create the folder.
-<a href="#R-image-7a90ed4cb1878abad9aa9c87ac5f3e62" class="lightbox-link"><img alt="image25" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/025-ETLJobStep6.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-7a90ed4cb1878abad9aa9c87ac5f3e62"><img alt="image25" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/025-ETLJobStep6.png"></a></p>
+<a href="#R-image-52e6af4d87a82afc694481dc2ae12582" class="lightbox-link"><img alt="image25" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/025-ETLJobStep6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-52e6af4d87a82afc694481dc2ae12582"><img alt="image25" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/025-ETLJobStep6.png"></a></p>
 </li>
 <li>
 <p>Finally, select the <strong>Job details</strong> tab at the top. Enter <code>Glue-Lab-SportTeamParquet</code> under Name.</p>
 </li>
 <li>
 <p>For IAM Role, select the role named similar to AWSGlueServiceRoleDefault.
-<a href="#R-image-478a9df377d2c6089d8706de8d6fd468" class="lightbox-link"><img alt="image26" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/026-ETLJobStep7.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-478a9df377d2c6089d8706de8d6fd468"><img alt="image26" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/026-ETLJobStep7.png"></a></p>
+<a href="#R-image-5e4afe556148c5a808823363a757cbb9" class="lightbox-link"><img alt="image26" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/026-ETLJobStep7.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5e4afe556148c5a808823363a757cbb9"><img alt="image26" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/026-ETLJobStep7.png"></a></p>
 </li>
 <li>
 <p>Scroll down the page and under <strong>Job bookmark</strong>, select <strong>Disable</strong> in the drop down. You can try out the bookmark functionality later in this lab.</p>
@@ -309,8 +309,8 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 </li>
 <li>
 <p>Scroll down to the <strong>Job runs</strong> list to verify that the ETL job has completed successfully. This should take about 1 minute to complete.
-<a href="#R-image-8a0c66f9c0648ed80d38dd509f7ea774" class="lightbox-link"><img alt="image27" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/027-RunETLJob.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8a0c66f9c0648ed80d38dd509f7ea774"><img alt="image27" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/027-RunETLJob.png"></a></p>
+<a href="#R-image-4b75078913dbbf7e85a928903800c6d7" class="lightbox-link"><img alt="image27" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/027-RunETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4b75078913dbbf7e85a928903800c6d7"><img alt="image27" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/027-RunETLJob.png"></a></p>
 </li>
 <li>
 <p>We need to repeat this process for an additional 4 jobs, to transform the <strong>sport_location, sporting_event, sporting_event_ticket</strong> and <strong>person tables</strong>.</p>
@@ -322,8 +322,8 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 <ol start="21">
 <li>
 <p>Return to the <strong>Jobs menu</strong>, and select the <strong>Glue-Lab-SportsTeamParquet</strong> job by clicking the checkbox next to the name.
-<a href="#R-image-c79403db82c5a3832199351ed0658a20" class="lightbox-link"><img alt="image28" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/028-CloneETLJob.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c79403db82c5a3832199351ed0658a20"><img alt="image28" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/028-CloneETLJob.png"></a></p>
+<a href="#R-image-2aab3f55f1e90238feb867dcbc23de33" class="lightbox-link"><img alt="image28" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/028-CloneETLJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2aab3f55f1e90238feb867dcbc23de33"><img alt="image28" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/028-CloneETLJob.png"></a></p>
 </li>
 <li>
 <p>Under the <strong>Actions</strong> dropdown, select <strong>Clone</strong> job. Update the job as per the following tables, then <strong>Save</strong> and <strong>Run</strong>.</p>
@@ -331,45 +331,45 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 </ol>
 <h5 id="sport_location">Sport_Location:</h5>
 <p>Create a <strong>Glue-Lab-SportLocationParquet</strong> job with the following attributes:
-<a href="#R-image-49298e41dd57765818720de2d8f71f85" class="lightbox-link"><img alt="imageSL" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sport_Location.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-49298e41dd57765818720de2d8f71f85"><img alt="imageSL" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sport_Location.png"></a></p>
+<a href="#R-image-6c1a64abaec5fbb39d9229fcb5cd9a2c" class="lightbox-link"><img alt="imageSL" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/Sport_Location.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6c1a64abaec5fbb39d9229fcb5cd9a2c"><img alt="imageSL" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/Sport_Location.png"></a></p>
 <h5 id="sporting_event">Sporting_Event:</h5>
 <p>Create a <strong>Glue-Lab-SportingEventParquet</strong> job with the following attributes:
-<a href="#R-image-8614c18e5aac374a241c4eb1991ae8b0" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8614c18e5aac374a241c4eb1991ae8b0"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png"></a></p>
+<a href="#R-image-1b81b52181977a7e8a471ab6700cf197" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1b81b52181977a7e8a471ab6700cf197"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/Sporting_Event.png"></a></p>
 <h5 id="sporting_event_ticket">Sporting_Event_Ticket:</h5>
 <p>Create a <strong>Glue-Lab-SportingEventTicketParquet</strong> job with the following attributes:
-<a href="#R-image-ca3181f7441a75fa314b71df5fa7067b" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ca3181f7441a75fa314b71df5fa7067b"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/Sporting_Event.png"></a></p>
-<p><a href="#R-image-1109b66e04cfd650bb46394640d67db3" class="lightbox-link"><img alt="imageTable" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/SETTable.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1109b66e04cfd650bb46394640d67db3"><img alt="imageTable" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/SETTable.png"></a></p>
+<a href="#R-image-d1d76e192af13c5221f34097f4a722b6" class="lightbox-link"><img alt="imageSE" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/Sporting_Event.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d1d76e192af13c5221f34097f4a722b6"><img alt="imageSE" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/Sporting_Event.png"></a></p>
+<p><a href="#R-image-d2b4f7bee9afc18cc94db03a00c16136" class="lightbox-link"><img alt="imageTable" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/SETTable.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d2b4f7bee9afc18cc94db03a00c16136"><img alt="imageTable" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/SETTable.png"></a></p>
 <h5 id="person">Person:</h5>
 <p>Create a <strong>Glue-Lab-PersonParquet</strong> job with the following attributes:
-<a href="#R-image-9b7fa73c2413b48af06a9231b84460ff" class="lightbox-link"><img alt="imageP" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/TbPerson.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9b7fa73c2413b48af06a9231b84460ff"><img alt="imageP" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/TbPerson.png"></a></p>
+<a href="#R-image-cab222d1afa33a254791da7f7c94161c" class="lightbox-link"><img alt="imageP" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/TbPerson.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-cab222d1afa33a254791da7f7c94161c"><img alt="imageP" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/TbPerson.png"></a></p>
 <ol start="23">
 <li>
 <p>Success run all ETL job
-<a href="#R-image-4d51b65eb1e5c612ce262781ef7bc444" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/MonitoringRunJob.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4d51b65eb1e5c612ce262781ef7bc444"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/MonitoringRunJob.png"></a></p>
+<a href="#R-image-ea568d98450bfc372f2a698b66131c35" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/MonitoringRunJob.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ea568d98450bfc372f2a698b66131c35"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/MonitoringRunJob.png"></a></p>
 </li>
 <li>
 <p>S3 Bucket for Parquet file is created
-<a href="#R-image-642b6d21d5ccf631ebdf651080cdedae" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/S3Bucket_dms_parquet.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-642b6d21d5ccf631ebdf651080cdedae"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/S3Bucket_dms_parquet.png"></a></p>
+<a href="#R-image-580cb34ead21cb2665d42fb50f287693" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/S3Bucket_dms_parquet.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-580cb34ead21cb2665d42fb50f287693"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/S3Bucket_dms_parquet.png"></a></p>
 </li>
 </ol>
 <h4 id="part-d-create-glue-crawler-for-parquet-files">PART D: Create Glue Crawler for Parquet Files</h4>
 <ol>
 <li>
 <p>In the <strong>Glue navigation</strong> menu, under <strong>Data Catalog</strong> select <strong>Crawlers</strong>. Click <strong>Create crawler</strong>.
-<a href="#R-image-e22987cd4ef7ed432a61cc751f32c045" class="lightbox-link"><img alt="image29" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/029-CreateNewCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e22987cd4ef7ed432a61cc751f32c045"><img alt="image29" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/029-CreateNewCrawler.png"></a></p>
+<a href="#R-image-61389226061e6ee2bd1a04bd8225d829" class="lightbox-link"><img alt="image29" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/029-CreateNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-61389226061e6ee2bd1a04bd8225d829"><img alt="image29" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/029-CreateNewCrawler.png"></a></p>
 </li>
 <li>
 <p>For <strong>Crawler name</strong>, type <code>glue-lab-parquet-crawler</code> and Click <strong>Next</strong>.
-<a href="#R-image-a174b4ea9baa0c8590c35b608721e748" class="lightbox-link"><img alt="image30" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/030-CreateNewCrawlerStep1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a174b4ea9baa0c8590c35b608721e748"><img alt="image30" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/030-CreateNewCrawlerStep1.png"></a></p>
+<a href="#R-image-7900f428716042ae0d0e01ee88c23f1d" class="lightbox-link"><img alt="image30" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/030-CreateNewCrawlerStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7900f428716042ae0d0e01ee88c23f1d"><img alt="image30" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/030-CreateNewCrawlerStep1.png"></a></p>
 </li>
 <li>
 <p>In next screen Choose <strong>data sources and classifiers</strong>, select <strong>Not yet</strong> and click <strong>Add a data source</strong></p>
@@ -384,8 +384,8 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 <li>For <strong>S3 path</strong>, specify the S3 Path (Parent Parquet folder) that contains the nested parquet files e.g., s3://xxx-dmslabs3bucket-xxx/tickets/dms_parquet/</li>
 <li>Leave all other parameters as default</li>
 <li>Click <strong>Add an S3 data source</strong>.
-<a href="#R-image-595b56afdf5ceef3bff8752753b993c2" class="lightbox-link"><img alt="image31" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/031-CreateNewCrawlerStep2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-595b56afdf5ceef3bff8752753b993c2"><img alt="image31" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/031-CreateNewCrawlerStep2.png"></a></li>
+<a href="#R-image-6e18819752e5cdeafbf3822b75e62997" class="lightbox-link"><img alt="image31" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/031-CreateNewCrawlerStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6e18819752e5cdeafbf3822b75e62997"><img alt="image31" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/031-CreateNewCrawlerStep2.png"></a></li>
 </ul>
 <ol start="5">
 <li>In next screen Choose <strong>data sources and classifiers</strong>, click <strong>Next</strong>.</li>
@@ -402,27 +402,27 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 <li>Under Target database, choose your existing database which you created earlier e.g. ticketdata</li>
 <li>For the Prefix added to tables (optional), type parquet_</li>
 <li>For Crawler schedule select “On Demand” and Click Next.
-<a href="#R-image-6178618a10e6692fc76f6bc3c07e688d" class="lightbox-link"><img alt="image32" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/032-CreateNewCrawlerStep3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6178618a10e6692fc76f6bc3c07e688d"><img alt="image32" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/032-CreateNewCrawlerStep3.png"></a></li>
+<a href="#R-image-2468a88f9fe1be0ac7209d50167f6000" class="lightbox-link"><img alt="image32" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/032-CreateNewCrawlerStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2468a88f9fe1be0ac7209d50167f6000"><img alt="image32" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/032-CreateNewCrawlerStep3.png"></a></li>
 </ul>
 <ol start="8">
 <li>
 <p>Review the summary page and click <strong>Create crawler</strong>.
-<a href="#R-image-d90103967a2a2bc235fdefa5b4672d75" class="lightbox-link"><img alt="image33" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/033-SuccessCreateNewCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d90103967a2a2bc235fdefa5b4672d75"><img alt="image33" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/033-SuccessCreateNewCrawler.png"></a></p>
+<a href="#R-image-db60a8c155c9496fa1bb981880f8849c" class="lightbox-link"><img alt="image33" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/033-SuccessCreateNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-db60a8c155c9496fa1bb981880f8849c"><img alt="image33" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/033-SuccessCreateNewCrawler.png"></a></p>
 </li>
 <li>
 <p>Click <strong>Run Crawler</strong>. Once your crawler has finished running, you should see that that tables were added, depending on how many parquet ETL conversions you set up in the previous section.
-<a href="#R-image-ff3b2de76db5fa84fc89d3332c6974f7" class="lightbox-link"><img alt="image34" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/034-SuccessRunNewCrawler.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ff3b2de76db5fa84fc89d3332c6974f7"><img alt="image34" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/034-SuccessRunNewCrawler.png"></a></p>
+<a href="#R-image-0c5ea3567e9e83ddf3ac9ee9843d6214" class="lightbox-link"><img alt="image34" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/034-SuccessRunNewCrawler.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0c5ea3567e9e83ddf3ac9ee9843d6214"><img alt="image34" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/034-SuccessRunNewCrawler.png"></a></p>
 </li>
 </ol>
 <p><strong>Confirm you can see the tables</strong></p>
 <ol start="10">
 <li>In the left navigation pane, click <strong>Tables</strong>.</li>
 <li>Add the filter <em>parquet</em> for <strong>Classification</strong> to return the newly created tables.
-<a href="#R-image-8bab412d127c1de2b60fe8f5eccb8c40" class="lightbox-link"><img alt="image35" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/4.Transforming/035-CheckDB.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8bab412d127c1de2b60fe8f5eccb8c40"><img alt="image35" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/4.Transforming/035-CheckDB.png"></a></li>
+<a href="#R-image-430fffb6ce7a1ba6972992c076c97f73" class="lightbox-link"><img alt="image35" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../../image/4.Transforming/035-CheckDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-430fffb6ce7a1ba6972992c076c97f73"><img alt="image35" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../../image/4.Transforming/035-CheckDB.png"></a></li>
 </ol>
 <p><strong>Congratulations!</strong> You have completed the <strong>Data Validation and ETL lab</strong></p>
 
@@ -444,7 +444,7 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1738652517";
+          window.index_js_url="/searchindex.en.js?1738654049";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -457,12 +457,12 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1738652517" defer></script>
-        <script src="/js/lunr/lunr.min.js?1738652517" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1738652517" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1738652517" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1738652517" defer></script>
-        <script src="/js/search.js?1738652517" defer></script>
+        <script src="/js/auto-complete.js?1738654049" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738654049" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738654049" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738654049" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1738654049" defer></script>
+        <script src="/js/search.js?1738654049" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -556,9 +556,9 @@ Crawler will change status from &lsquo;Running&rsquo; to &lsquo;Stopping&rsquo;,
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1738652517" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1738652517" defer></script>
-    <script src="/js/theme.js?1738652517" defer></script><script>
+    <script src="/js/clipboard.min.js?1738654049" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738654049" defer></script>
+    <script src="/js/theme.js?1738654049" defer></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

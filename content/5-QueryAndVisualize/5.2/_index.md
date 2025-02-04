@@ -12,7 +12,7 @@ You will Learn:
 - How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena
 - Populate data frames for data manipulation.
 
-![image](/image/1.Introduction/001-AthenaSageMakerArchitecture.png)
+![image](../../image/1.Introduction/001-AthenaSageMakerArchitecture.png)
 
 This process to prepare the data to satisfy the needs of ML algorithms is iterative. To prepare the data, we will make the table definitions in Athena available in a Jupyter notebook in SageMaker.
 
@@ -25,10 +25,10 @@ Jupyter notebooks are popular among data scientists and used to visualize data, 
 
 #### Create Amazon SageMaker Notebook Instance
 1. Go to the [Amazon SageMaker](https://aws.amazon.com/sagemaker/) from AWS console
-![image](/image/5.AthenaAndQuicksight/039-SageMakerService.png)
+![image](../../image/5.AthenaAndQuicksight/039-SageMakerService.png)
 
 2. In the Amazon SageMaker navigation pane, go to **Notebook instances** and click **Create notebook instance**.
-![image](/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png)
+![image](../../image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png)
 
 3. Enter following values to create the notebook instance
 - Enter a name for the Notebook instance e.g. *datalake-Sagemaker*
@@ -36,27 +36,27 @@ Jupyter notebooks are popular among data scientists and used to visualize data, 
 - Leave Elastic Inference as *none*. This is to add extra resources.
 - Under **IAM role**, we need to choose a role for the notebook instance in Amazon SageMaker to interact with Amazon S3. As the role doesn’t exist, from the dropdown option select **Create a new role**.
 - In the **Create an IAM role** pop up window, choose **Any S3 bucket** as shown below and click **Create role**.
-![image](/image/5.AthenaAndQuicksight/041-CreateNewRole.png)
+![image](../../image/5.AthenaAndQuicksight/041-CreateNewRole.png)
 
 - After the IAM role is created, click on the link to the IAM role, this will open the IAM role in a new tab. We will add IAM permissions to allow access to Athena from SageMaker.
-![image](/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png)
+![image](../../image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png)
 
 - Click on **Add permissions** and select **Attach policies**.
 - Filter policies by **“Athena”**, check **AmazonAthenaFullAccess** managed policy and click **Attach policies** button at the bottom of the screen.
-![image](/image/5.AthenaAndQuicksight/043-AttachPolicy.png)
+![image](../../image/5.AthenaAndQuicksight/043-AttachPolicy.png)
 
 - Go back to the **SageMaker Create notebook instance** browser tab.
 - Leave all other options with default values. Click **Create notebook instance**.
 
 4. Wait for the notebook instance to be created and the Status to change to **InService**. Click the **Open Jupyter** link in the **Actions** column.
-![image](/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png)
+![image](../../image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png)
 
 5. The notebook interface opens in a new tab.
-![image](/image/5.AthenaAndQuicksight/045-JupyterNotebook.png)
+![image](../../image/5.AthenaAndQuicksight/045-JupyterNotebook.png)
 
 #### Connect the SageMaker Jupyter notebook to Athena
 1. In the Jupyter notebook tab, click **New** and select **conda_python3** for the kernel. This opens a notebook in a new tab.
-![image](/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png)
+![image](../../image/5.AthenaAndQuicksight/046-CreateNewNotebook.png)
     > [!NOTE]
     > Amazon SageMaker provides several kernels for Jupyter, including support for Python 3, MXNet, TensorFlow, and PySpark. This exercise uses Python because it includes the pandas library.
 
@@ -65,7 +65,7 @@ Jupyter notebooks are popular among data scientists and used to visualize data, 
 !pip install PyAthena[SQLAlchemy]
 {{< / highlight >}}
 
-    ![image](/image/5.AthenaAndQuicksight/047-PipInstall.png)
+    ![image](../../image/5.AthenaAndQuicksight/047-PipInstall.png)
 
     Check the output that PyAthena has been installed successfully. If you see errors related to awscli 1.x, they can be ignored.
 
@@ -94,7 +94,7 @@ df
 {{< / highlight >}}
 
 2. Click **Run** and dataframe will display query output.
-![image](/image/5.AthenaAndQuicksight/048-RunQuery.png)
+![image](../../image/5.AthenaAndQuicksight/048-RunQuery.png)
 In this query, you are loading all nfl stadium information into a pandas dataframe from the table nfl_stadium_data.
     > [!NOTE]
     > If you get a SageMaker does not have Athena execution permissions error issue. You need to add Athena Access to the Sagemaker role as steps provide in previous section.
@@ -117,7 +117,7 @@ df
 {{< / highlight >}}
 
 4. Click **Run** and the data frame will display the query output.
-![image](/image/5.AthenaAndQuicksight/049-RunQuery.png)
+![image](../../image/5.AthenaAndQuicksight/049-RunQuery.png)
 
 5. In a new execution cell, copy following code
 {{< highlight go "linenos=table,linenostart=1" >}}
@@ -126,7 +126,7 @@ df.plot(x='event_date_time',y='avg_ticket_price')
 {{< / highlight >}}
 
 6. Click Run and you will see data plot which got draw using matplotlib library.
-![image](/image/5.AthenaAndQuicksight/050-VisualizationData.png)
+![image](../../image/5.AthenaAndQuicksight/050-VisualizationData.png)
 
 #### Cleanup
 1. Go to [SageMaker Notebook Instances console](https://console.aws.amazon.com/sagemaker/home#/notebook-instances)

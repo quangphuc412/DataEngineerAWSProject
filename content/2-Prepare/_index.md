@@ -18,15 +18,15 @@ In case you want to use your own account now or later, and you don't yet have an
 2. Once you have an AWS account, create a new IAM user for this workshop with administrator access to the AWS account: [Create a new IAM user to use for the workshop.](https://console.aws.amazon.com/iam/home?#/users$new)
    
 3. Enter the user details: and select Access Type as Programmatic access.
-![CreateAdminUser](/image/2.Prepare/002-1-CreateAdminUser.png)
-![CreateAdminUser](/image/2.Prepare/002-2-CreateAdminUser.png)
+![CreateAdminUser](../image/2.Prepare/002-1-CreateAdminUser.png)
+![CreateAdminUser](../image/2.Prepare/002-2-CreateAdminUser.png)
 
 4. Attach the AdministratorAccess IAM Policy, choose Administrator access or fine-grained access depending upon the Amazon services used for this lab. For this lab you can choose Administrator access → Click Next → Ignore Tags → Next Review.
-![AttachThePolicy](/image/2.Prepare/002-3-CreateAdminUser.png)
-![AttachThePolicy](/image/2.Prepare/002-4-CreateAdminUser.png)
+![AttachThePolicy](../image/2.Prepare/002-3-CreateAdminUser.png)
+![AttachThePolicy](../image/2.Prepare/002-4-CreateAdminUser.png)
 
 5. Click to create the new user.
 6. Successfully create Admin User.
-![SuccessCreate](/image/2.Prepare/002-5-SuccessCreateAdimUser.png)
+![SuccessCreate](../image/2.Prepare/002-5-SuccessCreateAdimUser.png)
 
 #### Congratulations on setting up!
