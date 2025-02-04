@@ -32,16 +32,16 @@ Query data and create a view with Amazon Athena Athena Workgroups to Control Que
     <link href="http://localhost:1313/5-queryandvisualize/5.1/index.html" rel="alternate" hreflang="en">
     <link href="http://localhost:1313/vi/5-queryandvisualize/5.1/index.html" rel="alternate" hreflang="vi">
     <link href="/5-queryandvisualize/5.1/index.xml" rel="alternate" type="application/rss+xml" title="Athena and QuickSight :: AWS System Manager">
-    <link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1738651568" rel="stylesheet">
-    <link href="/css/auto-complete.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1738651568" rel="stylesheet">
-    <link href="/css/fonts.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1738651568" rel="stylesheet">
-    <link href="/css/theme-workshop.css?1738651568" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1738651568" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1738651568" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1738651568"></script>
+    <link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738652517" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738652517" rel="stylesheet">
+    <link href="/css/fonts.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738652517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738652517" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738652517" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738652517" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738652517"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -133,16 +133,16 @@ Query data and create a view with Amazon Athena Athena Workgroups to Control Que
 <ol>
 <li>
 <p>In the AWS services console, search for <strong>Athena</strong>.
-<a href="#R-image-d9ee67cd434c48afb6a1fa1aec80fffd" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d9ee67cd434c48afb6a1fa1aec80fffd"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png"></a></p>
+<a href="#R-image-94823ecc978962915b07a1ab346f186b" class="lightbox-link"><img alt="image1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-94823ecc978962915b07a1ab346f186b"><img alt="image1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/001-AthenaService.png"></a></p>
 </li>
 <li>
 <p>In the <strong>Query Editor</strong>, select your newly created database e.g., <strong>&ldquo;ticketdata”</strong>.</p>
 </li>
 <li>
 <p>Click the table named <strong>&ldquo;parquet_sporting_event_ticket&rdquo;</strong> to inspect the fields. <strong>Note:</strong> The type for fields <strong>id, sporting_event_id</strong> and <strong>ticketholder_id</strong> should be <strong>(double)</strong>.
-<a href="#R-image-d36190a04c376c8a51a3ef63a3496ce5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d36190a04c376c8a51a3ef63a3496ce5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png"></a>
+<a href="#R-image-4c45cde38b26f1d1f0589e2974c3235d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4c45cde38b26f1d1f0589e2974c3235d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/002-QueryEditorDB.png"></a>
 Next, we will query across tables parquet_sporting_event, parquet_sport_team, and parquet_sport location.</p>
 </li>
 <li>
@@ -190,8 +190,8 @@ Next, we will query across tables parquet_sporting_event, parquet_sport_team, an
 </ol>
 <ul>
 <li>The results appear beneath the query window.
-<a href="#R-image-079f2eb067e4249d60cd0bd4f2ac383e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-079f2eb067e4249d60cd0bd4f2ac383e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png"></a></li>
+<a href="#R-image-85c7a6eb7966694f49ce897533b60031" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-85c7a6eb7966694f49ce897533b60031"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/004-Query1.png"></a></li>
 </ul>
 <ol start="5">
 <li>
@@ -199,11 +199,11 @@ Next, we will query across tables parquet_sporting_event, parquet_sport_team, an
 </li>
 <li>
 <p>Name the view sporting_event_info and click <strong>Create</strong>
-<a href="#R-image-9e0cc5e336895870ebafeeaf82db1424" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9e0cc5e336895870ebafeeaf82db1424"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png"></a>
+<a href="#R-image-2b8c1d81e68c208093fbc972066eac00" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2b8c1d81e68c208093fbc972066eac00"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/005-Query1CreateView.png"></a>
 Your new view is created
-<a href="#R-image-497764551bfda299f8cf92572586d85c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-497764551bfda299f8cf92572586d85c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png"></a></p>
+<a href="#R-image-04400d950fecb5884f7b78a3a9d05651" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-04400d950fecb5884f7b78a3a9d05651"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/006-CreatedViewQuery1.png"></a></p>
 </li>
 <li>
 <p>Copy the following SQL syntax into the <strong>Query 3 tab</strong>
@@ -257,15 +257,15 @@ Your new view is created
 </li>
 <li>
 <p>Click on <strong>Save as</strong> button Give this query a name: <em>create_view_sporting_event_ticket_info</em> and some description and then, click on <strong>Save query</strong>.
-<a href="#R-image-dd63cc2bdd8509aa702c29c8ac4e07ef" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-dd63cc2bdd8509aa702c29c8ac4e07ef"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png"></a></p>
+<a href="#R-image-e1ca843ffb73a3962140573c717a1add" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e1ca843ffb73a3962140573c717a1add"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/007-CreateNewQuerySaveAs.png"></a></p>
 </li>
 </ol>
 <ul>
 <li>Back to the query editor, you will see the query name changed. Now, click on <strong>Run</strong></li>
 <li>The results appear beneath the query window.
-<a href="#R-image-907d7c8dbe4e275bd1b5ddc0e493ab2a" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-907d7c8dbe4e275bd1b5ddc0e493ab2a"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png"></a></li>
+<a href="#R-image-594d00c5854cbff489f4669e0da97fab" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-594d00c5854cbff489f4669e0da97fab"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/008-RunQuery2.png"></a></li>
 </ul>
 <ol start="9">
 <li>
@@ -273,8 +273,8 @@ Your new view is created
 </li>
 <li>
 <p>Name the view sporting_event_ticket_info and click <strong>Create.</strong>
-<a href="#R-image-18527323397d3c5a3397ea64deb327e6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-18527323397d3c5a3397ea64deb327e6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png"></a></p>
+<a href="#R-image-012401d554945aed62e90d9be5a01878" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-012401d554945aed62e90d9be5a01878"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/009-Query2CreateView.png"></a></p>
 </li>
 <li>
 <p>Copy the following SQL syntax into the Query 5 tab.
@@ -308,21 +308,21 @@ Your new view is created
 <ul>
 <li>
 <p>Click on <strong>Save as</strong> and give this query name: <em>analytics_sporting_event_ticket_info</em> and some description and then, click on <strong>Save</strong>.
-<a href="#R-image-50a735c81a3324972bb2e9aa5425be3e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-50a735c81a3324972bb2e9aa5425be3e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png"></a></p>
+<a href="#R-image-f26ba83a1e6bbdb4d480eaf08d19fea8" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f26ba83a1e6bbdb4d480eaf08d19fea8"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/010-CreateNewQuery3SaveAs.png"></a></p>
 </li>
 <li>
 <p>The name of the New Query 5 will be changed to one assigned in previous step. Click on <strong>Run</strong>.</p>
 </li>
 <li>
 <p>You query returns two results in approximately five seconds. The query scans 25 MB of data, which prior to converting to parquet, would have been 1.59GB of CSV files.
-<a href="#R-image-fde583974f38524a3026de45dc29cdc3" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-fde583974f38524a3026de45dc29cdc3"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png"></a></p>
+<a href="#R-image-54431c2cf1b065aa2de45c42530f2fb1" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-54431c2cf1b065aa2de45c42530f2fb1"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/011-RunQuery3.png"></a></p>
 </li>
 <li>
 <p>The purpose of saving the queries is to have clear distinction between the results of the queries running on one view. Otherwise, your query results will be saved under “Unsaved” folder within the S3 bucket location provided to Athena to store query results. Please navigate to S3 bucket to observe these changes, as shown below:
-<a href="#R-image-14389b77100de7f907baa30c944105fc" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-14389b77100de7f907baa30c944105fc"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png"></a></p>
+<a href="#R-image-fb2c7b187ed891d2a537e0cd4ed930c6" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fb2c7b187ed891d2a537e0cd4ed930c6"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/012-OutputAthenaS3Results.png"></a></p>
 </li>
 </ul>
 <h4 id="build-an-amazon-quicksight-dashboard">Build an Amazon QuickSight Dashboard</h4>
@@ -330,8 +330,8 @@ Your new view is created
 <ol>
 <li>
 <p>In the AWS services console, search for <strong>QuickSight</strong>.
-<a href="#R-image-be572c0b4c322fcaf30d65b92dbe603c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-be572c0b4c322fcaf30d65b92dbe603c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png"></a>
+<a href="#R-image-5d39abe5580197fc3cec31af73d337e0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5d39abe5580197fc3cec31af73d337e0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/013-QuicksightService.png"></a>
 If this is the first time you have used QuickSight, you are prompted to create an account.</p>
 </li>
 <li>
@@ -351,49 +351,49 @@ If this is the first time you have used QuickSight, you are prompted to create a
 </li>
 <li>
 <p>Select your DMS bucket (e.g., &ldquo;xxx-dmslabs3bucket-xxx&rdquo;), Click <strong>Finish</strong>.
-<a href="#R-image-81216d32f30a5910de60be6aabb3bff4" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-81216d32f30a5910de60be6aabb3bff4"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png"></a>
-<a href="#R-image-05d6619fef6144a0fd4a9859ee643e33" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-05d6619fef6144a0fd4a9859ee643e33"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png"></a>
-<a href="#R-image-c37ce0a1f452ccbe1ab3a841447b8b2d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c37ce0a1f452ccbe1ab3a841447b8b2d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png"></a>
+<a href="#R-image-5a331c677d8b0f75465efdc862fb9208" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5a331c677d8b0f75465efdc862fb9208"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/014-SingUpQuicksight.png"></a>
+<a href="#R-image-69311e6e6e453f9e2d877b78e835bfc0" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-69311e6e6e453f9e2d877b78e835bfc0"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/015-SingUpQuicksight2.png"></a>
+<a href="#R-image-702879380e926ad76a39de85041d6084" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-702879380e926ad76a39de85041d6084"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/016-SelectedS3Bucket.png"></a>
 Please click <strong>Finish</strong></p>
 </li>
 <li>
 <p>On the top right corner, click <strong>New analysis</strong>.
-<a href="#R-image-493eafae2b7585cffe9eefec284ece2f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-493eafae2b7585cffe9eefec284ece2f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png"></a></p>
+<a href="#R-image-fa24c45c63c92f74f115e67dc197104a" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fa24c45c63c92f74f115e67dc197104a"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/017-QuicksightStep1.png"></a></p>
 </li>
 <li>
 <p>Click <strong>New dataset</strong>.
-<a href="#R-image-c632f132da27c126c770637d6eb4c3be" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c632f132da27c126c770637d6eb4c3be"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png"></a></p>
+<a href="#R-image-b7c90b505b5b0c331e2bdc8683943b9c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b7c90b505b5b0c331e2bdc8683943b9c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/018-QuicksightStep2.png"></a></p>
 </li>
 <li>
 <p>On the <strong>Create a Dataset</strong> page, select <strong>Athena</strong> as the data source.
-<a href="#R-image-19115ae8775aba4fb340e5495a8e2bad" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-19115ae8775aba4fb340e5495a8e2bad"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png"></a></p>
+<a href="#R-image-02ffcc714a4aa208017c873944ebf03f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-02ffcc714a4aa208017c873944ebf03f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/019-QuicksightStep3.png"></a></p>
 </li>
 <li>
 <p>For Data source name, type <em>ticketdata-qs</em> , then click <strong>Validate connection</strong>.</p>
 </li>
 <li>
 <p>Click <strong>Create data source</strong>.
-<a href="#R-image-4920667c061c328f05f2c96b25ad6a0a" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4920667c061c328f05f2c96b25ad6a0a"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png"></a></p>
+<a href="#R-image-56298aad65af111758c0518af0265da2" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-56298aad65af111758c0518af0265da2"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/020-QuicksightStep4.png"></a></p>
 </li>
 <li>
 <p>In the Database drop-down list, select the database <strong>ticketdata</strong>.</p>
 </li>
 <li>
 <p>Choose the &ldquo;<strong>sporting_event_ticket_info</strong>&rdquo; table and click <strong>Select</strong>.
-<a href="#R-image-ef7dd0b413d2e5abfc7b96212f54cf68" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ef7dd0b413d2e5abfc7b96212f54cf68"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png"></a></p>
+<a href="#R-image-7a33566cd4b6ba83d594c3684b5bd005" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7a33566cd4b6ba83d594c3684b5bd005"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/021-QuicksightStep5.png"></a></p>
 </li>
 <li>
 <p>To finish data set creation, choose the option <strong>Import to SPICE for quicker analytics</strong> and click <strong>Visualize</strong>. If your SPICE has 0 bytes available, choose the second choice Directly query your data.
-<a href="#R-image-b69e7d844b6a9db1147e6710a449a81a" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-b69e7d844b6a9db1147e6710a449a81a"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png"></a></p>
+<a href="#R-image-aeb325c7ce12da3b3cf4062314bd3ecc" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-aeb325c7ce12da3b3cf4062314bd3ecc"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/022-QuicksightStep6.png"></a></p>
 </li>
 </ol>
 <h5 id="create-quicksight-charts">Create QuickSight Charts</h5>
@@ -404,8 +404,8 @@ Please click <strong>Finish</strong></p>
 </li>
 <li>
 <p>Click the <strong>expand icon</strong> in corner of &ldquo;ticket_price&rdquo; field, and select <strong>Show as Currency</strong> to show the number in dollar value.
-<a href="#R-image-25644f0e9da716f21d4ac65f5540f422" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-25644f0e9da716f21d4ac65f5540f422"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png"></a></p>
+<a href="#R-image-1487a260b630e0710e951a7cb90e98bd" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1487a260b630e0710e951a7cb90e98bd"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/023-QSDashboard1.png"></a></p>
 </li>
 <li>
 <p>You can <strong>add visual</strong> by clicking <strong>Add button</strong> from the Visuals pane of the screen.</p>
@@ -415,14 +415,14 @@ Please click <strong>Finish</strong></p>
 <li>In the <strong>Visual types</strong> area, choose the <strong>Vertical bar chart</strong> icon.</li>
 <li>This layout requires a value for the X-axis. In Fields list, select the <strong>event_date_time</strong> field and you should see the visualization update.</li>
 <li>For Value <strong>Y-axis</strong>, select <strong>“ticket_price”</strong> from the Field list.
-<a href="#R-image-2579249fd00fb0a0bec78201582ddb3c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2579249fd00fb0a0bec78201582ddb3c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png"></a></li>
+<a href="#R-image-b7a7beaf6ab89b2ae2e6a274fce222ce" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b7a7beaf6ab89b2ae2e6a274fce222ce"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/024-QSDashboard2.png"></a></li>
 </ul>
 <ol start="4">
 <li>
 <p>You can drag and move other visuals to adjust space in dashboard. In the Fields list, click and drag the <strong>seat_level</strong> field to the <strong>Group/Color</strong> box. You can also use the slider below the x axis to fit all of the data.
-<a href="#R-image-e5bbe4c4584cb7ba30db21421e7aa19c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e5bbe4c4584cb7ba30db21421e7aa19c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png"></a>
+<a href="#R-image-530ababc2464fb664254077c19e7fec4" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-530ababc2464fb664254077c19e7fec4"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/025-QSDashboard3.png"></a>
 Let&rsquo;s build on this one step further by changing the chart type:</p>
 </li>
 <li>
@@ -433,13 +433,13 @@ Let&rsquo;s build on this one step further by changing the chart type:</p>
 </li>
 <li>
 <p>In the Lines box, click the dropdown box and choose <strong>Aggregate: Count Distinct</strong> for Aggregate. You can then see the y-axis update on the right-hand side.
-<a href="#R-image-22c9037e086d7c3930406a9b7abbe30e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-22c9037e086d7c3930406a9b7abbe30e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png"></a></p>
+<a href="#R-image-ec962ddc3a02af299294066010427766" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ec962ddc3a02af299294066010427766"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/026-QSDashboard4.png"></a></p>
 </li>
 <li>
 <p>Click on insight icon on the Tool bar and explore insight information in simple English.
-<a href="#R-image-9891ba5c6e40ba2045e8530ad8bfffb1" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9891ba5c6e40ba2045e8530ad8bfffb1"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png"></a>
+<a href="#R-image-c102bffdb2a80394923ba60641ad4f56" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c102bffdb2a80394923ba60641ad4f56"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/027-QSDashboard5.png"></a>
 Feel free to experiment with other chart types and different fields to get a sense of the data.</p>
 </li>
 </ol>
@@ -448,8 +448,8 @@ Feel free to experiment with other chart types and different fields to get a sen
 <ol>
 <li>
 <p>From the Tool bar, select <strong>Parameters</strong> icon.
-<a href="#R-image-baa826754bca24c715a7d5b4aa87fad3" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-baa826754bca24c715a7d5b4aa87fad3"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png"></a></p>
+<a href="#R-image-d60813e7570b183d34bc2b3a31cba54c" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d60813e7570b183d34bc2b3a31cba54c"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/028-ParameterIcon.png"></a></p>
 </li>
 <li>
 <p>Click <strong>Add</strong> to create a new parameter with a Name.</p>
@@ -468,8 +468,8 @@ Feel free to experiment with other chart types and different fields to get a sen
 </li>
 <li>
 <p>Click <strong>Create</strong>, and then <strong>close</strong> the Parameter Added dialog box.
-<a href="#R-image-6dfded0353a85d07be9dac7b5f00c2e5" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6dfded0353a85d07be9dac7b5f00c2e5"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png"></a></p>
+<a href="#R-image-048828b98b9488f784f2eeeb230e50bc" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-048828b98b9488f784f2eeeb230e50bc"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/029-CreateEventFrom.png"></a></p>
 </li>
 <li>
 <p>Create another parameter with the following attributes:</p>
@@ -481,27 +481,27 @@ Feel free to experiment with other chart types and different fields to get a sen
 <li>For <strong>Time granularity</strong>, set <strong>Hour</strong>.</li>
 <li>For Default value, select the value from calendar as end date available in your graph for <strong>event_date_time</strong>. For example, <em>2022-01-01 00:00</em></li>
 <li>Click <strong>Create</strong>
-<a href="#R-image-9b098cf753cbfd48eb1d7b067c21f07b" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9b098cf753cbfd48eb1d7b067c21f07b"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png"></a></li>
+<a href="#R-image-74b1d2b1581b4abc978c0e518abcd78f" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-74b1d2b1581b4abc978c0e518abcd78f"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/030-CreateEventTo.png"></a></li>
 </ul>
 <ol start="9">
 <li>
 <p>In next window, you can select any option to perform any operation with the parameter. Alternatively, you can click the three dots for the <strong>EventFrom parameter</strong> and choose <strong>Add control</strong>.
-<a href="#R-image-0618dbca79952f2076251a2dffe2705d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-0618dbca79952f2076251a2dffe2705d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png"></a></p>
+<a href="#R-image-27e7ca3be50a1cfe5504becfa8ca3fd9" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-27e7ca3be50a1cfe5504becfa8ca3fd9"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/031-AddControl.png"></a></p>
 </li>
 <li>
 <p>For Display name, specify <strong>Event From</strong> and click <strong>Add</strong>.
-<a href="#R-image-678544e34f415f846937464c2c5343f7" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-678544e34f415f846937464c2c5343f7"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png"></a></p>
+<a href="#R-image-baa3574358139cf120e3870351e11068" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-baa3574358139cf120e3870351e11068"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/032-AddDateControl.png"></a></p>
 </li>
 <li>
 <p>Repeat the process to add a control for <em>EventTo</em> with display name <em>Event To</em>
-<a href="#R-image-0bb44920c7ec3f359fdaf9a7f99a1940" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-0bb44920c7ec3f359fdaf9a7f99a1940"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png"></a>
+<a href="#R-image-a0e1e423eca441dc0e0bba7a980b600e" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a0e1e423eca441dc0e0bba7a980b600e"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/033-AddDateControl.png"></a>
 You should now be able to see and expand the Controls section above the chart.
-<a href="#R-image-eb9fbc519bf20cb5b61303122019abf3" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-eb9fbc519bf20cb5b61303122019abf3"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png"></a></p>
+<a href="#R-image-af7f694fb6c032fcf3d340eb3edb6d98" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-af7f694fb6c032fcf3d340eb3edb6d98"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/034-ParametersControls.png"></a></p>
 </li>
 </ol>
 <h5 id="create-a-quicksight-filter">Create a QuickSight Filter</h5>
@@ -512,8 +512,8 @@ You should now be able to see and expand the Controls section above the chart.
 </li>
 <li>
 <p>Click the plus icon (+) to add a filter for the field <strong>event_date_time</strong>.
-<a href="#R-image-e03298f7b0b8a06adfeb4be37bb96515" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e03298f7b0b8a06adfeb4be37bb96515"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png"></a></p>
+<a href="#R-image-0d2e3d1304f163cf04a81624e74842ac" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0d2e3d1304f163cf04a81624e74842ac"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/035-QSFilter.png"></a></p>
 </li>
 <li>
 <p>Click this filter to <strong>edit</strong> the properties.</p>
@@ -532,8 +532,8 @@ You should now be able to see and expand the Controls section above the chart.
 </li>
 <li>
 <p>For <strong>End date parameter</strong>, choose <strong>EventTo</strong>.
-<a href="#R-image-87ab9a03fa53a93a1c9e1e9cccb0424d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-87ab9a03fa53a93a1c9e1e9cccb0424d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png"></a></p>
+<a href="#R-image-35264d4a2023cd79e17d5160f863806d" class="lightbox-link"><img alt="image2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-35264d4a2023cd79e17d5160f863806d"><img alt="image2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/036-EditFilter.png"></a></p>
 </li>
 <li>
 <p>Click <strong>Apply</strong>.</p>
@@ -561,7 +561,7 @@ You should now be able to see and expand the Controls section above the chart.
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1738651568";
+          window.index_js_url="/searchindex.en.js?1738652517";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -574,12 +574,12 @@ You should now be able to see and expand the Controls section above the chart.
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1738651568" defer></script>
-        <script src="/js/search.js?1738651568" defer></script>
+        <script src="/js/auto-complete.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1738652517" defer></script>
+        <script src="/js/search.js?1738652517" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -674,9 +674,9 @@ You should now be able to see and expand the Controls section above the chart.
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1738651568" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1738651568" defer></script>
-    <script src="/js/theme.js?1738651568" defer></script><script>
+    <script src="/js/clipboard.min.js?1738652517" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738652517" defer></script>
+    <script src="/js/theme.js?1738652517" defer></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -8,7 +8,7 @@ weight = 1
 
 Data Engineering Immersion Day Workshop
 
-![Data Engineering Immersion Day Logo](../image/dataeng_logo.png?width=30pc)
+![Data Engineering Immersion Day Logo](./image/dataeng_logo.png?width=30pc)
 
 ##### What is a Data Engineering Immersion Day?
 The Data Engineering Immersion Day has hands-on labs and modules that focus on ingestion, hydration, exploration, and consumption of data in a data lake in AWS.

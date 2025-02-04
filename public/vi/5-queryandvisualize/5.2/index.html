@@ -32,16 +32,16 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
     <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="en">
     <link href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="vi">
     <link href="/vi/5-queryandvisualize/5.2/index.xml" rel="alternate" type="application/rss+xml" title="Athena and SageMaker (Không bắt buộc) :: AWS System Manager">
-    <link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1738651568" rel="stylesheet">
-    <link href="/css/auto-complete.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1738651568" rel="stylesheet">
-    <link href="/css/fonts.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1738651568" rel="stylesheet">
-    <link href="/css/theme-workshop.css?1738651568" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1738651568" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1738651568" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1738651568"></script>
+    <link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738652517" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738652517" rel="stylesheet">
+    <link href="/css/fonts.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738652517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738652517" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738652517" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738652517" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738652517"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
@@ -109,8 +109,8 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 <li>Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với hồ dữ liệu bằng Athena</li>
 <li>Điền khung dữ liệu để thao tác dữ liệu.</li>
 </ul>
-<p><a href="#R-image-4fbee6710790585b0cc5ca313af2e4a5" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4fbee6710790585b0cc5ca313af2e4a5"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
+<p><a href="#R-image-43fdc0ceaf129fe3e25d0055f9eef214" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-43fdc0ceaf129fe3e25d0055f9eef214"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
 <p>Quy trình chuẩn bị dữ liệu này để đáp ứng nhu cầu của các thuật toán ML là lặp đi lặp lại. Để chuẩn bị dữ liệu, chúng tôi sẽ cung cấp các định nghĩa bảng trong Athena trong sổ ghi chép Jupyter trong SageMaker.</p>
 <p>Sổ ghi chép Jupyter rất phổ biến trong giới khoa học dữ liệu và được sử dụng để trực quan hóa dữ liệu, thực hiện phân tích thống kê, hoàn tất thao tác dữ liệu và chuẩn bị dữ liệu cho công việc học máy.</p>
 <h4 id="điều-kiện-tiên-quyết">Điều kiện tiên quyết</h4>
@@ -126,13 +126,13 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 <ol>
 <li>
 <p>Đi đến <a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> từ bảng điều khiển AWS
-<a href="#R-image-a7b3adfe5ab34c9677000b351216a0f8" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a7b3adfe5ab34c9677000b351216a0f8"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
+<a href="#R-image-753e02bcb7d882c4378f5b80944a3753" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-753e02bcb7d882c4378f5b80944a3753"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
 </li>
 <li>
 <p>Trong ngăn điều hướng Amazon SageMaker, hãy đi đến <strong>Notebook instances</strong> và nhấp vào <strong>Create notebook instance</strong>.
-<a href="#R-image-4117344e222cab769b88d308be18b49c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4117344e222cab769b88d308be18b49c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
+<a href="#R-image-94458ab1e95887073bf3d1b6536715d4" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-94458ab1e95887073bf3d1b6536715d4"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
 </li>
 <li>
 <p>Nhập các giá trị sau để tạo notebook instance</p>
@@ -153,21 +153,21 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 </li>
 <li>
 <p>Trong cửa sổ bật lên <strong>Tạo vai trò IAM</strong>, hãy chọn <strong>Bất kỳ thùng S3 nào</strong> như hiển thị bên dưới và nhấp vào <strong>Tạo vai trò</strong>.
-<a href="#R-image-7ac3ac966fc24827788e419e24e94572" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-7ac3ac966fc24827788e419e24e94572"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
+<a href="#R-image-5de5f59518a73b7f3704280f37a20650" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5de5f59518a73b7f3704280f37a20650"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
 </li>
 <li>
 <p>Sau khi vai trò IAM được tạo, hãy nhấp vào liên kết đến vai trò IAM, thao tác này sẽ mở vai trò IAM trong một tab mới. Chúng ta sẽ thêm quyền IAM để cho phép truy cập vào Athena từ SageMaker.
-<a href="#R-image-7288cf66bde58f53f620983647c62fd4" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-7288cf66bde58f53f620983647c62fd4"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
+<a href="#R-image-46ddf3275b60ccd277064f10b4e8f83c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-46ddf3275b60ccd277064f10b4e8f83c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
 </li>
 <li>
 <p>Nhấp vào <strong>Thêm quyền</strong> và chọn <strong>Đính kèm chính sách</strong>.</p>
 </li>
 <li>
 <p>Lọc chính sách theo <strong>“Athena”</strong>, kiểm tra chính sách được quản lý <strong>AmazonAthenaFullAccess</strong> và nhấp vào nút <strong>Đính kèm chính sách</strong> ở cuối màn hình.
-<a href="#R-image-9b8ce347c575d31f715b3f197d0da95b" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9b8ce347c575d31f715b3f197d0da95b"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
+<a href="#R-image-da96d6cecdf45556f1bd01b919c2c033" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-da96d6cecdf45556f1bd01b919c2c033"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
 </li>
 <li>
 <p>Quay lại tab trình duyệt <strong>SageMaker Create notebook instance</strong>.</p>
@@ -179,21 +179,21 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 <ol start="4">
 <li>
 <p>Đợi notebook instance được tạo và Trạng thái thay đổi thành <strong>InService</strong>. Nhấp vào liên kết <strong>Open Jupyter</strong> trong cột <strong>Actions</strong>.
-<a href="#R-image-54a1f3a8294a71e87b568aa16242df8c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-54a1f3a8294a71e87b568aa16242df8c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
+<a href="#R-image-38ff83b44bd183f802227d34825e242b" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-38ff83b44bd183f802227d34825e242b"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
 </li>
 <li>
 <p>Giao diện notebook mở ra trong một tab mới.
-<a href="#R-image-cc1b65b863777075cf8f4f45c7416a03" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-cc1b65b863777075cf8f4f45c7416a03"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
+<a href="#R-image-ff4cf122aa7a8692dc5f259cddcf11d2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ff4cf122aa7a8692dc5f259cddcf11d2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
 </li>
 </ol>
 <h4 id="kết-nối-sổ-ghi-chép-sagemaker-jupyter-với-athena">Kết nối sổ ghi chép SageMaker Jupyter với Athena</h4>
 <ol>
 <li>
 <p>Trong tab sổ ghi chép Jupyter, nhấp vào <strong>Mới</strong> và chọn <strong>conda_python3</strong> cho hạt nhân. Thao tác này sẽ mở sổ ghi chép trong một tab mới.
-<a href="#R-image-90037836002d4e174df9aceffea21f62" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-90037836002d4e174df9aceffea21f62"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
+<a href="#R-image-a72e50d4097548d7fe7ed6921e0579f2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a72e50d4097548d7fe7ed6921e0579f2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
 <div class="box notices cstyle note">
   <div class="box-label">
     <i class="fa-fw fas fa-exclamation-circle"></i> Ghi chú
@@ -214,8 +214,8 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 </div>
 </div>
 </p>
-<p><a href="#R-image-99f1b4ce65c90587bd32c3a0467c1547" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-99f1b4ce65c90587bd32c3a0467c1547"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
+<p><a href="#R-image-9978033bb586b06b640d4f3a295759a8" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9978033bb586b06b640d4f3a295759a8"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
 <p>Kiểm tra đầu ra rằng PyAthena đã được cài đặt thành công. Nếu bạn thấy lỗi liên quan đến awscli 1.x, bạn có thể bỏ qua.</p>
 </li>
 </ol>
@@ -265,8 +265,8 @@ Cách sử dụng sổ ghi chép Jupyter trong SageMaker để tích hợp với
 </li>
 <li>
 <p>Nhấp vào <strong>Chạy</strong> và khung dữ liệu sẽ hiển thị đầu ra truy vấn.
-<a href="#R-image-2b1da855840cdf10bbd8ce4ed9ce857d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2b1da855840cdf10bbd8ce4ed9ce857d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
+<a href="#R-image-edade9ecabf7da36ecedf67a87c2c45c" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-edade9ecabf7da36ecedf67a87c2c45c"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
 Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận động nfl vào khung dữ liệu pandas từ bảng nfl_stadium_data.</p>
 <div class="box notices cstyle note">
   <div class="box-label">
@@ -315,8 +315,8 @@ Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận �
 </li>
 <li>
 <p>Nhấp vào <strong>Chạy</strong> và khung dữ liệu sẽ hiển thị đầu ra truy vấn.
-<a href="#R-image-e1c17c11b46e1f674291f0f31b6f6f22" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e1c17c11b46e1f674291f0f31b6f6f22"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
+<a href="#R-image-d4f052d484b1421834871b60d20683ba" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d4f052d484b1421834871b60d20683ba"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
 </li>
 <li>
 <p>Trong ô thực thi mới, sao chép mã sau
@@ -334,8 +334,8 @@ Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận �
 </li>
 <li>
 <p>Nhấp vào Chạy và bạn sẽ thấy biểu đồ dữ liệu được vẽ bằng thư viện matplotlib.
-<a href="#R-image-832f45c50a3a4a2d9a3465e38e49d98e" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-832f45c50a3a4a2d9a3465e38e49d98e"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
+<a href="#R-image-5b30e9b1d984dc5dec5850e52dd9b97f" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5b30e9b1d984dc5dec5850e52dd9b97f"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
 </li>
 </ol>
 <h4 id="dọn-dẹp">Dọn dẹp</h4>
@@ -364,7 +364,7 @@ Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận �
 
         </div>
         <script>
-          window.index_js_url="/searchindex.vi.js?1738651568";
+          window.index_js_url="/searchindex.vi.js?1738652517";
         </script>
         <search><form action="/vi/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -377,12 +377,12 @@ Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận �
         <script>
           var contentLangs=['vi'];
         </script>
-        <script src="/js/auto-complete.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.vi.min.js?1738651568" defer></script>
-        <script src="/js/search.js?1738651568" defer></script>
+        <script src="/js/auto-complete.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.vi.min.js?1738652517" defer></script>
+        <script src="/js/search.js?1738652517" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -477,9 +477,9 @@ Trong truy vấn này, bạn đang tải tất cả thông tin về sân vận �
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1738651568" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1738651568" defer></script>
-    <script src="/js/theme.js?1738651568" defer></script><script>
+    <script src="/js/clipboard.min.js?1738652517" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738652517" defer></script>
+    <script src="/js/theme.js?1738652517" defer></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

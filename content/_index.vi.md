@@ -8,7 +8,7 @@ weight = 1
 
 Hội thảo về Kỹ Thuật Dữ Liệu
 
-![Data Engineering Immersion Day Logo](/image/dataeng_logo.png?width=30pc)
+![Data Engineering Immersion Day Logo](../image/dataeng_logo.png?width=30pc)
 
 ##### Ngày hội Kỹ thuật Dữ liệu là gì?
 Ngày hội Nhúng mình vào Kỹ thuật Dữ liệu cung cấp các phòng thí nghiệm thực hành và mô-đun tập trung vào việc tiếp nhận, nhập, khám phá và tiêu thụ dữ liệu trong một hồ dữ liệu trên AWS.

@@ -32,16 +32,16 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
     <link href="http://localhost:1313/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="en">
     <link href="http://localhost:1313/vi/5-queryandvisualize/5.2/index.html" rel="alternate" hreflang="vi">
     <link href="/5-queryandvisualize/5.2/index.xml" rel="alternate" type="application/rss+xml" title="Athena and SageMaker (Optional) :: AWS System Manager">
-    <link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1738651568" rel="stylesheet">
-    <link href="/css/auto-complete.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1738651568" rel="stylesheet">
-    <link href="/css/fonts.css?1738651568" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738651568" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1738651568" rel="stylesheet">
-    <link href="/css/theme-workshop.css?1738651568" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1738651568" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1738651568" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1738651568"></script>
+    <link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1738652517" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1738652517" rel="stylesheet">
+    <link href="/css/fonts.css?1738652517" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1738652517" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1738652517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1738652517" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1738652517" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1738652517" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1738652517"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -109,8 +109,8 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 <li>How to use Jupyter notebooks in SageMaker to integrate with the data lake using Athena</li>
 <li>Populate data frames for data manipulation.</li>
 </ul>
-<p><a href="#R-image-d623ed56b532661ce7cf76172a92efdb" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d623ed56b532661ce7cf76172a92efdb"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
+<p><a href="#R-image-8b8df88b79328fcf772001c234b513ff" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8b8df88b79328fcf772001c234b513ff"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/1.Introduction/001-AthenaSageMakerArchitecture.png"></a></p>
 <p>This process to prepare the data to satisfy the needs of ML algorithms is iterative. To prepare the data, we will make the table definitions in Athena available in a Jupyter notebook in SageMaker.</p>
 <p>Jupyter notebooks are popular among data scientists and used to visualize data, perform statistical analysis, complete data manipulations, and make the data ready for machine learning work.</p>
 <div class="box notices cstyle note">
@@ -126,13 +126,13 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 <ol>
 <li>
 <p>Go to the <a href="https://aws.amazon.com/sagemaker/" rel="external" target="_blank">Amazon SageMaker</a> from AWS console
-<a href="#R-image-f30d5135e8440e58819e161d61638a55" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-f30d5135e8440e58819e161d61638a55"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
+<a href="#R-image-5cf07faded51bffc0ea992cd528c3b52" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5cf07faded51bffc0ea992cd528c3b52"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/039-SageMakerService.png"></a></p>
 </li>
 <li>
 <p>In the Amazon SageMaker navigation pane, go to <strong>Notebook instances</strong> and click <strong>Create notebook instance</strong>.
-<a href="#R-image-6cb2b9812d620452dd75206bb7a94a5d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6cb2b9812d620452dd75206bb7a94a5d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
+<a href="#R-image-f03288f8bdc262805833500587abbe82" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f03288f8bdc262805833500587abbe82"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/040-CreateNotebooksInstances.png"></a></p>
 </li>
 <li>
 <p>Enter following values to create the notebook instance</p>
@@ -153,21 +153,21 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 </li>
 <li>
 <p>In the <strong>Create an IAM role</strong> pop up window, choose <strong>Any S3 bucket</strong> as shown below and click <strong>Create role</strong>.
-<a href="#R-image-1b72b68e1822f860f8fb3543fd350835" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1b72b68e1822f860f8fb3543fd350835"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
+<a href="#R-image-2f77f9931f7d314823433d0de02c1ac2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2f77f9931f7d314823433d0de02c1ac2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/041-CreateNewRole.png"></a></p>
 </li>
 <li>
 <p>After the IAM role is created, click on the link to the IAM role, this will open the IAM role in a new tab. We will add IAM permissions to allow access to Athena from SageMaker.
-<a href="#R-image-0db999e55fd3b004967845ac34479310" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-0db999e55fd3b004967845ac34479310"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
+<a href="#R-image-30ce5c72300c432bd567eda5e6a2ebe2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-30ce5c72300c432bd567eda5e6a2ebe2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/042-CreateNotebooksInstances.png"></a></p>
 </li>
 <li>
 <p>Click on <strong>Add permissions</strong> and select <strong>Attach policies</strong>.</p>
 </li>
 <li>
 <p>Filter policies by <strong>“Athena”</strong>, check <strong>AmazonAthenaFullAccess</strong> managed policy and click <strong>Attach policies</strong> button at the bottom of the screen.
-<a href="#R-image-ae0bb448173532abbe65608bd204bc48" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ae0bb448173532abbe65608bd204bc48"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
+<a href="#R-image-939d8841f2245fff33b82b358f6f1604" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-939d8841f2245fff33b82b358f6f1604"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/043-AttachPolicy.png"></a></p>
 </li>
 <li>
 <p>Go back to the <strong>SageMaker Create notebook instance</strong> browser tab.</p>
@@ -179,21 +179,21 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 <ol start="4">
 <li>
 <p>Wait for the notebook instance to be created and the Status to change to <strong>InService</strong>. Click the <strong>Open Jupyter</strong> link in the <strong>Actions</strong> column.
-<a href="#R-image-91c4f74bea20ac010b4fe782e3e1c581" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-91c4f74bea20ac010b4fe782e3e1c581"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
+<a href="#R-image-4bd168fffe76f664df493904fcfc448a" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4bd168fffe76f664df493904fcfc448a"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/044-SuccessCreateNotebookInstances.png"></a></p>
 </li>
 <li>
 <p>The notebook interface opens in a new tab.
-<a href="#R-image-630f039772ed5be0c2dfc395b980c0f5" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-630f039772ed5be0c2dfc395b980c0f5"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
+<a href="#R-image-3e157db837cbefba83e4d759ae58e534" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3e157db837cbefba83e4d759ae58e534"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/045-JupyterNotebook.png"></a></p>
 </li>
 </ol>
 <h4 id="connect-the-sagemaker-jupyter-notebook-to-athena">Connect the SageMaker Jupyter notebook to Athena</h4>
 <ol>
 <li>
 <p>In the Jupyter notebook tab, click <strong>New</strong> and select <strong>conda_python3</strong> for the kernel. This opens a notebook in a new tab.
-<a href="#R-image-6984c5da67d4c9eae960cc0c9dfe44d5" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6984c5da67d4c9eae960cc0c9dfe44d5"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
+<a href="#R-image-e37c1ea1eba3cc1d1c5dd4bcd2bfdc34" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e37c1ea1eba3cc1d1c5dd4bcd2bfdc34"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/046-CreateNewNotebook.png"></a></p>
 <div class="box notices cstyle note">
   <div class="box-label">
     <i class="fa-fw fas fa-exclamation-circle"></i> Note
@@ -214,8 +214,8 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 </div>
 </div>
 </p>
-<p><a href="#R-image-a516598330dd28f3115f802be25353ae" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a516598330dd28f3115f802be25353ae"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
+<p><a href="#R-image-3d7f693e07c0c5880112d76b87975b57" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3d7f693e07c0c5880112d76b87975b57"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/047-PipInstall.png"></a></p>
 <p>Check the output that PyAthena has been installed successfully. If you see errors related to awscli 1.x, they can be ignored.</p>
 </li>
 </ol>
@@ -265,8 +265,8 @@ How to use Jupyter notebooks in SageMaker to integrate with the data lake using 
 </li>
 <li>
 <p>Click <strong>Run</strong> and dataframe will display query output.
-<a href="#R-image-11b4789baa5d13c68c939e1a0d7e736d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-11b4789baa5d13c68c939e1a0d7e736d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
+<a href="#R-image-53b2f3f52f1feb5891df85a90fe145cf" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-53b2f3f52f1feb5891df85a90fe145cf"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/048-RunQuery.png"></a>
 In this query, you are loading all nfl stadium information into a pandas dataframe from the table nfl_stadium_data.</p>
 <div class="box notices cstyle note">
   <div class="box-label">
@@ -315,8 +315,8 @@ In this query, you are loading all nfl stadium information into a pandas datafra
 </li>
 <li>
 <p>Click <strong>Run</strong> and the data frame will display the query output.
-<a href="#R-image-77c707998118a1830ea258f760cfff66" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-77c707998118a1830ea258f760cfff66"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
+<a href="#R-image-8b59b41c53cd71f6e41ba9e6b9553541" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8b59b41c53cd71f6e41ba9e6b9553541"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/049-RunQuery.png"></a></p>
 </li>
 <li>
 <p>In a new execution cell, copy following code
@@ -334,8 +334,8 @@ In this query, you are loading all nfl stadium information into a pandas datafra
 </li>
 <li>
 <p>Click Run and you will see data plot which got draw using matplotlib library.
-<a href="#R-image-a53ebee555d632699a062c887ebb6b32" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a53ebee555d632699a062c887ebb6b32"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
+<a href="#R-image-ab73809599160d05b0388bdb4a2f9961" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ab73809599160d05b0388bdb4a2f9961"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/image/5.AthenaAndQuicksight/050-VisualizationData.png"></a></p>
 </li>
 </ol>
 <h4 id="cleanup">Cleanup</h4>
@@ -364,7 +364,7 @@ In this query, you are loading all nfl stadium information into a pandas datafra
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1738651568";
+          window.index_js_url="/searchindex.en.js?1738652517";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -377,12 +377,12 @@ In this query, you are loading all nfl stadium information into a pandas datafra
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1738651568" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1738651568" defer></script>
-        <script src="/js/search.js?1738651568" defer></script>
+        <script src="/js/auto-complete.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1738652517" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1738652517" defer></script>
+        <script src="/js/search.js?1738652517" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -477,9 +477,9 @@ In this query, you are loading all nfl stadium information into a pandas datafra
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1738651568" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1738651568" defer></script>
-    <script src="/js/theme.js?1738651568" defer></script><script>
+    <script src="/js/clipboard.min.js?1738652517" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1738652517" defer></script>
+    <script src="/js/theme.js?1738652517" defer></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
