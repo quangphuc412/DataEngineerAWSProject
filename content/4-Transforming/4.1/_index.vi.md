@@ -38,7 +38,7 @@ pre = "4.1. "
 ![image8](../../../image/4.Transforming/008-GlueRole.png)
 
 10. Nhấp vào **Tiếp theo**
-![image7](/image/4.Transforming/007-AddGlueRole.png)
+![image7](../../../image/4.Transforming/007-AddGlueRole.png)
 
 11. Trên **Đặt đầu ra và lập lịch**, bên dưới **Cơ sở dữ liệu mục tiêu**, nhấp vào **Thêm cơ sở dữ liệu** để mở một tab khác.
 12. Nhập ```ticketdata``` làm tên cơ sở dữ liệu của bạn và nhấp vào **Tạo cơ sở dữ liệu**
